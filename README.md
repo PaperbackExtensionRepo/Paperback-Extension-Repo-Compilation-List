@@ -24,16 +24,9 @@ If the extension has both comic and manga sources, then add it to both.
 | Inkdex Extensions (0.9) | [https://inkdex.github.io/installation] | [https://github.com/inkdex/extensions]
 | Kakarot Extensions (0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension/ |
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
-| Pirate Vodka Extensions (0.9) | https://github.com/LucifersCircle/pirate.vodka-extensions | 
-
-**Maintained by:** <@384073912524341257>
-**Repository Link:** https://github.com/LucifersCircle/pirate.vodka-extensions
-
-### Available Extensions
-
-- VortexScans
-- ReadComicOnlineLi
-- Kagane
+| Pirate Vodka Extensions (0.9) | https://read.pirate.vodka/ | https://github.com/LucifersCircle/pirate.vodka-extensions |
+| Nyzzik's Extensions (0.9) | https://paperback.nyzz.me/ | https://github.com/nyzzik/extensions |
+| Kinso's Extensions (0.9) | https://xdkinso.github.io/KinsoExtension/ | https://github.com/xdKinso/KinsoExtension |
 
 ### [Installation](https://read.pirate.vodka)
 
