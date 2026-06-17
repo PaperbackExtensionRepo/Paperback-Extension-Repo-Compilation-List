@@ -21,7 +21,7 @@ If the extension has both comic and manga sources, then add it to both.
 ### Comics
 | Name               | Repo                               | Github.io                                     |
 |--------------------|-----------------------------------------|------------------------------------------|
-| Inkdex Extensions (0.9) |[https://inkdex.github.io/installation] | |[https://github.com/inkdex/extensions]
+| Inkdex Extensions (0.9) |[https://inkdex.github.io/installation] | [https://github.com/inkdex/extensions]
 | Netsky's Extensions (0.6) | https://thenetsky.github.io/netskys-extensions/0.6/ | https://github.com/thenetsky/netskys-extensions/ |
 | GameFuzzy's Extensions | https://gamefuzzy.github.io/extensions-gamefuzzy/main/ | m/gamefuzzy/extensions-gamefuzzy/ |
 
