@@ -1,7 +1,7 @@
 # Paperback-Extensions-Unified-Repos-List
 The serves as a unified repository for all 3rd party extensions for Paperback for version 0.9
 
-All credit given to the developers of these extensions.
+All credit given to the developers of these extensions. I will keep updating this repo whenever I find new ones. Some repos may have sources the main Inkdex repo doesn't so you can check for yourself and see. 
 
 **Please leave any issues on the developer's repo or discord**
 
@@ -29,30 +29,6 @@ If the extension has both comic and manga sources, then add it to both.
 | Kinso's Extensions (0.9) | https://xdkinso.github.io/KinsoExtension/ | https://github.com/xdKinso/KinsoExtension |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions | 
 
-### [Installation](https://read.pirate.vodka)
+### [Extension Discord](https://discord.gg/inkdex)
 
-### Manga
-| Name               | Github.io                               | Repo                                     |
-|--------------------|-----------------------------------------|------------------------------------------|
-| xOnlyFadi's Extensions (0.6) | https://xonlyfadi.github.io/xonlyfadi-extensions/0.6/ | https://github.com/xonlyfadi/xonlyfadi-extensions/ |
-| Netsky's Extensions (0.6) | https://thenetsky.github.io/netskys-extensions/0.6/ | https://github.com/thenetsky/netskys-extensions/ |
-| NMN's Extensions | https://pandeynmn.github.io/nmns-extensions/main/ | https://github.com/pandeynmn/nmns-extensions/ |
-| GameFuzzy's Extensions | https://gamefuzzy.github.io/extensions-gamefuzzy/main/ | m/gamefuzzy/extensions-gamefuzzy/ |
-
-### Light Novels (Experimental)
-| Name               | Github.io                               | Repo                                     |
-|--------------------|-----------------------------------------|------------------------------------------|
-| NMN's Extensions | https://pandeynmn.github.io/nmns-extensions/main/ | https://github.com/pandeynmn/nmns-extensions/ |
-
-### Webtoon
-| Name               | Github.io                               | Repo                                     |
-|--------------------|-----------------------------------------|------------------------------------------|
-| Kolby ML's Extensions | https://kolbyml.github.io/kolbymls-extensions/0.6/ | https://github.com/kolbyml/kolbymls-extensions/ |
-
-### NSFW
-| Name               | Github.io                               | Repo                                     |
-|--------------------|-----------------------------------------|------------------------------------------|
-| WaltersAsh's Extensions (0.6) | https://waltersash.github.io/waltersashs-extensions/0.6/ | https://github.com/waltersash/waltersashs-extensions/ |
-| Loik Extensions | https://loik9081.github.io/loik-extensions/ | https://github.com/loik9081/loik-extensions |
-| Extensions Bentai (Netsky Fork) | https://thenetsky.github.io/extensions-generic/bentai/ | https://github.com/thenetsky/extensions-generic |
 
