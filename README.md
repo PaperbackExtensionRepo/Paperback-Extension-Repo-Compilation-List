@@ -3,8 +3,6 @@ The serves as a unified repository for all 3rd party extensions for Paperback fo
 
 All credit given to the developers of these extensions.
 
-extensions.
-
 **Please leave any issues on the developer's repo or discord**
 
 ## Installing an extension
@@ -18,13 +16,12 @@ Please fork, add the extension to all areas where it is applicable, and submit a
 If the extension has both comic and manga sources, then add it to both.
 
 
-
 # Paperback 0.9 Compatible
 ## Sources
 ### Comics
 | Name               | Repo                               | Github.io                                     |
 |--------------------|-----------------------------------------|------------------------------------------|
-| Inkdex Extensions (0.9) | [https://inkdex.github.io/installation] | | [https://github.com/inkdex/extensions]
+| Inkdex Extensions (0.9) |[https://inkdex.github.io/installation] | |[https://github.com/inkdex/extensions]
 | Netsky's Extensions (0.6) | https://thenetsky.github.io/netskys-extensions/0.6/ | https://github.com/thenetsky/netskys-extensions/ |
 | GameFuzzy's Extensions | https://gamefuzzy.github.io/extensions-gamefuzzy/main/ | m/gamefuzzy/extensions-gamefuzzy/ |
 
