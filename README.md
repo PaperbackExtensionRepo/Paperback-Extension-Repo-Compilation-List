@@ -18,12 +18,24 @@ If the extension has both comic and manga sources, then add it to both.
 
 # Paperback 0.9 Compatible
 ## Sources
-### Comics
+### Manga/Manhwa/Novels
 | Name               | Repo                               | Github.io                                     |
 |--------------------|-----------------------------------------|------------------------------------------|
-| Inkdex Extensions (0.9) |[https://inkdex.github.io/installation] | [https://github.com/inkdex/extensions]
-| Netsky's Extensions (0.6) | https://thenetsky.github.io/netskys-extensions/0.6/ | https://github.com/thenetsky/netskys-extensions/ |
-| GameFuzzy's Extensions | https://gamefuzzy.github.io/extensions-gamefuzzy/main/ | m/gamefuzzy/extensions-gamefuzzy/ |
+| Inkdex Extensions (0.9) | [https://inkdex.github.io/installation] | [https://github.com/inkdex/extensions]
+| Kakarot Extensions (0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension/ |
+| Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
+| Pirate Vodka Extensions (0.9) | https://github.com/LucifersCircle/pirate.vodka-extensions | 
+
+**Maintained by:** <@384073912524341257>
+**Repository Link:** https://github.com/LucifersCircle/pirate.vodka-extensions
+
+### Available Extensions
+
+- VortexScans
+- ReadComicOnlineLi
+- Kagane
+
+### [Installation](https://read.pirate.vodka)
 
 ### Manga
 | Name               | Github.io                               | Repo                                     |
