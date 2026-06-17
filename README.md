@@ -27,6 +27,7 @@ If the extension has both comic and manga sources, then add it to both.
 | Pirate Vodka Extensions (0.9) | https://read.pirate.vodka/ | https://github.com/LucifersCircle/pirate.vodka-extensions |
 | Nyzzik's Extensions (0.9) | https://paperback.nyzz.me/ | https://github.com/nyzzik/extensions |
 | Kinso's Extensions (0.9) | https://xdkinso.github.io/KinsoExtension/ | https://github.com/xdKinso/KinsoExtension |
+| The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | 
 
 ### [Installation](https://read.pirate.vodka)
 
