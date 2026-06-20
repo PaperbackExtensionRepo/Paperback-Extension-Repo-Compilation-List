@@ -28,6 +28,7 @@ If the extension has both comic and manga sources, then add it to both.
 | Nyzzik's Extensions (0.9) | https://paperback.nyzz.me/ | https://github.com/nyzzik/extensions |
 | Kinso's Extensions (0.9) | https://xdkinso.github.io/KinsoExtension/ | https://github.com/xdKinso/KinsoExtension |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions | 
+| Nicartjay's Extensions (0.9, NOTE: This repo has 123 Keiyoushi converted to Paperback format sources) | https://nicartjay.github.io/PaperbackExt/0.9/stable/ | https://github.com/Nicartjay/PaperbackExt |
 
 ### [Extension Discord](https://discord.gg/inkdex)
 
