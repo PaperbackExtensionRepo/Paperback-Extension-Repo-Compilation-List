@@ -25,6 +25,7 @@ If the extension has both comic and manga sources, then add it to both.
 | Kakarot Extensions (0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension/ |
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
 | Pirate Vodka Extensions (0.9) | https://read.pirate.vodka/ | https://github.com/LucifersCircle/pirate.vodka-extensions |
+| PoppingMango Extensions (0.9) | https://poppingmangosources.github.io/general-extensions-mangago/0.9/test/ | https://github.com/PoppingMangoSources/general-extensions-mangago | 
 | Nyzzik's Extensions (0.9) | https://paperback.nyzz.me/ | https://github.com/nyzzik/extensions |
 | Kinso's Extensions (0.9) | https://xdkinso.github.io/KinsoExtension/ | https://github.com/xdKinso/KinsoExtension |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions | 
