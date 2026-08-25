@@ -19,7 +19,7 @@ const FETCH_TIMEOUT_MS = Number(process.env.SOURCE_FETCH_TIMEOUT ?? 20000);
 const CONCURRENCY = 6;
 const SKIP_FETCH = process.env.SKIP_SOURCE_FETCH === "1";
 const SITE_URL = "https://paperbackextensionrepo.xyz/";
-const WORTH_KNOWING_PATH = "/worth-knowing/";
+const WORTH_KNOWING_PATH = "/therobbiedavis/paperback-extension-repo/";
 const PAPERBACK_09_PATH = "/paperback-0-9/";
 const APP_STORE_PATH = "/app-store/";
 const DISCLAIMER_HTML = `<aside class="site-disclaimer">
@@ -421,11 +421,33 @@ function renderWorthKnowingPage() {
 `;
 }
 
-const worthKnowingDirectory = join(root, "public", "worth-knowing");
+const worthKnowingDirectory = join(root, "public", "therobbiedavis", "paperback-extension-repo");
 rmSync(worthKnowingDirectory, { recursive: true, force: true });
 mkdirSync(worthKnowingDirectory, { recursive: true });
 writeFileSync(join(worthKnowingDirectory, "index.html"), renderWorthKnowingPage());
-console.log("Wrote the Worth knowing page.");
+
+const oldWorthKnowingDirectory = join(root, "public", "worth-knowing");
+rmSync(oldWorthKnowingDirectory, { recursive: true, force: true });
+mkdirSync(oldWorthKnowingDirectory, { recursive: true });
+writeFileSync(
+	join(oldWorthKnowingDirectory, "index.html"),
+	[
+		"<!doctype html>",
+		'<html lang="en">',
+		"\t<head>",
+		'\t\t<meta charset="UTF-8" />',
+		'\t\t<meta name="robots" content="noindex" />',
+		'\t\t<meta http-equiv="refresh" content="0; url=' + WORTH_KNOWING_PATH + '" />',
+		'\t\t<link rel="canonical" href="' + new URL(WORTH_KNOWING_PATH, SITE_URL).href + '" />',
+		"\t\t<title>Page moved</title>",
+		"\t</head>",
+		"\t<body>",
+		'\t\t<p>This page moved to <a href="' + WORTH_KNOWING_PATH + '">therobbiedavis/paperback-extension-repo</a>.</p>',
+		"\t</body>",
+		"</html>",
+	].join("\n"),
+);
+console.log("Wrote the Worth knowing page and legacy redirect.");
 
 function renderPaperback09Page() {
 	const canonical = new URL(PAPERBACK_09_PATH, SITE_URL).href;
