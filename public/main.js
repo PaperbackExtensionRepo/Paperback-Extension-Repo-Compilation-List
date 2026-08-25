@@ -156,19 +156,25 @@ function render() {
 
 	const groups = new Map();
 	for (const entry of filtered) {
-		const key = `Paperback ${entry.repo.version} · ${entry.repo.category}`;
+		const key = `${entry.repo.version}|${entry.repo.category}`;
 		if (!groups.has(key)) groups.set(key, []);
 		groups.get(key).push(entry);
 	}
 
 	listEl.innerHTML = [...groups.entries()]
-		.map(
-			([key, entries]) =>
-				`<div class="group-header"><h2>${escapeHtml(key)}</h2></div>
-				<ul>${entries
-					.map(({ repo, viaSource }) => renderRepo(repo, query, viaSource))
-					.join("")}</ul>`,
-		)
+		.map(([key, entries]) => {
+			const [version, category] = key.split("|");
+			const versionClass = version === "0.9" ? "group-09" : "group-08";
+			const count = entries.length;
+			return `<div class="group-header ${versionClass}">
+				<span class="group-pill">Paperback ${escapeHtml(version)}</span>
+				<h2>${escapeHtml(category)}</h2>
+				<span class="group-count">${count} repo${count === 1 ? "" : "s"}</span>
+			</div>
+			<ul>${entries
+				.map(({ repo, viaSource }) => renderRepo(repo, query, viaSource))
+				.join("")}</ul>`;
+		})
 		.join("");
 }
 
