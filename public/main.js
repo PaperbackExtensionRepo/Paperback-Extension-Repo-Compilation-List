@@ -154,21 +154,20 @@ function render() {
 		return;
 	}
 
+	// grouped by Paperback version only — the category lives in the filter menu
 	const groups = new Map();
 	for (const entry of filtered) {
-		const key = `${entry.repo.version}|${entry.repo.category}`;
+		const key = entry.repo.version;
 		if (!groups.has(key)) groups.set(key, []);
 		groups.get(key).push(entry);
 	}
 
 	listEl.innerHTML = [...groups.entries()]
-		.map(([key, entries]) => {
-			const [version, category] = key.split("|");
+		.map(([version, entries]) => {
 			const versionClass = version === "0.9" ? "group-09" : "group-08";
 			const count = entries.length;
 			return `<div class="group-header ${versionClass}">
-				<span class="group-pill">Paperback ${escapeHtml(version)}</span>
-				<h2>${escapeHtml(category)}</h2>
+				<h2 class="group-pill">Paperback ${escapeHtml(version)}</h2>
 				<span class="group-count">${count} repo${count === 1 ? "" : "s"}</span>
 			</div>
 			<ul>${entries
