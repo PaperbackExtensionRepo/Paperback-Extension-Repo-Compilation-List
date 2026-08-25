@@ -16,6 +16,7 @@ const searchEl = document.getElementById("repo-search");
 const versionEl = document.getElementById("version-select");
 const categoryEl = document.getElementById("category-select");
 const countEl = document.getElementById("total-count");
+const individualRepoListEl = document.getElementById("individual-repo-list");
 
 let repos = [];
 // remember which cards the reader opened, so a re-render doesn't collapse them
@@ -177,6 +178,20 @@ function render() {
 		.join("");
 }
 
+function renderIndividualRepoLinks() {
+	if (!individualRepoListEl) return;
+	individualRepoListEl.innerHTML = repos
+		.map(
+			(repo) => `<li>
+				<a href="${escapeHtml(repo.page)}">
+					<span>${escapeHtml(repo.name)}</span>
+					<span class="individual-repo-version">Paperback ${escapeHtml(repo.version)}</span>
+				</a>
+			</li>`,
+		)
+		.join("");
+}
+
 function populateCategories() {
 	const categories = [...new Set(repos.map((r) => r.category))].sort();
 	for (const category of categories) {
@@ -223,6 +238,7 @@ async function init() {
 	repos.sort((a, b) => (a.version === b.version ? 0 : a.version > b.version ? -1 : 1));
 
 	populateCategories();
+	renderIndividualRepoLinks();
 	render();
 
 	searchEl.addEventListener("input", debounce(render, 120));
