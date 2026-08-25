@@ -22,6 +22,12 @@ const SITE_URL = "https://paperbackextensionrepo.xyz/";
 const WORTH_KNOWING_PATH = "/worth-knowing/";
 const PAPERBACK_09_PATH = "/paperback-0-9/";
 const APP_STORE_PATH = "/app-store/";
+const DISCLAIMER_HTML = `<aside class="site-disclaimer">
+	<strong>Independent community directory.</strong>
+	The extensions and repositories listed here are not affiliated with Paperback or the websites they support.
+	All names, trademarks, and logos belong to their respective owners. This website only compiles links and
+	does not own or maintain the linked repositories.
+</aside>`;
 
 function escapeHtml(value) {
 	return String(value).replace(
@@ -350,6 +356,7 @@ function renderRepoPage(repo) {
 				<h2 id="repo-sources-title">Included sources</h2>
 				<div class="source-grid detail-source-grid">${sourceCards}</div>
 			</section>
+			${DISCLAIMER_HTML}
 		</main>
 	</body>
 </html>
@@ -407,6 +414,7 @@ function renderWorthKnowingPage() {
 					will not install on Paperback 0.8 or 0.9. Skip this repository.
 				</p>
 			</section>
+			${DISCLAIMER_HTML}
 		</main>
 	</body>
 </html>
@@ -421,7 +429,7 @@ console.log("Wrote the Worth knowing page.");
 
 function renderPaperback09Page() {
 	const canonical = new URL(PAPERBACK_09_PATH, SITE_URL).href;
-	const description = "How to request access to Paperback 0.9 through TestFlight.";
+	const description = "How to request access to Paperback 0.9 through TestFlight and configure the app.";
 
 	return `<!doctype html>
 <html lang="en">
@@ -437,6 +445,7 @@ function renderPaperback09Page() {
 		<meta property="og:description" content="${description}" />
 		<meta property="og:url" content="${canonical}" />
 		<meta property="og:type" content="website" />
+		<meta property="og:image" content="${SITE_URL}media/paperback-0-9/explore.webp" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -451,17 +460,78 @@ function renderPaperback09Page() {
 		</header>
 		<main>
 			<a class="detail-back" href="/">← Back to all repositories</a>
-			<section class="repo-detail-card">
+			<section class="repo-detail-card" id="invite-steps">
 				<h2>Request a TestFlight invitation</h2>
-				<p>Paperback 0.9 is invite-only through TestFlight for now.</p>
+				<p>Paperback 0.9 is currently distributed through an invite-only TestFlight.</p>
 				<ol class="detail-steps">
 					<li>Join the official <a href="https://discord.paperback.moe/" target="_blank" rel="noopener">Paperback Discord</a>.</li>
-					<li>Become an active <a href="https://www.patreon.com/FaizanDurrani" target="_blank" rel="noopener">Patreon supporter</a> or a Discord server booster.</li>
-					<li>Link your Discord account in your <a href="https://www.patreon.com/settings/apps" target="_blank" rel="noopener">Patreon app settings</a>.</li>
-					<li>Select <strong>Request TestFlight invitation</strong> in the <code>📨・testflight</code> Discord channel.</li>
+					<li>Become an active <a href="https://www.patreon.com/FaizanDurrani" target="_blank" rel="noopener">Patreon supporter</a> or boost the Discord server.</li>
+					<li>Connect Discord in your <a href="https://www.patreon.com/settings/apps" target="_blank" rel="noopener">Patreon app settings</a>.</li>
+					<li>Use <strong>Request TestFlight invitation</strong> in the <code>📨・testflight</code> Discord channel.</li>
 				</ol>
-				<p>Your email stays private. You can also watch the <a href="https://youtu.be/JlawdANWYtw" target="_blank" rel="noopener">Paperback 0.9 TestFlight walkthrough</a>.</p>
+				<p>Your email remains private. Prefer a walkthrough? Watch the <a href="https://youtu.be/JlawdANWYtw" target="_blank" rel="noopener">Paperback 0.9 TestFlight guide</a>.</p>
 			</section>
+			<section class="repo-detail-card">
+				<h2>Device Support (0.9)</h2>
+				<p>The latest Paperback version (v0.9) supports:</p>
+				<ul class="compatibility-list">
+					<li>iPhones running iOS 15.4 or later</li>
+					<li>iPads running iPadOS 15.4 or later</li>
+					<li>Macs running macOS 15.0 or later <span class="muted-note">(Intel-based Macs are not supported)</span></li>
+				</ul>
+			</section>
+			<section class="repo-detail-card guide-gallery" aria-labelledby="paperback-preview-title">
+				<h2 id="paperback-preview-title">A peek at Paperback 0.9</h2>
+				<p class="gallery-intro">A cosy little tour of the redesigned browsing, reader, library, and updates experience. 🌸</p>
+				<div class="guide-gallery-wide">
+					<figure class="guide-image-card"><img src="/media/paperback-0-9/explore.webp" alt="Paperback 0.9 home screen with trending and popular titles" loading="lazy" /><figcaption>Explore favorites faster</figcaption></figure>
+					<figure class="guide-image-card"><img src="/media/paperback-0-9/reader.webp" alt="Paperback 0.9 title details and chapter reader" loading="lazy" /><figcaption>A clean, focused reader</figcaption></figure>
+					<figure class="guide-image-card"><img src="/media/paperback-0-9/devices.webp" alt="Paperback 0.9 displayed on a Mac, iPad, and iPhone" loading="lazy" /><figcaption>One library across your devices</figcaption></figure>
+				</div>
+				<div class="guide-gallery-portrait">
+					<figure class="guide-image-card"><img src="/media/paperback-0-9/home.webp" alt="Paperback 0.9 home screen on iPhone" loading="lazy" /><figcaption>Home</figcaption></figure>
+					<figure class="guide-image-card"><img src="/media/paperback-0-9/title.webp" alt="Paperback 0.9 title information screen" loading="lazy" /><figcaption>Title details</figcaption></figure>
+					<figure class="guide-image-card"><img src="/media/paperback-0-9/updates.webp" alt="Paperback 0.9 chapter updates screen" loading="lazy" /><figcaption>Updates</figcaption></figure>
+				</div>
+			</section>
+			<section class="repo-detail-card">
+				<h2>Changing Content Settings</h2>
+				<p>Paperback may hide titles or extensions according to your content permissions. If something expected is missing, update both the iOS permission and Paperback's filtering preferences:</p>
+				<ol class="detail-steps">
+					<li>Open the iOS <strong>Settings</strong> app.</li>
+					<li>Scroll down and select <strong>Apps</strong>.</li>
+					<li>Select <strong>Paperback</strong>.</li>
+					<li>Enable <strong>Enable Content Settings</strong>.</li>
+					<li>Open Paperback, then go to <strong>Settings → General Settings</strong>.</li>
+					<li>Choose the level you prefer: <strong>Restricted</strong>, <strong>Mature</strong>, or <strong>Adult</strong>.</li>
+				</ol>
+				<figure class="content-settings-visual">
+					<img src="/media/paperback-0-9/content-settings.webp" alt="iOS Paperback content permission and Paperback General Settings content filters" loading="lazy" />
+					<figcaption>Enable the iOS permission first, then fine-tune filtering inside Paperback.</figcaption>
+				</figure>
+			</section>
+			<section class="repo-detail-card">
+				<h2>Notes</h2>
+				<ul class="detail-notes">
+					<li>Choosing <strong>Adult</strong> in the access portal lets you decide what appears in the app under <strong>Settings → General → Content Filtering</strong>.</li>
+					<li>The portal setting also controls repository installation. <strong>Mature</strong> blocks repositories containing Adult extensions, while <strong>Restricted</strong> blocks repositories containing Mature or Adult extensions.</li>
+				</ul>
+			</section>
+			<details class="repo-detail-card detail-faq">
+				<summary><span>FAQ</span><span class="faq-hint">tap to open</span></summary>
+				<div class="detail-faq-body">
+					<dl class="faq-list">
+						<dt>Is there a cooldown?</dt><dd>Yes. You must wait six hours between invitation attempts.</dd>
+						<dt>I entered the wrong email. What now?</dt><dd>Wait six hours, then submit another invitation request with the correct email.</dd>
+						<dt>Why did the invitation button fail?</dt><dd>Make sure your Discord username contains only letters and numbers.</dd>
+						<dt>Why can't I type in <code>💙・supporter-chat</code>?</dt><dd>You may not have the required role yet. Recheck the <a href="#invite-steps">invitation steps above</a>.</dd>
+						<dt>I didn't receive my invitation.</dt><dd>Review the guide above, then ask for help in <a href="https://discord.paperback.moe/" target="_blank" rel="noopener"><code>#support</code> on the Paperback Discord</a>.</dd>
+						<dt>I didn't receive my supporter role.</dt><dd>Connect your Patreon membership to Discord in your <a href="https://www.patreon.com/settings/apps" target="_blank" rel="noopener">Patreon app settings</a>.</dd>
+					</dl>
+					<p class="guide-credit">Invitation FAQ information is credited to the official <a href="https://paperback.moe/" target="_blank" rel="noopener">Paperback website</a>.</p>
+				</div>
+			</details>
+			${DISCLAIMER_HTML}
 		</main>
 	</body>
 </html>
@@ -502,15 +572,20 @@ function renderAppStorePage() {
 			<a class="detail-back" href="/">← Back to all repositories</a>
 			<section class="repo-detail-card">
 				<h2>Paperback 0.8</h2>
-				<p>
-					The public App Store version is Paperback 0.8. It can use Paperback
-					0.8 extensions, but Paperback 0.9 extensions will not work in it.
-				</p>
-				<p>
-					<a class="repo-add" href="https://apps.apple.com/app/paperback-a-komga-client/id1626613373" target="_blank" rel="noopener">Download Paperback from the App Store</a>
-				</p>
-				<p>For the invite-only client, read <a href="${PAPERBACK_09_PATH}">how to get Paperback 0.9</a>.</p>
+				<p>The public App Store version is Paperback 0.8. It supports Paperback 0.8 extensions, but Paperback 0.9 extensions will not work in it.</p>
+				<p><a class="repo-add" href="https://apps.apple.com/app/paperback-a-komga-client/id1626613373" target="_blank" rel="noopener">Download Paperback from the App Store</a></p>
+				<p>Looking for the invite-only client? Read <a href="${PAPERBACK_09_PATH}">how to get Paperback 0.9</a>.</p>
 			</section>
+			<section class="repo-detail-card">
+				<h2>Device Support (0.8)</h2>
+				<p>The latest Paperback version (v0.8) supports:</p>
+				<ul class="compatibility-list">
+					<li>iPhones running iOS 13.4 or later</li>
+					<li>iPads running iPadOS 13.4 or later</li>
+					<li>Macs running macOS 11.0 or later <span class="muted-note">(Intel-based Macs are not supported)</span></li>
+				</ul>
+			</section>
+			${DISCLAIMER_HTML}
 		</main>
 	</body>
 </html>
