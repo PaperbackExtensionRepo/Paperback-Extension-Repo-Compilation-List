@@ -44,7 +44,7 @@ This serves as a unified repository for all 3rd party extensions / sources for P
 3. Link your Discord account in your [Patreon app settings](https://www.patreon.com/settings/apps).
 4. Hit **Request TestFlight invitation** in the `📨・testflight` channel.
 
-Your email stays private — [here's why](https://youtu.be/JlawdANWYtw). A public App Store release for 0.9 is planned, so you can also just wait.
+Your email stays private. Rather watch someone do it? [Here's a video walkthrough](https://youtu.be/JlawdANWYtw) of the whole TestFlight request. A public App Store release for 0.9 is planned, so you can also just wait.
 
 </details>
 
