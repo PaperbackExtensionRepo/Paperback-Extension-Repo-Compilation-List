@@ -77,18 +77,12 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
 | Netsky's Generic Extensions (0.8) | https://thenetsky.github.io/extensions-generic-0.8/ | https://github.com/TheNetsky/extensions-generic-0.8 |
 
-# Outdated Repos — Do Not Use
-
-*Listed only so you know to skip them. These target Paperback versions that are long out of support and will not install on 0.8 or 0.9.*
-
-| Name | Install (Add to Paperback) | GitHub |
-|------|----------------------------|--------|
-| Robbie Davis' Extension Repo (0.6) | | https://github.com/therobbiedavis/paperback-extension-repo |
-
 ## Compatibility
 
 You can install v0.8 extensions in the v0.9 Paperback client, but you can't install v0.9 extensions in the v0.8 client.
 All credit given to the developers of these extensions. I will keep updating this repo whenever I find new ones. Some repos may have sources the main Inkdex repo doesn't so you can check for yourself and see.
+
+⚠️ **Worth knowing:** [therobbiedavis/paperback-extension-repo](https://github.com/therobbiedavis/paperback-extension-repo) still turns up in searches, but it's built for Paperback 0.6 and won't install on 0.8 or 0.9 — skip it.
 
 ## Installing an extension
 

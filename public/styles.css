@@ -183,6 +183,12 @@ main {
 	background: linear-gradient(135deg, #fff7fb, #f4fbff);
 	border-color: var(--border-soft);
 }
+.note-sub {
+	border-top: 2px dashed var(--border-soft);
+	padding-top: 0.9em;
+	font-size: 0.95em;
+}
+
 /* "how do I get 0.9" expander */
 .note-how {
 	padding: 0;
@@ -421,45 +427,6 @@ main {
 }
 .group-09 .group-count {
 	color: #2a8b98;
-}
-
-/* outdated — deliberately drab so it reads as a warning, not an option */
-.group-old {
-	background: linear-gradient(120deg, #f2eef4, #eceaf0);
-	border-color: #ddd4e2;
-}
-.group-old .group-pill {
-	background: linear-gradient(120deg, #a394ad, #b9abc2);
-	box-shadow: 0 3px 10px rgba(140, 125, 150, 0.28);
-}
-.group-old .group-count {
-	color: #7d6f88;
-}
-
-.repo-card-dead {
-	background: #fbf9fc;
-	border-color: #e4dde8;
-	box-shadow: none;
-	opacity: 0.9;
-}
-.repo-card-dead:hover {
-	transform: none;
-	box-shadow: none;
-	border-color: #ddd4e2;
-}
-.repo-card-dead .repo-name {
-	color: #7d6f88;
-}
-.repo-version-old {
-	background: linear-gradient(120deg, #a394ad, #b9abc2);
-}
-.repo-dead {
-	margin: 0;
-	padding: 0.65em 1.1em;
-	border-top: 2px dashed #e4dde8;
-	font-size: 0.82em;
-	font-weight: 600;
-	color: #7d6f88;
 }
 
 /* 0.8 — pink / lilac */
