@@ -1,8 +1,6 @@
 # Paperback Extensions / Sources Repos List
 The serves as a unified repository for all 3rd party extensions / sources for Paperback for version 0.8 & 0.9
 
-All credit given to the developers of these extensions. I will keep updating this repo whenever I find new ones. Some repos may have sources the main Inkdex repo doesn't so you can check for yourself and see. 
-
 **Please leave any issues on the developer's repo or discord**
 
 # Paperback 0.9 Compatible
@@ -37,6 +35,7 @@ All credit given to the developers of these extensions. I will keep updating thi
 
 ## Compatibility
 You can install v0.8 extensions in the v0.9 Paperback client, but you can't install v0.9 extensions in the v0.8 client.
+All credit given to the developers of these extensions. I will keep updating this repo whenever I find new ones. Some repos may have sources the main Inkdex repo doesn't so you can check for yourself and see. 
 
 ## Installing an extension
 - Install Paperback
