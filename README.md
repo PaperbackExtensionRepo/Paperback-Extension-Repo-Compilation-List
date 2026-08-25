@@ -1,4 +1,4 @@
-# Paperback Extensions / Sources Repos List
+# Paperback Extensions / Sources Repo List
 The serves as a unified repository for all 3rd party extensions / sources for Paperback for version 0.8 & 0.9
 
 **Please leave any issues on the developer's repo or discord**
