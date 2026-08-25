@@ -7,7 +7,7 @@
 			"name": "Inkdex Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
-			"install": "https://inkdex.github.io/extensions/0.9/stable",
+			"install": "https://inkdex.github.io/extension-list",
 			"github": "https://github.com/inkdex/extensions",
 			"sources": []
 		},
