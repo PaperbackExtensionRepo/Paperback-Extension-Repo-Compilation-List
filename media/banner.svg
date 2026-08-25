@@ -65,8 +65,8 @@
   </g>
 
   <g font-family="'Quicksand', 'Nunito', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
-    <text x="272" y="140" font-size="57" font-weight="700" fill="url(#ink)">Paperback Extension Repo</text>
-    <text x="274" y="190" font-size="23" font-weight="700" letter-spacing="2.5" fill="#8a6f9c">EXTENSION &amp; SOURCE REPO COMPILATION</text>
-    <text x="274" y="231" font-size="20" font-weight="600" letter-spacing="1.5" fill="#a68bb5">PAPERBACK 0.8 &amp; 0.9 · MANGA · MANHWA · MANHUA · NOVELS</text>
+    <text x="272" y="140" font-size="57" font-weight="700" fill="#ff7ab8">Paperback Extension Repo</text>
+    <text x="274" y="190" font-size="23" font-weight="700" letter-spacing="2.5" fill="#b08bf0">EXTENSION &amp; SOURCE REPO COMPILATION</text>
+    <text x="274" y="231" font-size="20" font-weight="600" letter-spacing="1.5" fill="#4fd3e0">PAPERBACK 0.8 &amp; 0.9 · MANGA · MANHWA · MANHUA · NOVELS</text>
   </g>
 </svg>
