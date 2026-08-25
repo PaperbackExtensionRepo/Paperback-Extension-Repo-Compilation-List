@@ -233,3 +233,31 @@ const out = {
 
 writeFileSync(join(root, "public", "repos.json"), `${JSON.stringify(out, null, "\t")}\n`);
 console.log(`Wrote public/repos.json (${repos.length} repos).`);
+
+/* ------------------------------------------------- sitemap + robots.txt -- */
+
+const SITE_URL =
+	"https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/";
+const today = new Date().toISOString().slice(0, 10);
+
+// single-page site, so the sitemap is one entry — lastmod moves with each build
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>${SITE_URL}</loc>
+		<lastmod>${today}</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+</urlset>
+`;
+writeFileSync(join(root, "public", "sitemap.xml"), sitemap);
+
+const robots = `User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}sitemap.xml
+`;
+writeFileSync(join(root, "public", "robots.txt"), robots);
+
+console.log("Wrote public/sitemap.xml and public/robots.txt.");

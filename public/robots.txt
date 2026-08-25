@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/sitemap.xml
