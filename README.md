@@ -1,24 +1,24 @@
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/popbase85-collab/Paperback-Extension-Repo-Compilation-List@main/media/banner.svg?v=1" alt="Paperback Extension Repo — Paperback Extension &amp; Source Repo Compilation" width="100%"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/banner.svg?v=1" alt="Paperback Extension Repo — Paperback Extension &amp; Source Repo Compilation" width="100%"/>
 </p>
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/popbase85-collab/Paperback-Extension-Repo-Compilation-List@main/media/badge-ios.svg?v=1" alt="iOS / iPadOS" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/popbase85-collab/Paperback-Extension-Repo-Compilation-List@main/media/badge-version.svg?v=1" alt="Paperback 0.8 &amp; 0.9" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/popbase85-collab/Paperback-Extension-Repo-Compilation-List@main/media/badge-count.svg?v=1" alt="17 repos" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/popbase85-collab/Paperback-Extension-Repo-Compilation-List@main/media/badge-community.svg?v=1" alt="Community list" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-ios.svg?v=1" alt="iOS / iPadOS" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-version.svg?v=1" alt="Paperback 0.8 &amp; 0.9" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-count.svg?v=1" alt="17 repos" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-community.svg?v=1" alt="Community list" height="28"/>
 </p>
 
 <p align="center">
-  <a href="https://popbase85-collab.github.io/Paperback-Extension-Repo-Compilation-List/">
-    <img src="https://cdn.jsdelivr.net/gh/popbase85-collab/Paperback-Extension-Repo-Compilation-List@main/media/button-browse.svg?v=1" alt="Browse and add to Paperback" height="52"/>
+  <a href="https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/">
+    <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/button-browse.svg?v=1" alt="Browse and add to Paperback" height="52"/>
   </a>
 </p>
 
 <p align="center">
   On iPhone or iPad, tap the button, pick a repo, and add it from the page that opens.<br/>
   Every repo below is also listed on the site:<br/>
-  <code>https://popbase85-collab.github.io/Paperback-Extension-Repo-Compilation-List/</code>
+  <code>https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/</code>
 </p>
 
 ---
@@ -70,7 +70,7 @@ All credit given to the developers of these extensions. I will keep updating thi
 ## Installing an extension
 
 - Install Paperback
-- Tap the install link above (or use the [website](https://popbase85-collab.github.io/Paperback-Extension-Repo-Compilation-List/))
+- Tap the install link above (or use the [website](https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/))
 - Tap "Add to Paperback"
 
 # Contributing

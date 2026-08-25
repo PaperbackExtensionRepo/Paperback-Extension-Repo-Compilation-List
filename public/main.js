@@ -115,7 +115,7 @@ async function init() {
 		const data = await response.json();
 		repos = data.repos || [];
 	} catch (error) {
-		listEl.innerHTML = `<p class="empty-state">Couldn't load the repo list. See it on <a href="https://github.com/popbase85-collab/Paperback-Extension-Repo-Compilation-List">GitHub</a>.</p>`;
+		listEl.innerHTML = `<p class="empty-state">Couldn't load the repo list. See it on <a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List">GitHub</a>.</p>`;
 		console.error(error);
 		return;
 	}
