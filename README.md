@@ -25,10 +25,10 @@ The serves as a unified repository for all 3rd party extensions / sources for Pa
 | Default Trackers (0.8) | https://paperback-ios.github.io/extensions/main | https://github.com/paperback-ios/extensions |
 | Ivan's Extensions (0.8) | https://ivanmatthew.github.io/ivans-paperback-extensions/paperback-0.8 | https://github.com/ivanmatthew/ivans-paperback-extensions |
 | Kakarot's Extensions (0.8) | https://karrot0.github.io/kakarotextension0.8/0.8-stable | https://github.com/karrot0/kakarotextension0.8 | 
-| Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
+| Shadorig's Extensions (0.8) | https://shadorig.github.io/real-extensions/sources | https://github.com/shadorig/real-extensions |
 | Seyden's Extensions (0.8) | https://seyden.github.io/community-extensions/0.8/ | https://github.com/Seyden/extensions-generic-0.8 |
 | Gabe's Extensions (0.8) | https://gabrielcwt.github.io/gabe-extensions/0.8 | https://gabrielcwt.github.io/gabe-extensions/0.8
-| Shadorig's Extensions (0.8) | https://shadorig.github.io/real-extensions/sources | https://github.com/shadorig/real-extensions |
+| Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
 | Netsky's Generic Extensions (0.8) | https://thenetsky.github.io/extensions-generic-0.8/ | 
 
 ## Compatibility
