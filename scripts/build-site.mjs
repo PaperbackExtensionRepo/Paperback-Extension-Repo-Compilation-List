@@ -144,24 +144,35 @@ async function fetchManifest(url) {
 	return response.json();
 }
 
+// Some repos publish the manifest under a channel folder rather than at the
+// root of the linked URL. If the root 404s, try the conventional layouts before
+// giving up — costs nothing for the repos that resolve on the first try.
+const FALLBACK_PATHS = ["", "0.9/stable", "0.8/stable", "stable", "0.9/test"];
+
 async function loadSources(repo) {
 	if (!repo.install) return { ok: false, reason: "no install url" };
 
-	const base = repo.install.replace(/\/+$/, "");
-	const url = `${base}/versioning.json`;
+	const root = repo.install.replace(/\/+$/, "");
+	let lastError = "unreachable";
 
-	// one retry — these are small static files, a single blip shouldn't drop a repo
-	for (let attempt = 1; attempt <= 2; attempt++) {
-		try {
-			const manifest = await fetchManifest(url);
-			const sources = normalizeSources(manifest, base);
-			const repoName = manifest?.repository?.name;
-			return { ok: true, sources, repoName };
-		} catch (error) {
-			if (attempt === 2) return { ok: false, reason: error.message };
+	for (const suffix of FALLBACK_PATHS) {
+		const base = suffix ? `${root}/${suffix}` : root;
+		// one retry — these are small static files, a single blip shouldn't drop a repo
+		for (let attempt = 1; attempt <= 2; attempt++) {
+			try {
+				const manifest = await fetchManifest(`${base}/versioning.json`);
+				const sources = normalizeSources(manifest, base);
+				if (!sources.length) throw new Error("manifest had no sources");
+				return { ok: true, sources, base };
+			} catch (error) {
+				lastError = error.message;
+				// a 404 means "wrong path", so move on instead of retrying it
+				if (/HTTP 404/.test(lastError)) break;
+			}
 		}
 	}
-	return { ok: false, reason: "unreachable" };
+
+	return { ok: false, reason: lastError };
 }
 
 // simple concurrency-limited map so we don't open 17 sockets at once
