@@ -10,6 +10,14 @@
       <stop offset="0.5" stop-color="#b08bf0"/>
       <stop offset="1" stop-color="#4fd3e0"/>
     </linearGradient>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffa5cf"/>
+      <stop offset="1" stop-color="#b08bf0"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff7fa5"/>
+      <stop offset="1" stop-color="#ff5a8a"/>
+    </linearGradient>
     <clipPath id="card">
       <rect x="3" y="3" width="1194" height="294" rx="30"/>
     </clipPath>
@@ -25,18 +33,35 @@
   </g>
   <rect x="3" y="3" width="1194" height="294" rx="30" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="3"/>
 
-  <!-- stacked books mark -->
+  <!-- little book with a bookmark ribbon -->
   <g transform="translate(152,150)">
-    <circle r="82" fill="#ffffff" opacity="0.75"/>
-    <circle r="82" fill="none" stroke="#ff7ab8" stroke-opacity="0.35" stroke-width="3"/>
-    <g transform="translate(0,6)">
-      <rect x="-46" y="14" width="92" height="21" rx="8" fill="#4fd3e0"/>
-      <rect x="-39" y="-9" width="78" height="21" rx="8" fill="#b08bf0"/>
-      <rect x="-32" y="-32" width="64" height="21" rx="8" fill="#ff7ab8"/>
-      <path d="M-30,-50 h60" stroke="#ffb3d4" stroke-width="8" stroke-linecap="round"/>
+    <circle r="84" fill="#ffffff" opacity="0.8"/>
+    <circle r="84" fill="none" stroke="#ff7ab8" stroke-opacity="0.35" stroke-width="3"/>
+
+    <g transform="translate(2,2)">
+      <!-- cover -->
+      <rect x="-46" y="-54" width="92" height="108" rx="14" fill="url(#cover)"/>
+      <!-- pages -->
+      <rect x="-32" y="-46" width="70" height="92" rx="10" fill="#fffdfe"/>
+      <!-- spine shading -->
+      <path d="M-32,-54 h-0 a14,14 0 0 0 -14,14 v80 a14,14 0 0 0 14,14 h0 z" fill="#ffffff" opacity="0.22"/>
+
+      <!-- kawaii face -->
+      <g stroke="#9c7bb0" stroke-width="4.5" stroke-linecap="round" fill="none">
+        <path d="M-22,-2 q6,-9 12,0"/>
+        <path d="M2,-2 q6,-9 12,0"/>
+        <path d="M-10,12 q4,6 8,0"/>
+      </g>
+      <circle cx="-29" cy="9" r="5.5" fill="#ffb3d4" opacity="0.75"/>
+      <circle cx="9" cy="9" r="5.5" fill="#ffb3d4" opacity="0.75"/>
+
+      <!-- bookmark ribbon -->
+      <path d="M20,-54 h16 v62 l-8,-8 -8,8 z" fill="url(#ribbon)"/>
     </g>
-    <!-- little sparkle -->
-    <path d="M56,-52 l5,13 13,5 -13,5 -5,13 -5,-13 -13,-5 13,-5 z" fill="#ffffff" opacity="0.95"/>
+
+    <!-- sparkles -->
+    <path d="M62,-56 l4.5,11.5 11.5,4.5 -11.5,4.5 -4.5,11.5 -4.5,-11.5 -11.5,-4.5 11.5,-4.5 z" fill="#ffffff"/>
+    <path d="M-62,44 l3,7.5 7.5,3 -7.5,3 -3,7.5 -3,-7.5 -7.5,-3 7.5,-3 z" fill="#ffffff" opacity="0.9"/>
   </g>
 
   <g font-family="'Quicksand', 'Nunito', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">

@@ -1,12 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Paperback Extension Repo">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff4d9d"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+      <stop offset="0" stop-color="#ffd7ea"/>
+      <stop offset="1" stop-color="#cdf3f4"/>
+    </linearGradient>
+    <linearGradient id="cover" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffa5cf"/>
+      <stop offset="1" stop-color="#b08bf0"/>
     </linearGradient>
   </defs>
   <rect x="0" y="0" width="64" height="64" rx="16" fill="url(#bg)"/>
-  <rect x="14" y="38" width="36" height="9" rx="3" fill="#0e9bb5"/>
-  <rect x="17" y="27" width="30" height="9" rx="3" fill="#ffffff" opacity="0.75"/>
-  <rect x="20" y="16" width="24" height="9" rx="3" fill="#1a0f1e" opacity="0.85"/>
+  <g transform="translate(32,32)">
+    <rect x="-19" y="-22" width="38" height="44" rx="6" fill="url(#cover)"/>
+    <rect x="-13" y="-19" width="29" height="38" rx="4" fill="#fffdfe"/>
+    <g stroke="#9c7bb0" stroke-width="2.4" stroke-linecap="round" fill="none">
+      <path d="M-9,-2 q2.5,-4 5,0"/>
+      <path d="M1,-2 q2.5,-4 5,0"/>
+    </g>
+    <circle cx="-12" cy="4" r="2.4" fill="#ffb3d4" opacity="0.8"/>
+    <circle cx="4" cy="4" r="2.4" fill="#ffb3d4" opacity="0.8"/>
+    <path d="M8,-22 h7 v26 l-3.5,-3.5 -3.5,3.5 z" fill="#ff5a8a"/>
+  </g>
 </svg>
