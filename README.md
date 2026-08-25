@@ -1,5 +1,5 @@
 # Paperback Extensions / Sources Repos List
-The serves as a unified repository for all 3rd party extensions for Paperback for version 0.9
+The serves as a unified repository for all 3rd party extensions / sources for Paperback for version 0.8 & 0.9
 
 All credit given to the developers of these extensions. I will keep updating this repo whenever I find new ones. Some repos may have sources the main Inkdex repo doesn't so you can check for yourself and see. 
 
