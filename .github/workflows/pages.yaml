@@ -10,6 +10,10 @@ on:
       - "media/**"
       - "scripts/**"
       - ".github/workflows/pages.yaml"
+  # source lists are pulled from each repo at build time, so rebuild daily to
+  # keep them current even when nothing here changes
+  schedule:
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:

@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="330" height="56" viewBox="0 0 330 56" role="img" aria-label="Paperback 0.8 and 0.9">
   <defs>
-    <linearGradient id="pinkcyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff4d9d"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#b08bf0"/>
+      <stop offset="1" stop-color="#d3bcfa"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="0" width="330" height="56" rx="14" fill="url(#pinkcyan)"/>
-  <text x="165" y="37" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3" fill="#1a0f1e">PAPERBACK 0.8 &amp; 0.9</text>
+  <rect x="0" y="0" width="330" height="56" rx="20" fill="url(#g)"/>
+  <text x="165" y="36" text-anchor="middle" font-family="'Quicksand', 'Nunito', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2" fill="#ffffff">PAPERBACK 0.8 &amp; 0.9</text>
 </svg>

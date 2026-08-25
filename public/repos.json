@@ -1,126 +1,143 @@
 {
 	"name": "Paperback Extension Repo",
 	"description": "Paperback Extension & Source Repo Compilation",
-	"updated": "2026-08-25T18:22:07.433Z",
+	"updated": "2026-08-25T18:31:12.662Z",
 	"repos": [
 		{
 			"name": "Inkdex Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://inkdex.github.io/installation",
-			"github": "https://github.com/inkdex/extensions"
+			"github": "https://github.com/inkdex/extensions",
+			"sources": []
 		},
 		{
 			"name": "Kakarot Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://karrot0.github.io/KakarotExtension/0.9/stable/",
-			"github": "https://github.com/karrot0/KakarotExtension"
+			"github": "https://github.com/karrot0/KakarotExtension",
+			"sources": []
 		},
 		{
 			"name": "Pirate Vodka Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://read.pirate.vodka/",
-			"github": "https://github.com/LucifersCircle/pirate.vodka-extensions"
+			"github": "https://github.com/LucifersCircle/pirate.vodka-extensions",
+			"sources": []
 		},
 		{
 			"name": "PoppingMango Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://poppingmangosources.github.io/general-extensions-mangago/0.9/test/",
-			"github": "https://github.com/PoppingMangoSources/general-extensions-mangago"
+			"github": "https://github.com/PoppingMangoSources/general-extensions-mangago",
+			"sources": []
 		},
 		{
 			"name": "Nyzzik's Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://paperback.nyzz.me/",
-			"github": "https://github.com/nyzzik/extensions"
+			"github": "https://github.com/nyzzik/extensions",
+			"sources": []
 		},
 		{
 			"name": "Kittykatgit Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://kittycatgit.github.io/kitty-extensions-0.9/",
-			"github": "https://github.com/kittycatgit/kitty-extensions-0.9"
+			"github": "https://github.com/kittycatgit/kitty-extensions-0.9",
+			"sources": []
 		},
 		{
 			"name": "Sinon's Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/",
-			"github": "https://github.com/Catta1997/Sinon-Paperback-Extensions"
+			"github": "https://github.com/Catta1997/Sinon-Paperback-Extensions",
+			"sources": []
 		},
 		{
 			"name": "The Vodraz's Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://thevodraz.github.io/paperback-extensions/",
-			"github": "https://github.com/TheVodraz/paperback-extensions"
+			"github": "https://github.com/TheVodraz/paperback-extensions",
+			"sources": []
 		},
 		{
 			"name": "Ace Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://acepilot147.github.io/pb-extensions/0.8",
-			"github": "https://github.com/acepilot147/pb-extensions"
+			"github": "https://github.com/acepilot147/pb-extensions",
+			"sources": []
 		},
 		{
 			"name": "Default Trackers",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://paperback-ios.github.io/extensions/main",
-			"github": "https://github.com/paperback-ios/extensions"
+			"github": "https://github.com/paperback-ios/extensions",
+			"sources": []
 		},
 		{
 			"name": "Ivan's Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://ivanmatthew.github.io/ivans-paperback-extensions/paperback-0.8",
-			"github": "https://github.com/ivanmatthew/ivans-paperback-extensions"
+			"github": "https://github.com/ivanmatthew/ivans-paperback-extensions",
+			"sources": []
 		},
 		{
 			"name": "Kakarot's Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://karrot0.github.io/kakarotextension0.8/0.8-stable",
-			"github": "https://github.com/karrot0/kakarotextension0.8"
+			"github": "https://github.com/karrot0/kakarotextension0.8",
+			"sources": []
 		},
 		{
 			"name": "Shadorig's Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://shadorig.github.io/real-extensions/sources",
-			"github": "https://github.com/shadorig/real-extensions"
+			"github": "https://github.com/shadorig/real-extensions",
+			"sources": []
 		},
 		{
 			"name": "Seyden's Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://seyden.github.io/community-extensions/0.8/",
-			"github": "https://github.com/Seyden/extensions-generic-0.8"
+			"github": "https://github.com/Seyden/extensions-generic-0.8",
+			"sources": []
 		},
 		{
 			"name": "Gabe's Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://gabrielcwt.github.io/gabe-extensions/0.8",
-			"github": "https://github.com/gabrielcwt/gabe-extensions"
+			"github": "https://github.com/gabrielcwt/gabe-extensions",
+			"sources": []
 		},
 		{
 			"name": "Kinso's Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://xdkinso.github.io/kinso-extensions-v0.8",
-			"github": "https://github.com/xdKinso/kinso-extensions-v0.8"
+			"github": "https://github.com/xdKinso/kinso-extensions-v0.8",
+			"sources": []
 		},
 		{
 			"name": "Netsky's Generic Extensions",
 			"version": "0.8",
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://thenetsky.github.io/extensions-generic-0.8/",
-			"github": "https://github.com/TheNetsky/extensions-generic-0.8"
+			"github": "https://github.com/TheNetsky/extensions-generic-0.8",
+			"sources": []
 		}
 	]
 }

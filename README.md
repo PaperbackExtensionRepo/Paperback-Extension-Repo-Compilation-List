@@ -1,23 +1,24 @@
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/banner.svg?v=1" alt="Paperback Extension Repo — Paperback Extension &amp; Source Repo Compilation" width="100%"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/banner.svg?v=2" alt="Paperback Extension Repo — Paperback Extension &amp; Source Repo Compilation" width="100%"/>
 </p>
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-ios.svg?v=1" alt="iOS / iPadOS" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-version.svg?v=1" alt="Paperback 0.8 &amp; 0.9" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-count.svg?v=1" alt="17 repos" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-community.svg?v=1" alt="Community list" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-ios.svg?v=2" alt="iOS / iPadOS" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-version.svg?v=2" alt="Paperback 0.8 &amp; 0.9" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-count.svg?v=2" alt="17 repos" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-community.svg?v=2" alt="Community list" height="28"/>
 </p>
 
 <p align="center">
   <a href="https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/">
-    <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/button-browse.svg?v=1" alt="Browse and add to Paperback" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/button-browse.svg?v=2" alt="Browse and add to Paperback" height="52"/>
   </a>
 </p>
 
 <p align="center">
   On iPhone or iPad, tap the button, pick a repo, and add it from the page that opens.<br/>
-  Every repo below is also listed on the site:<br/>
+  The site lists every repo below, and you can expand any of them to see the sources it ships —<br/>
+  searching there matches source names too, so you can find which repo has the one you want:<br/>
   <code>https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/</code>
 </p>
 
@@ -79,6 +80,6 @@ Please fork, add the extension to all areas where it is applicable, and submit a
 
 If the extension has both comic and manga sources, then add it to both.
 
-The website is generated straight from the tables in this README — add a row here and the site picks it up on the next deploy.
+The website is generated straight from the tables in this README — add a row here and the site picks it up on the next deploy. Each repo's source list is pulled from its own `versioning.json` at build time and refreshed daily, so nothing needs listing by hand.
 
 ### [Extension Discord](https://discord.gg/inkdex)
