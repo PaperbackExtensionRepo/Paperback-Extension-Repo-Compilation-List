@@ -44,6 +44,7 @@ function parseReadme(md) {
 	const repos = [];
 	let version = null;
 	let category = null;
+	let outdated = false;
 
 	for (const line of md.split("\n")) {
 		const heading = line.match(/^(#{1,6})\s+(.*)$/);
@@ -52,6 +53,9 @@ function parseReadme(md) {
 			const text = heading[2].trim();
 			const versionMatch = text.match(/Paperback\s+(0\.\d)\s+Compatible/i);
 			if (level === 1) {
+				// an "outdated" section has no single version — each row carries its
+				// own in a (0.x) suffix, so leave `version` unset and read it per row
+				outdated = /outdated|archived|deprecated|do not use/i.test(text);
 				version = versionMatch ? versionMatch[1] : null;
 				category = null;
 			} else if (level >= 3) {
@@ -60,7 +64,8 @@ function parseReadme(md) {
 			continue;
 		}
 
-		if (!version || !line.trim().startsWith("|") || isSeparator(line)) continue;
+		if ((!version && !outdated) || !line.trim().startsWith("|") || isSeparator(line))
+			continue;
 
 		const cells = line
 			.trim()
@@ -78,12 +83,14 @@ function parseReadme(md) {
 		const github = cellUrl(cells[2] ?? "");
 		if (!install && !github) continue;
 
+		const suffix = name.match(/\((0\.\d)\)\s*$/);
 		repos.push({
 			name: name.replace(/\s*\(0\.\d\)\s*$/, "").trim(),
-			version,
+			version: version || (suffix ? suffix[1] : "?"),
 			category: category || "Extensions",
 			install,
 			github,
+			outdated,
 		});
 	}
 
@@ -150,6 +157,8 @@ async function fetchManifest(url) {
 const FALLBACK_PATHS = ["", "0.9/stable", "0.8/stable", "stable", "0.9/test"];
 
 async function loadSources(repo) {
+	// dead repos aren't worth a request — they're listed as a warning, not an option
+	if (repo.outdated) return { ok: false, reason: "outdated, not fetched" };
 	if (!repo.install) return { ok: false, reason: "no install url" };
 
 	const root = repo.install.replace(/\/+$/, "");

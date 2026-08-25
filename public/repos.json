@@ -1,7 +1,7 @@
 {
 	"name": "Paperback Extension Repo",
 	"description": "Paperback Extension & Source Repo Compilation",
-	"updated": "2026-08-25T19:24:03.508Z",
+	"updated": "2026-08-25T19:35:27.224Z",
 	"repos": [
 		{
 			"name": "Inkdex Extensions",
@@ -9,6 +9,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://inkdex.github.io/extensions/0.9/stable",
 			"github": "https://github.com/inkdex/extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -17,6 +18,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://karrot0.github.io/KakarotExtension/0.9/stable/",
 			"github": "https://github.com/karrot0/KakarotExtension",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -25,6 +27,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://read.pirate.vodka/",
 			"github": "https://github.com/LucifersCircle/pirate.vodka-extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -33,6 +36,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://poppingmangosources.github.io/general-extensions-mangago/0.9/test/",
 			"github": "https://github.com/PoppingMangoSources/general-extensions-mangago",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -41,6 +45,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://paperback.nyzz.me/",
 			"github": "https://github.com/nyzzik/extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -49,6 +54,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://kittycatgit.github.io/kitty-extensions-0.9/",
 			"github": "https://github.com/kittycatgit/kitty-extensions-0.9",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -57,6 +63,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/",
 			"github": "https://github.com/Catta1997/Sinon-Paperback-Extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -65,6 +72,7 @@
 			"category": "Manga/Manhwa/Novels",
 			"install": "https://thevodraz.github.io/paperback-extensions/",
 			"github": "https://github.com/TheVodraz/paperback-extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -73,6 +81,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://acepilot147.github.io/pb-extensions/0.8",
 			"github": "https://github.com/acepilot147/pb-extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -81,6 +90,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://paperback-ios.github.io/extensions/main",
 			"github": "https://github.com/paperback-ios/extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -89,6 +99,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://ivanmatthew.github.io/ivans-paperback-extensions/paperback-0.8",
 			"github": "https://github.com/ivanmatthew/ivans-paperback-extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -97,6 +108,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://karrot0.github.io/kakarotextension0.8/0.8-stable",
 			"github": "https://github.com/karrot0/kakarotextension0.8",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -105,6 +117,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://shadorig.github.io/real-extensions/sources",
 			"github": "https://github.com/shadorig/real-extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -113,6 +126,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://seyden.github.io/community-extensions/0.8/",
 			"github": "https://github.com/Seyden/extensions-generic-0.8",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -121,6 +135,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://gabrielcwt.github.io/gabe-extensions/0.8",
 			"github": "https://github.com/gabrielcwt/gabe-extensions",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -129,6 +144,7 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://xdkinso.github.io/kinso-extensions-v0.8",
 			"github": "https://github.com/xdKinso/kinso-extensions-v0.8",
+			"outdated": false,
 			"sources": []
 		},
 		{
@@ -137,6 +153,16 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://thenetsky.github.io/extensions-generic-0.8/",
 			"github": "https://github.com/TheNetsky/extensions-generic-0.8",
+			"outdated": false,
+			"sources": []
+		},
+		{
+			"name": "Robbie Davis' Extension Repo",
+			"version": "0.6",
+			"category": "Extensions",
+			"install": "",
+			"github": "https://github.com/therobbiedavis/paperback-extension-repo",
+			"outdated": true,
 			"sources": []
 		}
 	]

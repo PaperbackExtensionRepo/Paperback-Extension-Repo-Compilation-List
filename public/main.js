@@ -79,11 +79,16 @@ function renderSourcesSection(repo, query, forceOpen) {
 }
 
 function renderRepo(repo, query, forceOpen) {
-	const badgeClass = repo.version === "0.9" ? "repo-version-09" : "repo-version-08";
+	const badgeClass = repo.outdated
+		? "repo-version-old"
+		: repo.version === "0.9"
+			? "repo-version-09"
+			: "repo-version-08";
 	const primary = repo.install || repo.github;
 	const actions = [];
 
-	if (repo.install) {
+	// no install button for dead repos — offering one would just waste people's time
+	if (repo.install && !repo.outdated) {
 		actions.push(
 			`<a class="repo-add" href="${escapeHtml(repo.install)}" target="_blank" rel="noopener">Add to Paperback</a>`,
 		);
@@ -94,7 +99,11 @@ function renderRepo(repo, query, forceOpen) {
 		);
 	}
 
-	return `<li class="repo-card">
+	const body = repo.outdated
+		? `<p class="repo-dead">⚠️ Won't install on 0.8 or 0.9 — listed so you know to skip it.</p>`
+		: renderSourcesSection(repo, query, forceOpen);
+
+	return `<li class="repo-card${repo.outdated ? " repo-card-dead" : ""}">
 		<div class="repo-top">
 			<div class="repo-left">
 				<div class="repo-title-row">
@@ -105,7 +114,7 @@ function renderRepo(repo, query, forceOpen) {
 			</div>
 			<div class="repo-actions">${actions.join("")}</div>
 		</div>
-		${renderSourcesSection(repo, query, forceOpen)}
+		${body}
 	</li>`;
 }
 
@@ -154,20 +163,34 @@ function render() {
 		return;
 	}
 
-	// grouped by Paperback version only — the category lives in the filter menu
+	// grouped by Paperback version only — the category lives in the filter menu.
+	// dead repos collapse into one group that always sorts last.
 	const groups = new Map();
 	for (const entry of filtered) {
-		const key = entry.repo.version;
+		const key = entry.repo.outdated ? "outdated" : entry.repo.version;
 		if (!groups.has(key)) groups.set(key, []);
 		groups.get(key).push(entry);
 	}
 
-	listEl.innerHTML = [...groups.entries()]
-		.map(([version, entries]) => {
-			const versionClass = version === "0.9" ? "group-09" : "group-08";
+	const keys = [...groups.keys()].sort((a, b) => {
+		if (a === "outdated") return 1;
+		if (b === "outdated") return -1;
+		return a > b ? -1 : 1; // 0.9 before 0.8
+	});
+
+	listEl.innerHTML = keys
+		.map((key) => {
+			const entries = groups.get(key);
+			const isDead = key === "outdated";
+			const versionClass = isDead
+				? "group-old"
+				: key === "0.9"
+					? "group-09"
+					: "group-08";
+			const label = isDead ? "Outdated · don't use" : `Paperback ${key}`;
 			const count = entries.length;
 			return `<div class="group-header ${versionClass}">
-				<h2 class="group-pill">Paperback ${escapeHtml(version)}</h2>
+				<h2 class="group-pill">${escapeHtml(label)}</h2>
 				<span class="group-count">${count} repo${count === 1 ? "" : "s"}</span>
 			</div>
 			<ul>${entries
