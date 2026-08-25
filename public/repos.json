@@ -1,13 +1,13 @@
 {
 	"name": "Paperback Extension Repo",
 	"description": "Paperback Extension & Source Repo Compilation",
-	"updated": "2026-08-25T18:31:12.662Z",
+	"updated": "2026-08-25T18:35:17.993Z",
 	"repos": [
 		{
 			"name": "Inkdex Extensions",
 			"version": "0.9",
 			"category": "Manga/Manhwa/Novels",
-			"install": "https://inkdex.github.io/installation",
+			"install": "https://inkdex.github.io/extensions/0.9/stable",
 			"github": "https://github.com/inkdex/extensions",
 			"sources": []
 		},
