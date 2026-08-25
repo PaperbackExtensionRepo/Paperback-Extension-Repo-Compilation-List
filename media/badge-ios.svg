@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56" role="img" aria-label="iOS / iPadOS">
   <defs>
-    <linearGradient id="pinkcyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff4d9d"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9ec9"/>
+      <stop offset="1" stop-color="#ffc2de"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="0" width="220" height="56" rx="14" fill="url(#pinkcyan)"/>
-  <text x="110" y="37" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="2" fill="#1a0f1e">iOS / iPadOS</text>
+  <rect x="0" y="0" width="220" height="56" rx="20" fill="url(#g)"/>
+  <text x="110" y="36" text-anchor="middle" font-family="'Quicksand', 'Nunito', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="1.5" fill="#ffffff">iOS / iPadOS</text>
 </svg>

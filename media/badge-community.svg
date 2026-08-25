@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="280" height="56" viewBox="0 0 280 56" role="img" aria-label="Community maintained list">
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="56" viewBox="0 0 280 56" role="img" aria-label="Community list">
   <defs>
-    <linearGradient id="pinkcyan" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff4d9d"/>
-      <stop offset="1" stop-color="#22d3ee"/>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6fd8b8"/>
+      <stop offset="1" stop-color="#a6ecd7"/>
     </linearGradient>
   </defs>
-  <rect x="0" y="0" width="280" height="56" rx="14" fill="url(#pinkcyan)"/>
-  <text x="140" y="37" text-anchor="middle" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="3" fill="#1a0f1e">COMMUNITY LIST</text>
+  <rect x="0" y="0" width="280" height="56" rx="20" fill="url(#g)"/>
+  <text x="140" y="36" text-anchor="middle" font-family="'Quicksand', 'Nunito', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2" fill="#ffffff">COMMUNITY LIST</text>
 </svg>
