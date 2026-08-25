@@ -32,7 +32,21 @@ This serves as a unified repository for all 3rd party extensions / sources for P
 
 # Paperback 0.9 Compatible Extension Repos
 
-*0.9 sources don’t work on 0.8. If you got Paperback from the App Store, you’re on 0.8. Access to 0.9 is currently through Patreon, TestFlight, or boosting the Paperback Discord — a public App Store release is planned.*
+*0.9 sources don’t work on 0.8. If you got Paperback from the [App Store](https://apps.apple.com/app/paperback-a-komga-client/id1626613373), you’re on 0.8.*
+
+<details>
+<summary><b>🎟️ How do I get Paperback 0.9?</b></summary>
+
+0.9 is invite-only through TestFlight for now. To request an invite:
+
+1. Join the official [Paperback Discord](https://discord.paperback.moe/).
+2. Become an active [Patreon supporter](https://www.patreon.com/FaizanDurrani) **or** a Discord server booster.
+3. Link your Discord account in your [Patreon app settings](https://www.patreon.com/settings/apps).
+4. Hit **Request TestFlight invitation** in the `📨・testflight` channel.
+
+Your email stays private — [here's why](https://youtu.be/JlawdANWYtw). A public App Store release for 0.9 is planned, so you can also just wait.
+
+</details>
 
 ### Manga/Manhwa/Novels
 
@@ -82,4 +96,6 @@ If the extension has both comic and manga sources, then add it to both.
 
 The website is generated straight from the tables in this README — add a row here and the site picks it up on the next deploy. Each repo's source list is pulled from its own `versioning.json` at build time and refreshed daily, so nothing needs listing by hand.
 
-### [Extension Discord](https://discord.gg/inkdex)
+## Support
+
+Please leave any issues on the developer's own repo, or ask in the [Inkdex Discord](https://discord.gg/inkdex) — [`#other-repos`](https://discord.com/channels/965890377896845352/1367512880228077648) is the channel for repos that aren't Inkdex's.
