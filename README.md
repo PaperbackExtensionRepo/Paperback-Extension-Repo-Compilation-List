@@ -4,7 +4,7 @@ The serves as a unified repository for all 3rd party extensions / sources for Pa
 **Please leave any issues on the developer's repo or discord**
 
 # Paperback 0.9 Compatible Extension Repos
--#0.9 sources don’t work on 0.8. If you got Paperback from the App Store, you’re on 0.8. Access to 0.9 is currently through Patreon, TestFlight, or boosting the Paperback Discord — a public App Store release is planned.
+*0.9 sources don’t work on 0.8. If you got Paperback from the App Store, you’re on 0.8. Access to 0.9 is currently through Patreon, TestFlight, or boosting the Paperback Discord — a public App Store release is planned.*
 ### Manga/Manhwa/Novels 
 | Name               | Repo                               | Github.io                                     |
 |--------------------|-----------------------------------------|------------------------------------------|
