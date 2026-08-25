@@ -3,7 +3,7 @@ The serves as a unified repository for all 3rd party extensions / sources for Pa
 
 **Please leave any issues on the developer's repo or discord**
 
-# Paperback 0.9 Compatible Sources Repos
+# Paperback 0.9 Compatible Extension Repos
 ### Manga/Manhwa/Novels 
 (You can not download 0.9 sources to the 0.8 version of the app, if you got your app on the appstore - you're on 0.8. 0.9 access **for now** is granted through patreon, testflight, or boosting the paperback server. A public app store release is planned))
 | Name               | Repo                               | Github.io                                     |
@@ -17,7 +17,7 @@ The serves as a unified repository for all 3rd party extensions / sources for Pa
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions | 
 
-# Paperback 0.8 Compatible Sources Repos
+# Paperback 0.8 Compatible Extension Repos
 ### Manga/Manhwa/Manhua
 | Name               | Repo                               | Github.io                                     |
 |--------------------|-----------------------------------------|------------------------------------------|
