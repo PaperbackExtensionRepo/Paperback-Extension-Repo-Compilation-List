@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/banner.svg?v=3" alt="Paperback Extension Repo — Paperback Extension &amp; Source Repo Compilation" width="100%"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/banner.svg?v=4" alt="Paperback Extension Repo — Paperback Extension &amp; Source Repo Compilation" width="100%"/>
 </p>
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-ios.svg?v=3" alt="iOS / iPadOS" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-version.svg?v=3" alt="Paperback 0.8 &amp; 0.9" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-count.svg?v=3" alt="17 repos" height="28"/>
-  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-community.svg?v=3" alt="Community list" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-ios.svg?v=4" alt="iOS / iPadOS" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-version.svg?v=4" alt="Paperback 0.8 &amp; 0.9" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-count.svg?v=4" alt="17 repos" height="28"/>
+  <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/badge-community.svg?v=4" alt="Community list" height="28"/>
 </p>
 
 <p align="center">
   <a href="https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/">
-    <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/button-browse.svg?v=3" alt="Browse and add to Paperback" height="52"/>
+    <img src="https://cdn.jsdelivr.net/gh/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List@main/media/button-browse.svg?v=4" alt="Browse and add to Paperback" height="52"/>
   </a>
 </p>
 
