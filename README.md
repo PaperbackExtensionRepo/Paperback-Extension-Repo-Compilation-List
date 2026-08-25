@@ -5,7 +5,6 @@ The serves as a unified repository for all 3rd party extensions / sources for Pa
 
 # Paperback 0.9 Compatible Extension Repos
 ### Manga/Manhwa/Novels 
-(You can not download 0.9 sources to the 0.8 version of the app, if you got your app on the appstore - you're on 0.8. 0.9 access **for now** is granted through patreon, testflight, or boosting the paperback server. A public app store release is planned))
 | Name               | Repo                               | Github.io                                     |
 |--------------------|-----------------------------------------|------------------------------------------|
 | Inkdex Extensions (0.9) | [https://inkdex.github.io/installation] | [https://github.com/inkdex/extensions]
@@ -16,6 +15,8 @@ The serves as a unified repository for all 3rd party extensions / sources for Pa
 | Kittykatgit Extensions (0.9) | https://kittycatgit.github.io/kitty-extensions-0.9/ | https://github.com/kittycatgit/kitty-extensions-0.9 |
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions | 
+
+*(You can not download 0.9 sources to the 0.8 version of the app, if you got your app on the appstore - you're on 0.8. 0.9 access **for now** is granted through patreon, testflight, or boosting the paperback server. A public app store release is planned)*
 
 # Paperback 0.8 Compatible Extension Repos
 ### Manga/Manhwa/Manhua
