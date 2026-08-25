@@ -236,8 +236,7 @@ console.log(`Wrote public/repos.json (${repos.length} repos).`);
 
 /* ------------------------------------------------- sitemap + robots.txt -- */
 
-const SITE_URL =
-	"https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/";
+const SITE_URL = "https://paperbackextensionrepo.xyz/";
 const today = new Date().toISOString().slice(0, 10);
 
 // single-page site, so the sitemap is one entry — lastmod moves with each build
