@@ -56,7 +56,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 
 | Name | Install (Add to Paperback) | GitHub |
 |------|----------------------------|--------|
-| Inkdex Extensions (0.9) | https://inkdex.github.io/extension-list | https://github.com/inkdex/extensions |
+| Inkdex Extensions (0.9) | https://inkdex.github.io/extensions/0.9/stable | https://github.com/inkdex/extensions |
 | Kakarot Extensions (0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension |
 | Pirate Vodka Extensions (0.9) | https://read.pirate.vodka/ | https://github.com/LucifersCircle/pirate.vodka-extensions |
 | PoppingMango Extensions (0.9) | https://poppingmangosources.github.io/general-extensions-mangago/0.9/test/ | https://github.com/PoppingMangoSources/general-extensions-mangago |
