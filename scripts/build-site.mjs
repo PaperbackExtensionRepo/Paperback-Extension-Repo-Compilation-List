@@ -97,31 +97,43 @@ function discordUrlForRepo(repo) {
 	return DISCORD_LINKS[repo.name] || "";
 }
 
-// Share buttons, no third-party widget: the network links are ordinary anchors
-// (so they work without JS and a crawler can see them) and share.js only adds
-// the native sheet and clipboard button on top.
-function shareCardHtml(title, path, blurb) {
+// Footer bar, EverythingMoe-style: site name and page links on the left,
+// community links on the right. Class names stay clear of "share"/"social"
+// wording because content blockers hide those wholesale.
+function siteBarHtml(title, path) {
 	const url = new URL(path, SITE_URL).href;
-	const encodedUrl = encodeURIComponent(url);
-	const encodedTitle = encodeURIComponent(title);
-	return `<section class="share-card" aria-labelledby="share-title">
-		<h2 id="share-title">💌 Share this page</h2>
-		<p class="share-blurb">${escapeHtml(blurb)}</p>
-		<div class="share-row" data-share-url="${escapeHtml(url)}" data-share-title="${escapeHtml(title)}">
-			<button type="button" class="share-btn share-native" hidden>
-				<span class="share-label">📤 Share…</span>
-			</button>
-			<button type="button" class="share-btn share-copy">
-				<span class="share-label">🔗 Copy link</span>
-			</button>
-			<a class="share-btn share-x" href="https://twitter.com/intent/tweet?text=${encodedTitle}&amp;url=${encodedUrl}" target="_blank" rel="noopener">Post on X</a>
-			<a class="share-btn share-reddit" href="https://www.reddit.com/submit?url=${encodedUrl}&amp;title=${encodedTitle}" target="_blank" rel="noopener">Reddit</a>
-			<a class="share-btn share-discord" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener">Discord</a>
+	return `<footer class="site-bar" data-page-url="${escapeHtml(url)}" data-page-title="${escapeHtml(title)}">
+		<div class="site-bar-inner">
+			<div class="bar-brand">
+				<span class="bar-name">paperbackextensionrepo.xyz</span>
+				<nav class="bar-links" aria-label="Site pages">
+					<a href="${ABOUT_PATH}">About</a>
+					<a href="${PAPERBACK_PATH}">Paperback</a>
+					<a href="${PAPERBACK_09_PATH}">Get 0.9</a>
+					<a href="${WORTH_KNOWING_PATH}">Worth knowing</a>
+				</nav>
+				<div class="bar-actions">
+					<button type="button" class="bar-action js-send" hidden>
+						<span class="bar-action-label">📤 Share</span>
+					</button>
+					<button type="button" class="bar-action js-copy">
+						<span class="bar-action-label">🔗 Copy link</span>
+					</button>
+				</div>
+			</div>
+			<div class="bar-community">
+				<span class="bar-label">Socials</span>
+				<div class="bar-orbs">
+					<a class="orb orb-gh" href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List" target="_blank" rel="noopener" title="This project on GitHub" aria-label="This project on GitHub"><span aria-hidden="true">🐙</span></a>
+					<a class="orb orb-dc" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener" title="Paperback Discord" aria-label="Paperback Discord"><span aria-hidden="true">💬</span></a>
+					<a class="orb orb-rd" href="https://www.reddit.com/r/Paperback" target="_blank" rel="noopener" title="r/Paperback on Reddit" aria-label="r/Paperback on Reddit"><span aria-hidden="true">👽</span></a>
+				</div>
+			</div>
 		</div>
-	</section>`;
+	</footer>`;
 }
 
-const SHARE_SCRIPT_HTML = `<script src="/share.js?v=20260826-share" defer></script>`;
+const SITE_SCRIPT_HTML = `<script src="/site.js?v=20260826-bar" defer></script>`;
 
 /* ---------------------------------------------------------------- README -- */
 
@@ -472,7 +484,7 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -492,10 +504,10 @@ function renderRepoPage(repo) {
 				<h2 id="repo-sources-title">Included sources</h2>
 				<div class="${sourceGridClass}"${sourceGridAttributes}>${sourceCards}</div>
 			</section>
-			${shareCardHtml(`${repo.name} — Paperback Extension Repo`, repo.page, `Point someone at ${repo.name} directly.`)}
 			${DISCLAIMER_HTML}
 		</main>
-		${SHARE_SCRIPT_HTML}
+		${siteBarHtml(`${repo.name} — Paperback Extension Repo`, repo.page)}
+		${SITE_SCRIPT_HTML}
 	</body>
 </html>
 `;
@@ -535,7 +547,7 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -554,10 +566,10 @@ function renderWorthKnowingPage() {
 					will not install on Paperback 0.8 or 0.9. Skip this repository.
 				</p>
 			</section>
-			${shareCardHtml("Paperback 0.6 repos and why they don't work — Paperback Extension Repo", WORTH_KNOWING_PATH, 'Warn someone before they install an outdated repo.')}
 			${DISCLAIMER_HTML}
 		</main>
-		${SHARE_SCRIPT_HTML}
+		${siteBarHtml("Paperback 0.6 repos and why they don't work — Paperback Extension Repo", WORTH_KNOWING_PATH)}
+		${SITE_SCRIPT_HTML}
 	</body>
 </html>
 `;
@@ -615,7 +627,7 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -697,10 +709,10 @@ function renderPaperback09Page() {
 					<p class="guide-credit">Invitation FAQ information is credited to the official <a href="https://paperback.moe/" target="_blank" rel="noopener">Paperback website</a>.</p>
 				</div>
 			</details>
-			${shareCardHtml('How to get Paperback 0.9 — Paperback Extension Repo', PAPERBACK_09_PATH, 'Send this to anyone asking how to get on 0.9.')}
 			${DISCLAIMER_HTML}
 		</main>
-		${SHARE_SCRIPT_HTML}
+		${siteBarHtml('How to get Paperback 0.9 — Paperback Extension Repo', PAPERBACK_09_PATH)}
+		${SITE_SCRIPT_HTML}
 	</body>
 </html>
 `;
@@ -729,7 +741,7 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -755,10 +767,10 @@ function renderAppStorePage() {
 					<li>Macs running macOS 11.0 or later <span class="muted-note">(Intel-based Macs are not supported)</span></li>
 				</ul>
 			</section>
-			${shareCardHtml('Paperback on the App Store — Paperback Extension Repo', APP_STORE_PATH, 'Share the App Store guide.')}
 			${DISCLAIMER_HTML}
 		</main>
-		${SHARE_SCRIPT_HTML}
+		${siteBarHtml('Paperback on the App Store — Paperback Extension Repo', APP_STORE_PATH)}
+		${SITE_SCRIPT_HTML}
 	</body>
 </html>
 `;
@@ -786,7 +798,7 @@ function pageHead(title, description, path) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />`;
+		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />`;
 }
 
 function renderAboutPage() {
@@ -911,10 +923,10 @@ function renderAboutPage() {
 				</p>
 			</section>
 
-			${shareCardHtml("About the Paperback Extension Repo directory", ABOUT_PATH, "Show someone how this directory is put together.")}
 			${DISCLAIMER_HTML}
 		</main>
-		${SHARE_SCRIPT_HTML}
+		${siteBarHtml("About the Paperback Extension Repo directory", ABOUT_PATH)}
+		${SITE_SCRIPT_HTML}
 	</body>
 </html>
 `;
@@ -1057,10 +1069,10 @@ function renderPaperbackPage() {
 				</ul>
 			</section>
 
-			${shareCardHtml("What is Paperback? — Paperback Extension Repo", PAPERBACK_PATH, "Send this to someone new to Paperback.")}
 			${DISCLAIMER_HTML}
 		</main>
-		${SHARE_SCRIPT_HTML}
+		${siteBarHtml("What is Paperback? — Paperback Extension Repo", PAPERBACK_PATH)}
+		${SITE_SCRIPT_HTML}
 	</body>
 </html>
 `;

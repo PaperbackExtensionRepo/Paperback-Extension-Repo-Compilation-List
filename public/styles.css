@@ -1321,123 +1321,6 @@ noscript {
 	}
 }
 
-/* --------------------------------------------------------------- sharing --- */
-
-.share-card {
-	background: linear-gradient(135deg, #fff7fb, #f4fbff);
-	border: 1.5px solid var(--border-soft);
-	border-radius: var(--radius);
-	padding: 1.15em 1.15em 1.25em;
-	margin-bottom: 1.1em;
-	box-shadow: var(--shadow);
-	text-align: center;
-}
-
-.share-card h2 {
-	margin: 0 0 0.25em;
-	font-size: 1.02em;
-	color: var(--pink-deep);
-}
-
-.share-blurb {
-	margin: 0 0 0.9em;
-	font-size: 0.86em;
-	font-weight: 500;
-	color: var(--gray);
-}
-
-.share-row {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 0.5em;
-}
-
-.share-btn {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	padding: 0.5em 1em;
-	border: 1.5px solid;
-	border-radius: 999px;
-	font-family: inherit;
-	font-size: 0.78em;
-	font-weight: 800;
-	line-height: 1.25;
-	white-space: nowrap;
-	text-decoration: none;
-	cursor: pointer;
-	transition:
-		transform 0.16s ease,
-		background 0.16s ease,
-		border-color 0.16s ease;
-}
-
-/* an explicit display beats the UA's [hidden] rule, so restore it — otherwise
-   the native share button shows on browsers with no share sheet */
-.share-btn[hidden] {
-	display: none;
-}
-
-.share-btn:hover,
-.share-btn:focus-visible {
-	transform: translateY(-1px);
-}
-
-/* the native sheet is the nicest option where it exists, so it leads */
-.share-native {
-	background: linear-gradient(120deg, var(--pink) 0%, var(--lilac) 100%);
-	border-color: transparent;
-	color: #fff;
-	box-shadow: 0 4px 12px rgba(255, 122, 184, 0.35);
-}
-
-.share-copy {
-	background: #fff0f8;
-	border-color: #ffc8e4;
-	color: var(--pink-deep);
-}
-.share-copy:hover,
-.share-copy:focus-visible {
-	background: #ffe3f2;
-}
-.share-copy.share-copied {
-	background: #ddf7ef;
-	border-color: #9fe4cd;
-	color: #17876a;
-}
-
-.share-x {
-	background: #f2f1f7;
-	border-color: #ddd9e8;
-	color: #4a4358;
-}
-.share-x:hover,
-.share-x:focus-visible {
-	background: #e7e5f0;
-}
-
-.share-reddit {
-	background: #fff1e9;
-	border-color: #ffd2ba;
-	color: #d2622c;
-}
-.share-reddit:hover,
-.share-reddit:focus-visible {
-	background: #ffe4d5;
-}
-
-.share-tg {
-	background: #e9f6fe;
-	border-color: #b9e2f8;
-	color: #1f7fae;
-}
-.share-tg:hover,
-.share-tg:focus-visible {
-	background: #d8eefd;
-}
-
 /* ---------------------------------------------------- guides + timestamp --- */
 
 .last-updated {
@@ -1532,16 +1415,6 @@ noscript {
 	margin-top: 0.6em;
 }
 
-/* Discord replaces Telegram in the share row */
-.share-discord {
-	background: #eeefff;
-	border-color: #cfd3f8;
-	color: #4b52b8;
-}
-.share-discord:hover,
-.share-discord:focus-visible {
-	background: #e2e4ff;
-}
 
 /* Long button labels on the guide pages (e.g. "Download Paperback from the
    App Store") can't fit one line on a small phone. Scoped to detail cards so
@@ -1557,4 +1430,185 @@ noscript {
 .about-steps code {
 	overflow-wrap: anywhere;
 	word-break: break-word;
+}
+
+/* ------------------------------------------------------------ site bar --- */
+
+/* full-bleed bar pinned to the bottom of every page */
+.site-bar {
+	border-top: 2px dashed var(--border);
+	background: linear-gradient(135deg, #fff2f8, #eefbfa);
+	padding: 1.4rem 1.5rem 2rem;
+}
+
+.site-bar-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1.2em;
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+.bar-brand {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	min-width: 0;
+}
+
+.bar-name {
+	font-size: 1.02em;
+	font-weight: 800;
+	background: linear-gradient(120deg, #ff7ab8 0%, #b08bf0 55%, #4fd3e0 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	overflow-wrap: anywhere;
+}
+
+.bar-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35em 0.9em;
+}
+
+.bar-links a {
+	color: var(--gray);
+	font-size: 0.86em;
+	font-weight: 700;
+	text-decoration: none;
+	border-bottom: 2px solid transparent;
+	transition:
+		color 0.16s ease,
+		border-color 0.16s ease;
+}
+
+.bar-links a:hover,
+.bar-links a:focus-visible {
+	color: var(--pink-deep);
+	border-bottom-color: var(--pink);
+}
+
+.bar-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4em;
+	margin-top: 0.15em;
+}
+
+.bar-action {
+	padding: 0.4em 0.85em;
+	border: 1.5px solid #ffc8e4;
+	border-radius: 999px;
+	background: #fff0f8;
+	color: var(--pink-deep);
+	font-family: inherit;
+	font-size: 0.76em;
+	font-weight: 800;
+	white-space: nowrap;
+	cursor: pointer;
+	transition:
+		transform 0.16s ease,
+		background 0.16s ease,
+		border-color 0.16s ease;
+}
+
+/* an explicit display would beat the UA's [hidden] rule, so keep this */
+.bar-action[hidden] {
+	display: none;
+}
+
+.bar-action:hover,
+.bar-action:focus-visible {
+	transform: translateY(-1px);
+	background: #ffe3f2;
+}
+
+.bar-action.is-copied {
+	background: #ddf7ef;
+	border-color: #9fe4cd;
+	color: #17876a;
+}
+
+.bar-community {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.5em;
+	flex: 0 0 auto;
+}
+
+.bar-label {
+	color: var(--gray);
+	font-size: 0.86em;
+	font-weight: 800;
+	letter-spacing: 0.03em;
+}
+
+.bar-orbs {
+	display: flex;
+	gap: 0.5em;
+}
+
+/* pastel bubble per social link */
+.orb {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 1.5px solid;
+	font-size: 1.15em;
+	line-height: 1;
+	text-decoration: none;
+	transition:
+		transform 0.18s ease,
+		box-shadow 0.18s ease;
+}
+
+.orb:hover,
+.orb:focus-visible {
+	transform: translateY(-2px) rotate(-6deg);
+}
+
+.orb-gh {
+	background: #fff0f7;
+	border-color: #ffc8e4;
+	box-shadow: 0 4px 12px rgba(255, 122, 184, 0.24);
+}
+
+.orb-dc {
+	background: #eeefff;
+	border-color: #cfd3f8;
+	box-shadow: 0 4px 12px rgba(120, 130, 235, 0.24);
+}
+
+.orb-rd {
+	background: #fff1e9;
+	border-color: #ffd2ba;
+	box-shadow: 0 4px 12px rgba(240, 150, 100, 0.24);
+}
+
+@media (max-width: 520px) {
+	.site-bar-inner {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.bar-brand {
+		align-items: center;
+	}
+
+	.bar-links,
+	.bar-actions {
+		justify-content: center;
+	}
+
+	.bar-community {
+		align-items: center;
+	}
 }
