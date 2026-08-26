@@ -369,7 +369,7 @@ function renderRepoPage(repo) {
 			? `<a class="repo-add" href="${escapeHtml(repo.install)}" target="_blank" rel="noopener">Add ${escapeHtml(repo.name)} to Paperback</a>`
 			: "",
 		repo.name === INKDEX_REPO_NAME
-			? `<a class="repo-community detail-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener">🌐 Community extensions · many repo developers contribute here</a>`
+			? `<a class="repo-community detail-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener">🌐 Community repo · many developers contribute here</a>`
 			: "",
 		discordUrl
 			? `<a class="repo-discord-link detail-discord" href="${escapeHtml(discordUrl)}" target="_blank" rel="noopener">💬 ${repo.version === "0.8" ? "Open Paperback 0.8 support on Discord" : "Open Discord support"}</a>`
@@ -409,7 +409,7 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-tags" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -469,7 +469,7 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-tags" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -546,7 +546,7 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-tags" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -657,7 +657,7 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-tags" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">

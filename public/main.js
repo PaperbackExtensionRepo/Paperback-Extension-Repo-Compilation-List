@@ -120,7 +120,7 @@ function renderRepo(repo, query, forceOpen) {
 
 	if (repo.name === INKDEX_REPO_NAME) {
 		metaLinks.push(
-			`<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community extensions · many repo developers contribute here</a>`,
+			`<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community repo</a>`,
 		);
 	}
 	if (discordUrl) {
