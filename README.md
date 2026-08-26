@@ -79,8 +79,8 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Seyden's Extensions (0.8) | https://seyden.github.io/community-extensions/0.8/ | https://github.com/Seyden/extensions-generic-0.8 |
 | Gabe's Extensions (0.8) | https://gabrielcwt.github.io/gabe-extensions/0.8 | https://github.com/gabrielcwt/gabe-extensions |
 | Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
-| Netsky's Generic Extensions (0.8) | https://thenetsky.github.io/extensions-generic-0.8/ | https://github.com/TheNetsky/extensions-generic-0.8 |
 | Netsky's Community Extensions (0.8) | https://thenetsky.github.io/community-extensions/0.8/ | https://github.com/TheNetsky/community-extensions |
+| Netsky's Generic Extensions (0.8) | https://thenetsky.github.io/extensions-generic-0.8/ | https://github.com/TheNetsky/extensions-generic-0.8 |
 
 ## Compatibility
 
