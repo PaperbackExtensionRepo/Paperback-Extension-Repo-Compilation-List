@@ -1325,46 +1325,16 @@ noscript {
 
 .last-updated {
 	color: var(--gray);
-	font-size: 0.82em;
+	font-size: 0.78em;
 	font-weight: 600;
+	opacity: 0.85;
 }
 
+/* count and timestamp read as one quiet line, never two */
 .list-meta {
 	flex-wrap: wrap;
-	gap: 0.35em 0.9em;
-}
-
-/* links to the standalone guide pages */
-.site-links {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 0.5em;
-	margin: 0 0 1.1em;
-}
-
-.site-links a {
-	display: inline-flex;
-	align-items: center;
-	padding: 0.5em 1em;
-	border: 1.5px solid var(--border);
-	border-radius: 999px;
-	background: var(--card);
-	color: var(--pink-deep);
-	font-size: 0.8em;
-	font-weight: 800;
-	text-decoration: none;
-	transition:
-		transform 0.16s ease,
-		border-color 0.16s ease,
-		background 0.16s ease;
-}
-
-.site-links a:hover,
-.site-links a:focus-visible {
-	transform: translateY(-1px);
-	border-color: var(--pink);
-	background: #fff7fb;
+	align-items: baseline;
+	gap: 0.15em 0.5em;
 }
 
 /* long-form copy on the about / paperback pages */

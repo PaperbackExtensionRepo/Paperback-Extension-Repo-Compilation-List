@@ -8,6 +8,7 @@
 // Repos that are unreachable, slow, or don't publish a versioning.json simply
 // end up with no source list — the site degrades to a plain link for those.
 
+import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -25,11 +26,29 @@ const APP_STORE_PATH = "/app-store/";
 const ABOUT_PATH = "/about/";
 const PAPERBACK_PATH = "/paperback/";
 
+// Cache-buster derived from the asset contents. Hand-edited version strings
+// went stale once already, and a browser holding the previous stylesheet
+// renders the page with half its styling missing.
+const ASSET_V = createHash("sha256")
+	.update(readFileSync(join(root, "public", "styles.css")))
+	.update(readFileSync(join(root, "public", "main.js")))
+	.update(readFileSync(join(root, "public", "site.js")))
+	.digest("hex")
+	.slice(0, 10);
+
 // One timestamp for the whole build, so the page, the about note and the
 // sitemap's lastmod can't disagree with each other.
 const BUILD_TIME = new Date();
 const BUILD_ISO = BUILD_TIME.toISOString();
 const BUILD_DAY = BUILD_ISO.slice(0, 10);
+// short form for the compact meta row above the list; the About page keeps
+// the long form where there's room for it
+const BUILD_SHORT = BUILD_TIME.toLocaleDateString("en-GB", {
+	day: "numeric",
+	month: "short",
+	year: "numeric",
+	timeZone: "UTC",
+});
 const BUILD_READABLE = BUILD_TIME.toLocaleDateString("en-GB", {
 	day: "numeric",
 	month: "long",
@@ -168,7 +187,7 @@ function siteBarHtml(title, path) {
 	</footer>`;
 }
 
-const SITE_SCRIPT_HTML = `<script src="/site.js?v=20260826-drawer" defer></script>`;
+const SITE_SCRIPT_HTML = `<script src="/site.js?v=${ASSET_V}" defer></script>`;
 
 /* ---------------------------------------------------------------- README -- */
 
@@ -435,9 +454,13 @@ if (!lastUpdatedPattern.test(homepageWithStaticRepoLinks)) {
 }
 const homepageWithStamp = homepageWithStaticRepoLinks.replace(
 	lastUpdatedPattern,
-	`<!-- last-updated:start --><time datetime="${BUILD_ISO}">${BUILD_READABLE}</time><!-- last-updated:end -->`,
+	`<!-- last-updated:start --><time datetime="${BUILD_ISO}">${BUILD_SHORT}</time><!-- last-updated:end -->`,
 );
-writeFileSync(homepagePath, homepageWithStamp);
+const homepageWithAssets = homepageWithStamp.replace(
+	/(styles\.css|main\.js|site\.js)\?v=[^"']*/g,
+	`$1?v=${ASSET_V}`,
+);
+writeFileSync(homepagePath, homepageWithAssets);
 console.log(`Pre-rendered ${repos.length} internal repository links and stamped ${BUILD_DAY} in public/index.html.`);
 
 /* ------------------------------------------------------- individual pages -- */
@@ -519,7 +542,7 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
+		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(repo.page)}
@@ -583,7 +606,7 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
+		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(WORTH_KNOWING_PATH)}
@@ -664,7 +687,7 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
+		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(PAPERBACK_09_PATH)}
@@ -779,7 +802,7 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
+		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(APP_STORE_PATH)}
@@ -837,7 +860,7 @@ function pageHead(title, description, path) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />`;
+		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />`;
 }
 
 function renderAboutPage() {
