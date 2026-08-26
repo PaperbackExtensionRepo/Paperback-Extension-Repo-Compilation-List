@@ -132,6 +132,50 @@ const GITHUB_REPO_URL =
 const PAPERBACK_REDDIT = "https://www.reddit.com/r/Paperback";
 const PAPERBACK_X = "https://twitter.com/paperbackios";
 
+// Structured data. Repo pages describe the repository as a SoftwareApplication
+// so a crawler can tell one listing from another; guide pages describe themselves.
+function jsonLdHtml(node) {
+	return `<script type="application/ld+json">${JSON.stringify(node, null, "\t").replace(/</g, "\\u003c")}</script>`;
+}
+
+function repoJsonLd(repo) {
+	const url = new URL(repo.page, SITE_URL).href;
+	const node = {
+		"@context": "https://schema.org",
+		"@type": "SoftwareApplication",
+		name: repo.name,
+		url,
+		applicationCategory: "BookApplication",
+		operatingSystem: "iOS, iPadOS",
+		softwareRequirements: `Paperback ${repo.version}`,
+		isAccessibleForFree: true,
+		offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+		mainEntityOfPage: { "@type": "WebPage", "@id": url },
+		isPartOf: { "@id": `${SITE_URL}#website` },
+	};
+	if (repo.install) node.installUrl = repo.install;
+	if (repo.github) node.codeRepository = repo.github;
+	if (repo.sources.length) {
+		node.description = `${repo.name} is a Paperback ${repo.version} extension repository with ${repo.sources.length} source${repo.sources.length === 1 ? "" : "s"}.`;
+		node.featureList = repo.sources.map((source) => source.name);
+	}
+	return jsonLdHtml(node);
+}
+
+function guideJsonLd(title, description, path) {
+	const url = new URL(path, SITE_URL).href;
+	return jsonLdHtml({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		name: title,
+		description,
+		url,
+		inLanguage: "en",
+		isPartOf: { "@id": `${SITE_URL}#website` },
+		dateModified: BUILD_DAY,
+	});
+}
+
 // Slide-out navigation drawer, present on every page. Rendered in the markup
 // rather than injected by JS so it still lists every page for a crawler, and
 // so there's nothing to shift once scripts run.
@@ -157,9 +201,9 @@ function sidebarHtml(currentPath) {
 			${item(APP_STORE_PATH, "🍎", "App Store")}
 			${item(WORTH_KNOWING_PATH, "⚠️", "Worth knowing")}
 			<p class="drawer-heading">Sections</p>
-			<a class="drawer-item" href="/#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 repos</a>
-			<a class="drawer-item" href="/#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 repos</a>
-			<a class="drawer-item" href="/#individual-repos"><span class="drawer-icon" aria-hidden="true">📚</span>Individual repos</a>
+			<a class="drawer-item" href="/#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 Repos</a>
+			<a class="drawer-item" href="/#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 Repos</a>
+			<a class="drawer-item" href="/#individual-repos"><span class="drawer-icon" aria-hidden="true">📚</span>Individual Repos</a>
 			<p class="drawer-heading">Socials</p>
 			<a class="drawer-item" href="${GITHUB_REPO_URL}" target="_blank" rel="noopener"><span class="drawer-icon brand-gh">${BRAND.github}</span>GitHub</a>
 			<a class="drawer-item" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener"><span class="drawer-icon brand-dc">${BRAND.discord}</span>Discord</a>
@@ -182,8 +226,8 @@ function siteBarHtml(title, path) {
 					<a href="${ABOUT_PATH}">About</a>
 					<a href="${PAPERBACK_PATH}">Paperback</a>
 					<a href="${PAPERBACK_09_PATH}">Get 0.9</a>
-					<a href="/#individual-repos">Individual repos</a>
-					<a href="${WORTH_KNOWING_PATH}">Worth knowing</a>
+					<a href="/#individual-repos">Individual Repos</a>
+					<a href="${WORTH_KNOWING_PATH}">Worth Knowing</a>
 				</nav>
 				<div class="bar-actions">
 					<button type="button" class="bar-action js-send" hidden>
@@ -562,10 +606,9 @@ function renderRepoPage(repo) {
 		<meta property="og:type" content="website" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
+		${repoJsonLd(repo)}
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(repo.page)}
@@ -626,10 +669,9 @@ function renderWorthKnowingPage() {
 		<meta property="og:type" content="website" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
+		${guideJsonLd("Paperback 0.6 repositories and why they no longer work", description, WORTH_KNOWING_PATH)}
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(WORTH_KNOWING_PATH)}
@@ -707,10 +749,9 @@ function renderPaperback09Page() {
 		<meta property="og:image" content="${SITE_URL}media/paperback-0-9/explore.webp" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
+		${guideJsonLd("How to get Paperback 0.9", description, PAPERBACK_09_PATH)}
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(PAPERBACK_09_PATH)}
@@ -822,10 +863,9 @@ function renderAppStorePage() {
 		<meta property="og:type" content="website" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
+		${guideJsonLd("Paperback on the App Store", description, APP_STORE_PATH)}
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(APP_STORE_PATH)}
@@ -880,10 +920,9 @@ function pageHead(title, description, path) {
 		<link rel="icon" href="/favicon.ico" sizes="32x32" />
 		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />`;
+		<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin />
+		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
+		${guideJsonLd(title, description, path)}`;
 }
 
 function renderAboutPage() {
