@@ -28,6 +28,7 @@ const DISCLAIMER_HTML = `<aside class="site-disclaimer">
 	All names, trademarks, and logos belong to their respective owners. This website only compiles links and
 	does not own or maintain the linked repositories.
 </aside>`;
+const SITE_LOGO_HTML = `<img class="site-logo" src="/favicon.svg" alt="Paperback Extension Repo logo" width="96" height="96" />`;
 
 function escapeHtml(value) {
 	return String(value).replace(
@@ -377,10 +378,11 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
+			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
 			<p class="detail-eyebrow">Paperback ${escapeHtml(repo.version)} · ${escapeHtml(repo.category)}</p>
 			<h1><span class="main-heading">${escapeHtml(repo.name)}</span></h1>
@@ -436,10 +438,11 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
+			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">⚠️ 🌸 ⚠️</span>
 			<h1><span class="main-heading">Worth knowing</span></h1>
 			<p class="main-description">${description}</p>
@@ -512,10 +515,11 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
+			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🎟️ 🌸 ✨</span>
 			<h1><span class="main-heading">How do I get Paperback 0.9?</span></h1>
 			<p class="main-description">${description}</p>
@@ -622,10 +626,11 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
+			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">📱 🌷 ✨</span>
 			<h1><span class="main-heading">Paperback on the App Store</span></h1>
 			<p class="main-description">${description}</p>

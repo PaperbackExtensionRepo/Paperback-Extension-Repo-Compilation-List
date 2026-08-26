@@ -64,6 +64,20 @@ header {
 	text-align: center;
 }
 
+.site-logo {
+	display: block;
+	width: 96px;
+	height: 96px;
+	margin: 0 auto 0.75em;
+	border: 2px solid rgba(255, 255, 255, 0.86);
+	border-radius: 25px;
+	box-shadow:
+		0 10px 26px rgba(255, 122, 184, 0.2),
+		0 4px 14px rgba(79, 211, 224, 0.18),
+		inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	filter: saturate(0.96);
+}
+
 .header-sparkle {
 	font-size: 1.6em;
 	letter-spacing: 0.35em;
@@ -593,10 +607,12 @@ main {
 	color: #fff;
 }
 .repo-version-09 {
-	background: linear-gradient(120deg, var(--cyan), var(--mint));
+	background: linear-gradient(120deg, #59d4e6, #78dfc1);
+	box-shadow: 0 2px 7px rgba(79, 211, 224, 0.28);
 }
 .repo-version-08 {
-	background: linear-gradient(120deg, var(--pink), var(--lilac));
+	background: linear-gradient(120deg, #9f8be8, #c6a4ee);
+	box-shadow: 0 2px 7px rgba(159, 139, 232, 0.3);
 }
 
 .repo-url {
