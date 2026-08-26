@@ -123,15 +123,17 @@ function renderRepo(repo, query, forceOpen) {
 	if (repo.name === INKDEX_REPO_NAME) {
 		communityTag = `<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community</a>`;
 	}
-	// the Discord tag rides under the install button rather than in the left
-	// column — that corner is otherwise dead space, and it keeps the tag away
-	// from the wrapping repo url
 	let discordTag = "";
 	if (discordUrl) {
 		const discordLabel =
 			repo.version === "0.8" ? "0.8 support on Discord" : "Discord support";
 		discordTag = `<a class="repo-discord-link" href="${escapeHtml(discordUrl)}" target="_blank" rel="noopener" aria-label="${escapeHtml(repo.name)} ${discordLabel}">💬 ${discordLabel}</a>`;
 	}
+	// Inkdex already spends its left column on the community tag, so its Discord
+	// tag hangs under the GitHub icon instead; every other card has room beneath
+	// the url, where the tag sits closer to what it describes.
+	const discordUnderActions = communityTag ? discordTag : "";
+	const discordUnderUrl = communityTag ? "" : discordTag;
 
 	if (repo.install) {
 		actions.push(
@@ -153,10 +155,11 @@ function renderRepo(repo, query, forceOpen) {
 					${communityTag}
 				</div>
 				<span class="repo-url">${escapeHtml(prettyUrl(primary))}</span>
+				${discordUnderUrl ? `<div class="repo-url-tag">${discordUnderUrl}</div>` : ""}
 			</div>
 			<div class="repo-actions">
 				<div class="repo-action-row">${actions.join("")}</div>
-				${discordTag}
+				${discordUnderActions}
 			</div>
 		</div>
 		${renderSourcesSection(repo, query, forceOpen)}

@@ -625,9 +625,15 @@ main {
 .repo-actions {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: flex-end;
 	gap: 0.45em;
 	flex: 0 0 auto;
+}
+
+/* Discord tag sitting under the repo url in the left column */
+.repo-url-tag {
+	display: flex;
+	margin-top: 0.4em;
 }
 
 .repo-action-row {
