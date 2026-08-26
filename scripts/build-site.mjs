@@ -22,6 +22,20 @@ const SITE_URL = "https://paperbackextensionrepo.xyz/";
 const WORTH_KNOWING_PATH = "/therobbiedavis/paperback-extension-repo/";
 const PAPERBACK_09_PATH = "/paperback-0-9/";
 const APP_STORE_PATH = "/app-store/";
+const ABOUT_PATH = "/about/";
+const PAPERBACK_PATH = "/paperback/";
+
+// One timestamp for the whole build, so the page, the about note and the
+// sitemap's lastmod can't disagree with each other.
+const BUILD_TIME = new Date();
+const BUILD_ISO = BUILD_TIME.toISOString();
+const BUILD_DAY = BUILD_ISO.slice(0, 10);
+const BUILD_READABLE = BUILD_TIME.toLocaleDateString("en-GB", {
+	day: "numeric",
+	month: "long",
+	year: "numeric",
+	timeZone: "UTC",
+});
 const DISCLAIMER_HTML = `<aside class="site-disclaimer">
 	<strong>Independent community directory.</strong>
 	The extensions and repositories listed here are not affiliated with Paperback or the websites they support.
@@ -40,6 +54,9 @@ const DISCORD_LINKS = {
 };
 const SUPPORT_08_DISCORD =
 	"https://discord.com/channels/965890377896845352/1266865492455588000";
+// Discord has no share-intent URL, so the button opens the server — paired with
+// "Copy link" that's the actual way people share a link there
+const PAPERBACK_DISCORD = "https://discord.paperback.moe/";
 const INKDEX_REPO_NAME = "Inkdex Extensions";
 
 function escapeHtml(value) {
@@ -99,7 +116,7 @@ function shareCardHtml(title, path, blurb) {
 			</button>
 			<a class="share-btn share-x" href="https://twitter.com/intent/tweet?text=${encodedTitle}&amp;url=${encodedUrl}" target="_blank" rel="noopener">Post on X</a>
 			<a class="share-btn share-reddit" href="https://www.reddit.com/submit?url=${encodedUrl}&amp;title=${encodedTitle}" target="_blank" rel="noopener">Reddit</a>
-			<a class="share-btn share-tg" href="https://t.me/share/url?url=${encodedUrl}&amp;text=${encodedTitle}" target="_blank" rel="noopener">Telegram</a>
+			<a class="share-btn share-discord" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener">Discord</a>
 		</div>
 	</section>`;
 }
@@ -361,8 +378,20 @@ const homepageWithStaticRepoLinks = homepage.replace(
 ${individualRepoLinks}
 \t\t\t\t\t\t<!-- individual-repo-links:end -->`,
 );
-writeFileSync(homepagePath, homepageWithStaticRepoLinks);
-console.log(`Pre-rendered ${repos.length} internal repository links in public/index.html.`);
+
+// Stamp the rebuild date into the page itself rather than rendering it from
+// repos.json, so it is there for readers and crawlers with JS turned off.
+const lastUpdatedPattern = /<!-- last-updated:start -->[\s\S]*?<!-- last-updated:end -->/;
+if (!lastUpdatedPattern.test(homepageWithStaticRepoLinks)) {
+	console.error("Last-updated markers are missing from public/index.html.");
+	process.exit(1);
+}
+const homepageWithStamp = homepageWithStaticRepoLinks.replace(
+	lastUpdatedPattern,
+	`<!-- last-updated:start --><time datetime="${BUILD_ISO}">${BUILD_READABLE}</time><!-- last-updated:end -->`,
+);
+writeFileSync(homepagePath, homepageWithStamp);
+console.log(`Pre-rendered ${repos.length} internal repository links and stamped ${BUILD_DAY} in public/index.html.`);
 
 /* ------------------------------------------------------- individual pages -- */
 
@@ -735,9 +764,313 @@ function renderAppStorePage() {
 `;
 }
 
+// Shared <head> for the standalone guide pages — they only differ by title,
+// description and canonical, and drifting apart is how a page loses its icon.
+function pageHead(title, description, path) {
+	const canonical = new URL(path, SITE_URL).href;
+	const fullTitle = `${title} — Paperback Extension Repo`;
+	return `<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="color-scheme" content="light" />
+		<meta name="theme-color" content="#fff5fa" />
+		<meta name="description" content="${escapeHtml(description)}" />
+		<title>${escapeHtml(fullTitle)}</title>
+		<link rel="canonical" href="${escapeHtml(canonical)}" />
+		<meta property="og:title" content="${escapeHtml(fullTitle)}" />
+		<meta property="og:description" content="${escapeHtml(description)}" />
+		<meta property="og:url" content="${escapeHtml(canonical)}" />
+		<meta property="og:type" content="article" />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />`;
+}
+
+function renderAboutPage() {
+	const description =
+		"How this Paperback repository directory is put together: which repos get listed, where each source list comes from, how often the site rebuilds, and who maintains it.";
+
+	return `<!doctype html>
+<html lang="en">
+	<head>
+		${pageHead("About this directory", description, ABOUT_PATH)}
+	</head>
+	<body class="repo-detail-page">
+		<header class="detail-header">
+			${SITE_LOGO_HTML}
+			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
+			<h1><span class="main-heading">About this directory</span></h1>
+			<p class="main-description">${escapeHtml(description)}</p>
+		</header>
+		<main>
+			<a class="detail-back" href="/">← Back to all repositories</a>
+
+			<section class="repo-detail-card">
+				<h2>What this site is</h2>
+				<p>
+					Paperback Extension Repo is an independent, community-run index of
+					extension repositories for the
+					<a href="https://paperback.moe" target="_blank" rel="noopener">Paperback</a>
+					reading app. It exists because these repositories are scattered
+					across GitHub, Discord messages and forum posts, and there was no
+					single place to see what exists and which Paperback version each one
+					targets.
+				</p>
+				<p>
+					The site hosts nothing itself. Every repository listed here belongs
+					to the developer who built it, and installing one sends you straight
+					to their own URL.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>How a repository gets listed</h2>
+				<p>A repository is added when it meets all of these:</p>
+				<ul class="about-list">
+					<li>It is a genuine Paperback extension repository — it publishes a <code>versioning.json</code> manifest that the app can install from.</li>
+					<li>It targets Paperback <strong>0.8</strong> or <strong>0.9</strong>. Repositories built for 0.6 and earlier are not listed as installable; the one that still shows up in search results is <a href="${WORTH_KNOWING_PATH}">documented separately</a> so people stop trying it.</li>
+					<li>It is publicly reachable, without a login or paywall.</li>
+					<li>Its developer publishes it for others to use.</li>
+				</ul>
+				<p>
+					There is no ranking, no sponsorship and no paid placement. Ordering
+					within each version section is simply the order repositories were
+					added. Nobody pays to appear here and nothing is accepted in exchange
+					for a listing.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Where the source lists come from</h2>
+				<p>
+					The repository table lives in the project's
+					<a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List/blob/main/README.md" target="_blank" rel="noopener">README on GitHub</a>,
+					which is the single source of truth for what is listed. Everything
+					else is generated from it.
+				</p>
+				<p>
+					The list of sources shown under each repository is not typed by hand.
+					On every build the site fetches each repository's own
+					<code>versioning.json</code> and reads the sources, versions and
+					content ratings straight out of it. That means a source list here can
+					never be more than a day out of date with the repository it describes,
+					and if a developer adds or removes a source it appears here on the
+					next build without anyone editing this site.
+				</p>
+				<p>
+					When a repository is unreachable at build time, its card says
+					<em>"Source list unavailable"</em> rather than showing a stale list
+					from an earlier build.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>How often it updates</h2>
+				<p>
+					The site rebuilds automatically once a day, and again whenever the
+					repository list changes. Both the repository list and every source
+					list are regenerated on each build.
+				</p>
+				<p class="about-stamp">
+					Last rebuilt
+					<time datetime="${BUILD_ISO}"><strong>${BUILD_READABLE}</strong></time>.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Corrections and additions</h2>
+				<p>
+					If a repository is missing, listed under the wrong version, or has
+					moved, please
+					<a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List/issues" target="_blank" rel="noopener">open an issue</a>
+					or
+					<a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List" target="_blank" rel="noopener">send a pull request</a>
+					— editing one row of the README is enough. Repository developers who
+					would rather not be listed can ask and it will be removed.
+				</p>
+				<p>
+					For help with an extension itself, contact its developer rather than
+					this site: their GitHub link is on every card, and the Paperback
+					Discord has an
+					<a href="https://discord.com/channels/965890377896845352/1266865492455588000" target="_blank" rel="noopener">#other-repos</a>
+					channel for repositories that aren't Inkdex's.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Independence</h2>
+				<p>
+					This site is not affiliated with Paperback, with Inkdex, or with any
+					of the repositories it lists. All names, trademarks and logos belong
+					to their respective owners. It carries no advertising, no tracking
+					scripts and no analytics — nothing you do here is recorded or sent
+					anywhere.
+				</p>
+			</section>
+
+			${shareCardHtml("About the Paperback Extension Repo directory", ABOUT_PATH, "Show someone how this directory is put together.")}
+			${DISCLAIMER_HTML}
+		</main>
+		${SHARE_SCRIPT_HTML}
+	</body>
+</html>
+`;
+}
+
+function renderPaperbackPage() {
+	const description =
+		"What Paperback is, why it ships with no content of its own, the three types of extension it supports, and step-by-step instructions for installing an extension repository on both Paperback 0.9 and 0.8.";
+
+	return `<!doctype html>
+<html lang="en">
+	<head>
+		${pageHead("What is Paperback?", description, PAPERBACK_PATH)}
+	</head>
+	<body class="repo-detail-page">
+		<header class="detail-header">
+			${SITE_LOGO_HTML}
+			<span class="header-sparkle" aria-hidden="true">📖 ✨ 🌸</span>
+			<h1><span class="main-heading">What is Paperback?</span></h1>
+			<p class="main-description">${escapeHtml(description)}</p>
+		</header>
+		<main>
+			<a class="detail-back" href="/">← Back to all repositories</a>
+
+			<section class="repo-detail-card">
+				<h2>The app</h2>
+				<p>
+					Paperback is a modern, ad-free reading app for Apple devices. It
+					offers a smooth, distraction-free experience with offline reading,
+					iCloud sync and progress tracking.
+				</p>
+				<p>
+					By default Paperback comes with <strong>no built-in content</strong>.
+					To read anything you need to install <strong>extensions</strong>,
+					which connect the app to reading sources. That is what the
+					repositories on this site provide.
+				</p>
+				<p>
+					🌐 The
+					<a href="https://paperback.moe" target="_blank" rel="noopener">Paperback website</a>
+					has installation instructions, FAQs and guides for the app itself.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Extension types</h2>
+				<p>Paperback supports three kinds of extension:</p>
+				<ul class="about-list">
+					<li><strong>📚 Content providing</strong> — adds readable chapters to the app.</li>
+					<li><strong>📈 Tracking</strong> — syncs your progress with services like <a href="https://anilist.co" target="_blank" rel="noopener">AniList</a> and <a href="https://www.goodreads.com" target="_blank" rel="noopener">Goodreads</a>.</li>
+					<li><strong>📂 Collection management</strong> — syncs your library with external services such as <a href="https://anilist.co" target="_blank" rel="noopener">AniList</a>.</li>
+				</ul>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Installing extensions</h2>
+				<h3>On Paperback 0.9</h3>
+				<p>
+					Tap <strong>Add to Paperback</strong> on any 0.9 repository on this
+					site, or add it by hand:
+				</p>
+				<ol class="about-steps">
+					<li>Open the Paperback app.</li>
+					<li>Tap the cog to open <strong>Settings</strong>.</li>
+					<li>Tap <strong>Extensions</strong>.</li>
+					<li>Tap <strong>+</strong> and choose <strong>Source Repository</strong>.</li>
+					<li>Paste the repository's base URL into the <strong>Repository Base URL</strong> field — for Inkdex that is <code>https://inkdex.github.io/extensions/0.9/stable</code>.</li>
+				</ol>
+				<h3>On Paperback 0.8</h3>
+				<p>
+					If you installed the app from the
+					<a href="${APP_STORE_PATH}">App Store</a> you are most likely on
+					0.8, so look through the <a href="/#version-0-8">0.8 repositories</a>
+					for compatible extensions.
+				</p>
+				<p class="about-aside">
+					Not sure which version you have? It is probably 0.8.
+				</p>
+				<p>
+					There is a
+					<a href="https://www.youtube.com/watch?v=GU9prPNmRt8" target="_blank" rel="noopener">video walkthrough for installing on 0.8</a>
+					if you would rather watch someone do it.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>What's new in 0.9</h2>
+				<h3>New features</h3>
+				<ul class="about-list">
+					<li>Novel support</li>
+					<li>iCloud synchronisation</li>
+					<li>Two-way tracker synchronisation</li>
+				</ul>
+				<h3>Improvements</h3>
+				<ul class="about-list">
+					<li>A modernised interface</li>
+					<li>Improved usability</li>
+					<li>Increased reliability</li>
+					<li>Better performance</li>
+				</ul>
+				<p>
+					0.9 is invite-only through TestFlight at the moment —
+					<a href="${PAPERBACK_09_PATH}">here is how to request an invitation</a>.
+					An App Store release date for 0.9 has not been announced, but a public
+					release is expected in the coming months.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Inkdex</h2>
+				<p>
+					Inkdex is a community-driven project that develops and maintains
+					extensions for Paperback, covering manga, comics, light novels and
+					more. It is the largest single repository listed on this site.
+				</p>
+				<p>
+					🌐 The
+					<a href="https://inkdex.github.io" target="_blank" rel="noopener">Inkdex website</a>
+					has installation instructions, extension development documentation
+					and an
+					<a href="https://inkdex.github.io/faq" target="_blank" rel="noopener">FAQ page</a>
+					that answers most 0.9 questions.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Official links</h2>
+				<h3>📕 Paperback</h3>
+				<ul class="about-list">
+					<li><a href="https://paperback.moe" target="_blank" rel="noopener">Website</a></li>
+					<li><a href="https://github.com/Paperback-iOS" target="_blank" rel="noopener">GitHub</a></li>
+					<li><a href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener">Discord</a></li>
+					<li><a href="https://twitter.com/paperbackios" target="_blank" rel="noopener">X (formerly Twitter)</a></li>
+					<li><a href="https://www.reddit.com/r/Paperback" target="_blank" rel="noopener">Reddit</a> <span class="muted-note">(closed)</span></li>
+				</ul>
+				<h3>✏️ Inkdex</h3>
+				<ul class="about-list">
+					<li><a href="https://inkdex.github.io" target="_blank" rel="noopener">Website</a></li>
+					<li><a href="https://github.com/inkdex" target="_blank" rel="noopener">GitHub</a></li>
+				</ul>
+			</section>
+
+			${shareCardHtml("What is Paperback? — Paperback Extension Repo", PAPERBACK_PATH, "Send this to someone new to Paperback.")}
+			${DISCLAIMER_HTML}
+		</main>
+		${SHARE_SCRIPT_HTML}
+	</body>
+</html>
+`;
+}
+
 for (const [directoryName, html] of [
 	["paperback-0-9", renderPaperback09Page()],
 	["app-store", renderAppStorePage()],
+	["about", renderAboutPage()],
+	["paperback", renderPaperbackPage()],
 ]) {
 	const directory = join(root, "public", directoryName);
 	rmSync(directory, { recursive: true, force: true });
@@ -752,6 +1085,8 @@ console.log("Wrote the Paperback 0.9 and App Store pages.");
 
 const sitemapUrls = [
 	SITE_URL,
+	new URL(ABOUT_PATH, SITE_URL).href,
+	new URL(PAPERBACK_PATH, SITE_URL).href,
 	new URL(WORTH_KNOWING_PATH, SITE_URL).href,
 	new URL(PAPERBACK_09_PATH, SITE_URL).href,
 	new URL(APP_STORE_PATH, SITE_URL).href,
@@ -761,6 +1096,7 @@ const sitemapEntries = sitemapUrls
 	.map(
 		(url) => `\t<url>
 \t\t<loc>${escapeXml(url)}</loc>
+\t\t<lastmod>${BUILD_DAY}</lastmod>
 \t</url>`,
 	)
 	.join("\n");

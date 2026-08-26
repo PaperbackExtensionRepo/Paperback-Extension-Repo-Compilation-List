@@ -1139,6 +1139,9 @@ noscript {
 		box-sizing: border-box;
 		text-align: center;
 		width: 100%;
+		/* full width already, so a long label should wrap instead of
+		   pushing the page sideways on a small phone */
+		white-space: normal;
 	}
 }
 
@@ -1433,4 +1436,125 @@ noscript {
 .share-tg:hover,
 .share-tg:focus-visible {
 	background: #d8eefd;
+}
+
+/* ---------------------------------------------------- guides + timestamp --- */
+
+.last-updated {
+	color: var(--gray);
+	font-size: 0.82em;
+	font-weight: 600;
+}
+
+.list-meta {
+	flex-wrap: wrap;
+	gap: 0.35em 0.9em;
+}
+
+/* links to the standalone guide pages */
+.site-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5em;
+	margin: 0 0 1.1em;
+}
+
+.site-links a {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5em 1em;
+	border: 1.5px solid var(--border);
+	border-radius: 999px;
+	background: var(--card);
+	color: var(--pink-deep);
+	font-size: 0.8em;
+	font-weight: 800;
+	text-decoration: none;
+	transition:
+		transform 0.16s ease,
+		border-color 0.16s ease,
+		background 0.16s ease;
+}
+
+.site-links a:hover,
+.site-links a:focus-visible {
+	transform: translateY(-1px);
+	border-color: var(--pink);
+	background: #fff7fb;
+}
+
+/* long-form copy on the about / paperback pages */
+.about-list,
+.about-steps {
+	margin: 0.6em 0 0.9em;
+	padding-left: 1.35em;
+	line-height: 1.6;
+}
+
+.about-list {
+	list-style: "🌸  ";
+}
+
+.about-list li,
+.about-steps li {
+	margin-bottom: 0.5em;
+	padding-left: 0.15em;
+}
+
+.about-steps li::marker {
+	color: var(--pink-deep);
+	font-weight: 800;
+}
+
+.about-stamp {
+	margin-top: 0.9em;
+	padding: 0.7em 1em;
+	border-radius: 999px;
+	background: var(--bg-mint);
+	color: #1f7f76;
+	font-size: 0.9em;
+	text-align: center;
+}
+
+.about-aside {
+	color: var(--gray);
+	font-style: italic;
+}
+
+.repo-detail-card h3 {
+	margin: 1.1em 0 0.2em;
+	font-size: 0.98em;
+	color: var(--lilac);
+}
+
+.repo-detail-card h3:first-of-type {
+	margin-top: 0.6em;
+}
+
+/* Discord replaces Telegram in the share row */
+.share-discord {
+	background: #eeefff;
+	border-color: #cfd3f8;
+	color: #4b52b8;
+}
+.share-discord:hover,
+.share-discord:focus-visible {
+	background: #e2e4ff;
+}
+
+/* Long button labels on the guide pages (e.g. "Download Paperback from the
+   App Store") can't fit one line on a small phone. Scoped to detail cards so
+   the compact homepage cards keep their single-line buttons. */
+.repo-detail-card .repo-add {
+	white-space: normal;
+}
+
+/* a repository URL is one long unbreakable token — let it wrap rather than
+   push the whole page sideways on a narrow phone */
+.repo-detail-card code,
+.about-list code,
+.about-steps code {
+	overflow-wrap: anywhere;
+	word-break: break-word;
 }

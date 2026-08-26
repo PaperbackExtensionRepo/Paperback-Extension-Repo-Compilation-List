@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<meta name="color-scheme" content="light" />
+		<meta name="theme-color" content="#fff5fa" />
+		<meta name="description" content="How this Paperback repository directory is put together: which repos get listed, where each source list comes from, how often the site rebuilds, and who maintains it." />
+		<title>About this directory — Paperback Extension Repo</title>
+		<link rel="canonical" href="https://paperbackextensionrepo.xyz/about/" />
+		<meta property="og:title" content="About this directory — Paperback Extension Repo" />
+		<meta property="og:description" content="How this Paperback repository directory is put together: which repos get listed, where each source list comes from, how often the site rebuilds, and who maintains it." />
+		<meta property="og:url" content="https://paperbackextensionrepo.xyz/about/" />
+		<meta property="og:type" content="article" />
+		<link rel="icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-tagplace" />
+	</head>
+	<body class="repo-detail-page">
+		<header class="detail-header">
+			<img class="site-logo" src="/favicon.svg" alt="Paperback Extension Repo logo" width="96" height="96" />
+			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
+			<h1><span class="main-heading">About this directory</span></h1>
+			<p class="main-description">How this Paperback repository directory is put together: which repos get listed, where each source list comes from, how often the site rebuilds, and who maintains it.</p>
+		</header>
+		<main>
+			<a class="detail-back" href="/">← Back to all repositories</a>
+
+			<section class="repo-detail-card">
+				<h2>What this site is</h2>
+				<p>
+					Paperback Extension Repo is an independent, community-run index of
+					extension repositories for the
+					<a href="https://paperback.moe" target="_blank" rel="noopener">Paperback</a>
+					reading app. It exists because these repositories are scattered
+					across GitHub, Discord messages and forum posts, and there was no
+					single place to see what exists and which Paperback version each one
+					targets.
+				</p>
+				<p>
+					The site hosts nothing itself. Every repository listed here belongs
+					to the developer who built it, and installing one sends you straight
+					to their own URL.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>How a repository gets listed</h2>
+				<p>A repository is added when it meets all of these:</p>
+				<ul class="about-list">
+					<li>It is a genuine Paperback extension repository — it publishes a <code>versioning.json</code> manifest that the app can install from.</li>
+					<li>It targets Paperback <strong>0.8</strong> or <strong>0.9</strong>. Repositories built for 0.6 and earlier are not listed as installable; the one that still shows up in search results is <a href="/therobbiedavis/paperback-extension-repo/">documented separately</a> so people stop trying it.</li>
+					<li>It is publicly reachable, without a login or paywall.</li>
+					<li>Its developer publishes it for others to use.</li>
+				</ul>
+				<p>
+					There is no ranking, no sponsorship and no paid placement. Ordering
+					within each version section is simply the order repositories were
+					added. Nobody pays to appear here and nothing is accepted in exchange
+					for a listing.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Where the source lists come from</h2>
+				<p>
+					The repository table lives in the project's
+					<a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List/blob/main/README.md" target="_blank" rel="noopener">README on GitHub</a>,
+					which is the single source of truth for what is listed. Everything
+					else is generated from it.
+				</p>
+				<p>
+					The list of sources shown under each repository is not typed by hand.
+					On every build the site fetches each repository's own
+					<code>versioning.json</code> and reads the sources, versions and
+					content ratings straight out of it. That means a source list here can
+					never be more than a day out of date with the repository it describes,
+					and if a developer adds or removes a source it appears here on the
+					next build without anyone editing this site.
+				</p>
+				<p>
+					When a repository is unreachable at build time, its card says
+					<em>"Source list unavailable"</em> rather than showing a stale list
+					from an earlier build.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>How often it updates</h2>
+				<p>
+					The site rebuilds automatically once a day, and again whenever the
+					repository list changes. Both the repository list and every source
+					list are regenerated on each build.
+				</p>
+				<p class="about-stamp">
+					Last rebuilt
+					<time datetime="2026-08-26T09:37:41.929Z"><strong>26 August 2026</strong></time>.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Corrections and additions</h2>
+				<p>
+					If a repository is missing, listed under the wrong version, or has
+					moved, please
+					<a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List/issues" target="_blank" rel="noopener">open an issue</a>
+					or
+					<a href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List" target="_blank" rel="noopener">send a pull request</a>
+					— editing one row of the README is enough. Repository developers who
+					would rather not be listed can ask and it will be removed.
+				</p>
+				<p>
+					For help with an extension itself, contact its developer rather than
+					this site: their GitHub link is on every card, and the Paperback
+					Discord has an
+					<a href="https://discord.com/channels/965890377896845352/1266865492455588000" target="_blank" rel="noopener">#other-repos</a>
+					channel for repositories that aren't Inkdex's.
+				</p>
+			</section>
+
+			<section class="repo-detail-card">
+				<h2>Independence</h2>
+				<p>
+					This site is not affiliated with Paperback, with Inkdex, or with any
+					of the repositories it lists. All names, trademarks and logos belong
+					to their respective owners. It carries no advertising, no tracking
+					scripts and no analytics — nothing you do here is recorded or sent
+					anywhere.
+				</p>
+			</section>
+
+			<section class="share-card" aria-labelledby="share-title">
+		<h2 id="share-title">💌 Share this page</h2>
+		<p class="share-blurb">Show someone how this directory is put together.</p>
+		<div class="share-row" data-share-url="https://paperbackextensionrepo.xyz/about/" data-share-title="About the Paperback Extension Repo directory">
+			<button type="button" class="share-btn share-native" hidden>
+				<span class="share-label">📤 Share…</span>
+			</button>
+			<button type="button" class="share-btn share-copy">
+				<span class="share-label">🔗 Copy link</span>
+			</button>
+			<a class="share-btn share-x" href="https://twitter.com/intent/tweet?text=About%20the%20Paperback%20Extension%20Repo%20directory&amp;url=https%3A%2F%2Fpaperbackextensionrepo.xyz%2Fabout%2F" target="_blank" rel="noopener">Post on X</a>
+			<a class="share-btn share-reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fpaperbackextensionrepo.xyz%2Fabout%2F&amp;title=About%20the%20Paperback%20Extension%20Repo%20directory" target="_blank" rel="noopener">Reddit</a>
+			<a class="share-btn share-discord" href="https://discord.paperback.moe/" target="_blank" rel="noopener">Discord</a>
+		</div>
+	</section>
+			<aside class="site-disclaimer">
+	<strong>Independent community directory.</strong>
+	The extensions and repositories listed here are not affiliated with Paperback or the websites they support.
+	All names, trademarks, and logos belong to their respective owners. This website only compiles links and
+	does not own or maintain the linked repositories.
+</aside>
+		</main>
+		<script src="/share.js?v=20260826-share" defer></script>
+	</body>
+</html>
