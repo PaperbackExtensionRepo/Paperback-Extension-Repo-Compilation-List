@@ -41,6 +41,8 @@ const ASSET_V = createHash("sha256")
 const BUILD_TIME = new Date();
 const BUILD_ISO = BUILD_TIME.toISOString();
 const BUILD_DAY = BUILD_ISO.slice(0, 10);
+// CI exposes the commit being built; shown next to the date like a build id
+const BUILD_SHA = (process.env.GITHUB_SHA || "").slice(0, 7);
 // short form for the compact meta row above the list; the About page keeps
 // the long form where there's room for it
 const BUILD_SHORT = BUILD_TIME.toLocaleDateString("en-GB", {
@@ -157,6 +159,7 @@ function sidebarHtml(currentPath) {
 			<p class="drawer-heading">Sections</p>
 			<a class="drawer-item" href="/#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 repos</a>
 			<a class="drawer-item" href="/#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 repos</a>
+			<a class="drawer-item" href="/#individual-repos"><span class="drawer-icon" aria-hidden="true">📚</span>Individual repos</a>
 			<p class="drawer-heading">Socials</p>
 			<a class="drawer-item" href="${GITHUB_REPO_URL}" target="_blank" rel="noopener"><span class="drawer-icon brand-gh">${BRAND.github}</span>GitHub</a>
 			<a class="drawer-item" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener"><span class="drawer-icon brand-dc">${BRAND.discord}</span>Discord</a>
@@ -174,11 +177,12 @@ function siteBarHtml(title, path) {
 	return `<footer class="site-bar" data-page-url="${escapeHtml(url)}" data-page-title="${escapeHtml(title)}">
 		<div class="site-bar-inner">
 			<div class="bar-brand">
-				<span class="bar-name">paperbackextensionrepo.xyz</span>
+				<a class="bar-name" href="#top">paperbackextensionrepo.xyz</a>
 				<nav class="bar-links" aria-label="Site pages">
 					<a href="${ABOUT_PATH}">About</a>
 					<a href="${PAPERBACK_PATH}">Paperback</a>
 					<a href="${PAPERBACK_09_PATH}">Get 0.9</a>
+					<a href="/#individual-repos">Individual repos</a>
 					<a href="${WORTH_KNOWING_PATH}">Worth knowing</a>
 				</nav>
 				<div class="bar-actions">
@@ -200,6 +204,9 @@ function siteBarHtml(title, path) {
 				</div>
 			</div>
 		</div>
+		<p class="bar-stamp">
+			Updated <time datetime="${BUILD_ISO}">${BUILD_SHORT}</time>${BUILD_SHA ? ` <span class="bar-sep">|</span> <code>${BUILD_SHA}</code>` : ""}
+		</p>
 	</footer>`;
 }
 
@@ -562,7 +569,7 @@ function renderRepoPage(repo) {
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(repo.page)}
-		<header class="detail-header">
+		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
 			<p class="detail-eyebrow">Paperback ${escapeHtml(repo.version)} · ${escapeHtml(repo.category)}</p>
@@ -626,7 +633,7 @@ function renderWorthKnowingPage() {
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(WORTH_KNOWING_PATH)}
-		<header class="detail-header">
+		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">⚠️ 🌸 ⚠️</span>
 			<h1><span class="main-heading">Worth knowing</span></h1>
@@ -707,7 +714,7 @@ function renderPaperback09Page() {
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(PAPERBACK_09_PATH)}
-		<header class="detail-header">
+		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🎟️ 🌸 ✨</span>
 			<h1><span class="main-heading">How do I get Paperback 0.9?</span></h1>
@@ -822,7 +829,7 @@ function renderAppStorePage() {
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(APP_STORE_PATH)}
-		<header class="detail-header">
+		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">📱 🌷 ✨</span>
 			<h1><span class="main-heading">Paperback on the App Store</span></h1>
@@ -890,7 +897,7 @@ function renderAboutPage() {
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(ABOUT_PATH)}
-		<header class="detail-header">
+		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
 			<h1><span class="main-heading">About this directory</span></h1>
@@ -1022,7 +1029,7 @@ function renderPaperbackPage() {
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(PAPERBACK_PATH)}
-		<header class="detail-header">
+		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">📖 ✨ 🌸</span>
 			<h1><span class="main-heading">What is Paperback?</span></h1>

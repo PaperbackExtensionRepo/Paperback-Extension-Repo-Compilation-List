@@ -1429,6 +1429,8 @@ noscript {
 }
 
 .bar-name {
+	display: inline-block;
+	text-decoration: none;
 	font-size: 1.02em;
 	font-weight: 800;
 	background: linear-gradient(120deg, #ff7ab8 0%, #b08bf0 55%, #4fd3e0 100%);
@@ -1441,7 +1443,17 @@ noscript {
 .bar-links {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.35em 0.9em;
+	align-items: baseline;
+	gap: 0.35em 0.7em;
+}
+
+/* trailing bullet on all but the last link — a leading one would start a
+   wrapped line with a stray dot */
+.bar-links a:not(:last-child)::after {
+	content: "•";
+	margin-left: 0.7em;
+	color: var(--border);
+	font-weight: 800;
 }
 
 .bar-links a {
@@ -1816,4 +1828,33 @@ noscript {
 	background: #f2f1f7;
 	border-color: #dcd8e6;
 	box-shadow: 0 4px 12px rgba(70, 65, 90, 0.2);
+}
+
+/* build stamp at the very foot of the page */
+.bar-stamp {
+	max-width: 760px;
+	margin: 1.3em auto 0;
+	padding-top: 1em;
+	border-top: 1.5px dashed var(--border);
+	color: var(--gray);
+	font-size: 0.76em;
+	font-weight: 600;
+	text-align: center;
+}
+
+.bar-stamp code {
+	padding: 0.1em 0.45em;
+	border-radius: 6px;
+	background: var(--bg-blush);
+	font-size: 0.95em;
+}
+
+.bar-sep {
+	opacity: 0.5;
+	margin: 0 0.15em;
+}
+
+/* the toggle sits top-left, so give the drawer link a matching scroll target */
+#top {
+	scroll-margin-top: 0;
 }
