@@ -119,6 +119,12 @@ function parseReadme(md) {
 
 		const install = cellUrl(cells[1] ?? "");
 		const github = cellUrl(cells[2] ?? "");
+		// Optional 4th column. Some repos publish a friendly browse page at the
+		// install link and keep versioning.json somewhere else; this lets the row
+		// point people at the nice page while sources still come from the manifest.
+		// Left empty, the install link doubles as the manifest, as it does for
+		// almost every repo here.
+		const manifest = cellUrl(cells[3] ?? "");
 		if (!install && !github) continue;
 
 		repos.push({
@@ -127,6 +133,7 @@ function parseReadme(md) {
 			category: category || "Extensions",
 			install,
 			github,
+			manifest,
 		});
 	}
 
@@ -193,12 +200,18 @@ async function fetchManifest(url) {
 const FALLBACK_PATHS = ["", "0.9/stable", "0.8/stable", "stable", "0.9/test"];
 
 async function loadSources(repo) {
-	if (!repo.install) return { ok: false, reason: "no install url" };
+	// the manifest column wins when a row sets it, otherwise the install link is
+	// assumed to be the repo root
+	const source = repo.manifest || repo.install;
+	if (!source) return { ok: false, reason: "no manifest or install url" };
 
-	const root = repo.install.replace(/\/+$/, "");
+	const root = source.replace(/\/+$/, "");
 	let lastError = "unreachable";
 
-	for (const suffix of FALLBACK_PATHS) {
+	// an explicit manifest URL is exact — don't go guessing channel folders under it
+	const candidates = repo.manifest ? [""] : FALLBACK_PATHS;
+
+	for (const suffix of candidates) {
 		const base = suffix ? `${root}/${suffix}` : root;
 		// one retry — these are small static files, a single blip shouldn't drop a repo
 		for (let attempt = 1; attempt <= 2; attempt++) {

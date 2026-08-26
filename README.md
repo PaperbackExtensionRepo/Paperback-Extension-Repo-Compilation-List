@@ -54,9 +54,9 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 
 ### Manga/Manhwa/Novels
 
-| Name | Install (Add to Paperback) | GitHub |
-|------|----------------------------|--------|
-| Inkdex Extensions (0.9) | https://inkdex.github.io/extensions/0.9/stable | https://github.com/inkdex/extensions |
+| Name | Install (Add to Paperback) | GitHub | Manifest (optional) |
+|------|----------------------------|--------|---------------------|
+| Inkdex Extensions (0.9) | https://inkdex.github.io/extension-list | https://github.com/inkdex/extensions | https://inkdex.github.io/extensions/0.9/stable |
 | Kakarot Extensions (0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension |
 | Pirate Vodka Extensions (0.9) | https://read.pirate.vodka/ | https://github.com/LucifersCircle/pirate.vodka-extensions |
 | PoppingMango Extensions (0.9) | https://poppingmangosources.github.io/general-extensions-mangago/0.9/test/ | https://github.com/PoppingMangoSources/general-extensions-mangago |
@@ -69,8 +69,8 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 
 ### Manga/Manhwa/Manhua
 
-| Name | Install (Add to Paperback) | GitHub |
-|------|----------------------------|--------|
+| Name | Install (Add to Paperback) | GitHub | Manifest (optional) |
+|------|----------------------------|--------|---------------------|
 | Ace Extensions (0.8) | https://acepilot147.github.io/pb-extensions/0.8 | https://github.com/acepilot147/pb-extensions |
 | Default Trackers (0.8) | https://paperback-ios.github.io/extensions/main | https://github.com/paperback-ios/extensions |
 | Ivan's Extensions (0.8) | https://ivanmatthew.github.io/ivans-paperback-extensions/paperback-0.8 | https://github.com/ivanmatthew/ivans-paperback-extensions |
@@ -101,6 +101,8 @@ Please fork, add the extension to all areas where it is applicable, and submit a
 If the extension has both comic and manga sources, then add it to both.
 
 The website is generated straight from the tables in this README — add a row here and the site picks it up on the next deploy. Each repo's source list is pulled from its own `versioning.json` at build time and refreshed daily, so nothing needs listing by hand.
+
+**The Manifest column is optional.** Leave it empty and the install link is used to find `versioning.json`, which is what almost every repo needs. Fill it in only when a repo's install link is a browse page rather than the repo root — the button then sends people to the friendly page while sources are still read from the manifest.
 
 ## Support
 
