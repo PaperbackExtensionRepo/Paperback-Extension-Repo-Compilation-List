@@ -1317,3 +1317,120 @@ noscript {
 		margin-inline: auto;
 	}
 }
+
+/* --------------------------------------------------------------- sharing --- */
+
+.share-card {
+	background: linear-gradient(135deg, #fff7fb, #f4fbff);
+	border: 1.5px solid var(--border-soft);
+	border-radius: var(--radius);
+	padding: 1.15em 1.15em 1.25em;
+	margin-bottom: 1.1em;
+	box-shadow: var(--shadow);
+	text-align: center;
+}
+
+.share-card h2 {
+	margin: 0 0 0.25em;
+	font-size: 1.02em;
+	color: var(--pink-deep);
+}
+
+.share-blurb {
+	margin: 0 0 0.9em;
+	font-size: 0.86em;
+	font-weight: 500;
+	color: var(--gray);
+}
+
+.share-row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5em;
+}
+
+.share-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 0.5em 1em;
+	border: 1.5px solid;
+	border-radius: 999px;
+	font-family: inherit;
+	font-size: 0.78em;
+	font-weight: 800;
+	line-height: 1.25;
+	white-space: nowrap;
+	text-decoration: none;
+	cursor: pointer;
+	transition:
+		transform 0.16s ease,
+		background 0.16s ease,
+		border-color 0.16s ease;
+}
+
+/* an explicit display beats the UA's [hidden] rule, so restore it — otherwise
+   the native share button shows on browsers with no share sheet */
+.share-btn[hidden] {
+	display: none;
+}
+
+.share-btn:hover,
+.share-btn:focus-visible {
+	transform: translateY(-1px);
+}
+
+/* the native sheet is the nicest option where it exists, so it leads */
+.share-native {
+	background: linear-gradient(120deg, var(--pink) 0%, var(--lilac) 100%);
+	border-color: transparent;
+	color: #fff;
+	box-shadow: 0 4px 12px rgba(255, 122, 184, 0.35);
+}
+
+.share-copy {
+	background: #fff0f8;
+	border-color: #ffc8e4;
+	color: var(--pink-deep);
+}
+.share-copy:hover,
+.share-copy:focus-visible {
+	background: #ffe3f2;
+}
+.share-copy.share-copied {
+	background: #ddf7ef;
+	border-color: #9fe4cd;
+	color: #17876a;
+}
+
+.share-x {
+	background: #f2f1f7;
+	border-color: #ddd9e8;
+	color: #4a4358;
+}
+.share-x:hover,
+.share-x:focus-visible {
+	background: #e7e5f0;
+}
+
+.share-reddit {
+	background: #fff1e9;
+	border-color: #ffd2ba;
+	color: #d2622c;
+}
+.share-reddit:hover,
+.share-reddit:focus-visible {
+	background: #ffe4d5;
+}
+
+.share-tg {
+	background: #e9f6fe;
+	border-color: #b9e2f8;
+	color: #1f7fae;
+}
+.share-tg:hover,
+.share-tg:focus-visible {
+	background: #d8eefd;
+}
