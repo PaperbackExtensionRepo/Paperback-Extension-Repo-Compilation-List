@@ -625,7 +625,7 @@ main {
 .repo-actions {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-end;
+	align-items: center;
 	gap: 0.45em;
 	flex: 0 0 auto;
 }
@@ -634,14 +634,6 @@ main {
 	display: flex;
 	align-items: center;
 	gap: 0.55em;
-}
-
-.repo-meta-links {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 0.35em;
-	margin-top: 0.3em;
 }
 
 /* quiet tinted tags — they're metadata, so they must not shout over the
@@ -692,11 +684,41 @@ main {
 	border-color: #c6b3f7;
 }
 
+/* on a repo's own page these are full actions rather than list metadata, so
+   they get the same gradient treatment as the install button */
 .detail-actions .repo-community,
 .detail-actions .repo-discord-link {
-	padding: 0.55em 1.05em;
-	font-size: 0.78em;
-	white-space: normal;
+	justify-content: center;
+	border-color: transparent;
+	color: #fff;
+}
+
+.detail-actions .repo-community {
+	background: linear-gradient(120deg, var(--cyan) 0%, var(--mint) 100%);
+	box-shadow: 0 4px 12px rgba(79, 211, 224, 0.35);
+}
+
+.detail-actions .repo-discord-link {
+	background: linear-gradient(120deg, #9db2ff 0%, var(--lilac) 100%);
+	box-shadow: 0 4px 12px rgba(157, 178, 255, 0.35);
+}
+
+.detail-actions .repo-community:hover,
+.detail-actions .repo-community:focus-visible,
+.detail-actions .repo-discord-link:hover,
+.detail-actions .repo-discord-link:focus-visible {
+	transform: translateY(-1px) scale(1.03);
+	filter: brightness(1.05);
+}
+
+.detail-actions .repo-community:hover,
+.detail-actions .repo-community:focus-visible {
+	box-shadow: 0 6px 16px rgba(79, 211, 224, 0.45);
+}
+
+.detail-actions .repo-discord-link:hover,
+.detail-actions .repo-discord-link:focus-visible {
+	box-shadow: 0 6px 16px rgba(157, 178, 255, 0.45);
 }
 
 .repo-add {
@@ -1054,14 +1076,36 @@ noscript {
 	gap: 0.7em;
 }
 
+/* one size and shape for every button in the stack — they read as a set.
+   The transparent border keeps the filled buttons exactly as tall as the
+   outlined GitHub one. */
+.detail-actions a {
+	padding: 0.62em 1.15em;
+	border: 2px solid transparent;
+	border-radius: 999px;
+	font-size: 0.82em;
+	font-weight: 800;
+	line-height: 1.25;
+	white-space: nowrap;
+}
+
+/* tertiary action: outlined rather than filled, but the border has to be
+   visible against the white card it sits on */
 .detail-github {
 	display: inline-block;
-	padding: 0.55em 1.05em;
-	border: 2px solid var(--border);
-	border-radius: 999px;
-	background: var(--card);
+	border-color: #ffc2e0;
+	background: #fff7fb;
+	color: var(--pink-deep);
 	text-decoration: none;
-	font-size: 0.82em;
+	transition:
+		border-color 0.16s ease,
+		transform 0.16s ease;
+}
+
+.detail-github:hover,
+.detail-github:focus-visible {
+	transform: translateY(-1px);
+	border-color: var(--pink);
 }
 
 .detail-source-grid {

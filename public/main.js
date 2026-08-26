@@ -115,13 +115,13 @@ function renderRepo(repo, query, forceOpen) {
 	const badgeClass = repo.version === "0.9" ? "repo-version-09" : "repo-version-08";
 	const primary = repo.install || repo.github;
 	const actions = [];
-	const metaLinks = [];
 	const discordUrl = discordUrlForRepo(repo);
 
+	// sits beside the version badge — it qualifies what kind of repo this is,
+	// so it belongs with the title, not down with the url
+	let communityTag = "";
 	if (repo.name === INKDEX_REPO_NAME) {
-		metaLinks.push(
-			`<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community repo</a>`,
-		);
+		communityTag = `<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community</a>`;
 	}
 	// the Discord tag rides under the install button rather than in the left
 	// column — that corner is otherwise dead space, and it keeps the tag away
@@ -150,9 +150,9 @@ function renderRepo(repo, query, forceOpen) {
 				<div class="repo-title-row">
 					<span class="repo-name">${escapeHtml(repo.name)}</span>
 					<span class="repo-version-badge ${badgeClass}">${escapeHtml(repo.version)}</span>
+					${communityTag}
 				</div>
 				<span class="repo-url">${escapeHtml(prettyUrl(primary))}</span>
-				${metaLinks.length ? `<div class="repo-meta-links">${metaLinks.join("")}</div>` : ""}
 			</div>
 			<div class="repo-actions">
 				<div class="repo-action-row">${actions.join("")}</div>
