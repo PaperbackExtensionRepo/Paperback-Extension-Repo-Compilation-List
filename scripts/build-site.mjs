@@ -139,27 +139,37 @@ function jsonLdHtml(node) {
 }
 
 function repoJsonLd(repo) {
-	const url = new URL(repo.page, SITE_URL).href;
-	const node = {
-		"@context": "https://schema.org",
-		"@type": "SoftwareApplication",
-		name: repo.name,
-		url,
-		applicationCategory: "BookApplication",
-		operatingSystem: "iOS, iPadOS",
-		softwareRequirements: `Paperback ${repo.version}`,
-		isAccessibleForFree: true,
-		offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-		mainEntityOfPage: { "@type": "WebPage", "@id": url },
+	const pageUrl = new URL(repo.page, SITE_URL).href;
+	const description = repo.sources.length
+		? `${repo.name} is a Paperback ${repo.version} extension repository with ${repo.sources.length} source${repo.sources.length === 1 ? "" : "s"}.`
+		: `${repo.name} is an extension repository for Paperback ${repo.version}.`;
+	const webpage = {
+		"@type": "WebPage",
+		"@id": `${pageUrl}#webpage`,
+		url: pageUrl,
+		name: `${repo.name} — Paperback Extension Repo`,
+		description,
+		inLanguage: "en",
 		isPartOf: { "@id": `${SITE_URL}#website` },
+		mainEntity: { "@id": `${pageUrl}#repository` },
 	};
-	if (repo.install) node.installUrl = repo.install;
-	if (repo.github) node.codeRepository = repo.github;
+	const repository = {
+		"@type": "SoftwareSourceCode",
+		"@id": `${pageUrl}#repository`,
+		name: repo.name,
+		url: repo.github || pageUrl,
+		description,
+		runtimePlatform: `Paperback ${repo.version}`,
+		mainEntityOfPage: { "@id": `${pageUrl}#webpage` },
+	};
+	if (repo.github) repository.codeRepository = repo.github;
 	if (repo.sources.length) {
-		node.description = `${repo.name} is a Paperback ${repo.version} extension repository with ${repo.sources.length} source${repo.sources.length === 1 ? "" : "s"}.`;
-		node.featureList = repo.sources.map((source) => source.name);
+		repository.keywords = repo.sources.map((source) => source.name);
 	}
-	return jsonLdHtml(node);
+	return jsonLdHtml({
+		"@context": "https://schema.org",
+		"@graph": [webpage, repository],
+	});
 }
 
 function guideJsonLd(title, description, path) {
