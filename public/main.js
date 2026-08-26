@@ -48,6 +48,11 @@ function repoKey(repo) {
 	return `${repo.name}|${repo.version}`;
 }
 
+// "0.9" -> "version-0-9", the anchor the jump chips target
+function versionAnchor(version) {
+	return `version-${String(version).replace(/\./g, "-")}`;
+}
+
 function renderSource(source, query) {
 	const matched =
 		query && source.name.toLowerCase().includes(query) ? " source-match" : "";
@@ -174,7 +179,7 @@ function render() {
 			// open by default; a search always reveals matches even inside a section
 			// the reader collapsed, without overwriting their choice
 			const isOpen = Boolean(query) || !collapsedVersions.has(version);
-			return `<details class="group-section"${isOpen ? " open" : ""} data-version="${escapeHtml(version)}">
+			return `<details class="group-section"${isOpen ? " open" : ""} id="${versionAnchor(version)}" data-version="${escapeHtml(version)}">
 				<summary class="group-header ${versionClass}">
 					${GROUP_CHEVRON}
 					<h2 class="group-pill">Paperback ${escapeHtml(version)}</h2>
@@ -263,6 +268,29 @@ async function init() {
 	populateCategories();
 	renderIndividualRepoLinks();
 	render();
+
+	// Jump chips: take the reader to a version section, undoing anything that
+	// would hide it — a collapsed section, or a filter that excludes it.
+	for (const chip of document.querySelectorAll(".jump-chip")) {
+		chip.addEventListener("click", (event) => {
+			event.preventDefault();
+			const version = chip.dataset.version;
+			const id = versionAnchor(version);
+
+			if (versionEl.value && versionEl.value !== version) versionEl.value = "";
+			collapsedVersions.delete(version);
+			render();
+
+			let target = document.getElementById(id);
+			// still hidden means the search is filtering it out
+			if (!target && searchEl.value) {
+				searchEl.value = "";
+				render();
+				target = document.getElementById(id);
+			}
+			target?.scrollIntoView({ behavior: "smooth", block: "start" });
+		});
+	}
 
 	searchEl.addEventListener("input", debounce(render, 120));
 	versionEl.addEventListener("change", render);
