@@ -1,0 +1,11 @@
+# Pages written by scripts/build-site.mjs on every build and republished by CI.
+# They're generated from README.md, so committing them only creates churn — but
+# they do land in the working tree whenever the build is run locally.
+public/repos/
+public/worth-knowing/
+public/app-store/
+public/paperback-0-9/
+public/therobbiedavis/
+
+# public/repos.json, public/sitemap.xml and public/robots.txt are also generated
+# but are deliberately tracked, so they stay out of this list.
