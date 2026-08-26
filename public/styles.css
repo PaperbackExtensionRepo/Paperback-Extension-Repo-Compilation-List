@@ -1774,3 +1774,46 @@ noscript {
 		height: 38px;
 	}
 }
+
+/* ------------------------------------------------------- brand marks --- */
+
+.orb svg,
+.drawer-icon svg {
+	display: block;
+	fill: currentColor;
+}
+
+.orb svg {
+	width: 19px;
+	height: 19px;
+}
+
+.drawer-icon svg {
+	width: 17px;
+	height: 17px;
+	margin: 0 auto;
+}
+
+/* brand colour on the mark, kawaii pastel behind it */
+.orb-gh,
+.brand-gh {
+	color: #24292f;
+}
+.orb-dc,
+.brand-dc {
+	color: #5865f2;
+}
+.orb-rd,
+.brand-rd {
+	color: #ff4500;
+}
+.orb-x,
+.brand-x {
+	color: #0f1419;
+}
+
+.orb-x {
+	background: #f2f1f7;
+	border-color: #dcd8e6;
+	box-shadow: 0 4px 12px rgba(70, 65, 90, 0.2);
+}
