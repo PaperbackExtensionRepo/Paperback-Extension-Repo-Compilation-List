@@ -179,7 +179,7 @@ function render() {
 }
 
 function renderIndividualRepoLinks() {
-	if (!individualRepoListEl) return;
+	if (!individualRepoListEl || individualRepoListEl.querySelector("a")) return;
 	individualRepoListEl.innerHTML = repos
 		.map(
 			(repo) => `<li>

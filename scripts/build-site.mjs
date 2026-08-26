@@ -280,6 +280,33 @@ const out = {
 writeFileSync(join(root, "public", "repos.json"), `${JSON.stringify(out, null, "\t")}\n`);
 console.log(`Wrote public/repos.json (${repos.length} repos).`);
 
+const homepagePath = join(root, "public", "index.html");
+const homepage = readFileSync(homepagePath, "utf8");
+const individualRepoLinksPattern =
+	/<!-- individual-repo-links:start -->[\s\S]*?<!-- individual-repo-links:end -->/;
+if (!individualRepoLinksPattern.test(homepage)) {
+	console.error("Individual repository link markers are missing from public/index.html.");
+	process.exit(1);
+}
+const individualRepoLinks = repos
+	.map(
+		(repo) => `\t\t\t\t\t<li>
+\t\t\t\t\t\t<a href="${escapeHtml(repo.page)}">
+\t\t\t\t\t\t\t<span>${escapeHtml(repo.name)}</span>
+\t\t\t\t\t\t\t<span class="individual-repo-version">Paperback ${escapeHtml(repo.version)}</span>
+\t\t\t\t\t\t</a>
+\t\t\t\t\t</li>`,
+	)
+	.join("\n");
+const homepageWithStaticRepoLinks = homepage.replace(
+	individualRepoLinksPattern,
+	`<!-- individual-repo-links:start -->
+${individualRepoLinks}
+\t\t\t\t\t\t<!-- individual-repo-links:end -->`,
+);
+writeFileSync(homepagePath, homepageWithStaticRepoLinks);
+console.log(`Pre-rendered ${repos.length} internal repository links in public/index.html.`);
+
 /* ------------------------------------------------------- individual pages -- */
 
 function renderSourceCard(source) {

@@ -10,16 +10,20 @@
 </p>
 
 <p align="center">
-  <a href="https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/">
+  <a href="https://paperbackextensionrepo.xyz/">
     <img src="media/button-browse.svg" alt="Browse and add to Paperback" height="52"/>
   </a>
+</p>
+
+<p align="center">
+  <strong>Website:</strong> <a href="https://paperbackextensionrepo.xyz/">paperbackextensionrepo.xyz</a>
 </p>
 
 <p align="center">
   On iPhone or iPad, tap the button, pick a repo, and add it from the page that opens.<br/>
   The site lists every repo below, and you can expand any of them to see the sources it ships —<br/>
   searching there matches source names too, so you can find which repo has the one you want:<br/>
-  <code>https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/</code>
+  <code>https://paperbackextensionrepo.xyz/</code>
 </p>
 
 ---
@@ -87,7 +91,7 @@ All credit given to the developers of these extensions. I will keep updating thi
 ## Installing an extension
 
 - Install Paperback
-- Tap the install link above (or use the [website](https://paperbackextensionrepo.github.io/Paperback-Extension-Repo-Compilation-List/))
+- Tap the install link above (or use the [website](https://paperbackextensionrepo.xyz/))
 - Tap "Add to Paperback"
 
 # Contributing
