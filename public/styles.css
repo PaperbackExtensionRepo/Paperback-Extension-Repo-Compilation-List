@@ -380,18 +380,48 @@ main {
 
 /* version bands — colour-coded to match each card's version badge so 0.9 and
    0.8 are told apart at a glance */
+.group-section {
+	margin: 2em 0 0.9em 0;
+}
+.group-section:first-child {
+	margin-top: 0.5em;
+}
+
 .group-header {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	gap: 0.55em;
-	margin: 2em 0 0.9em 0;
 	padding: 0.6em 0.85em;
 	border-radius: 1em;
 	border: 2px solid transparent;
+	/* the band is the collapse control — hide the native disclosure marker */
+	list-style: none;
+	cursor: pointer;
+	user-select: none;
 }
-.group-header:first-child {
-	margin-top: 0.5em;
+.group-header::-webkit-details-marker {
+	display: none;
+}
+.group-header:focus-visible {
+	outline: 2px solid var(--pink);
+	outline-offset: 2px;
+}
+
+/* the section body needs breathing room once the band is a summary */
+.group-section > ul {
+	margin-top: 0.9em;
+}
+
+.group-chevron {
+	width: 15px;
+	height: 15px;
+	flex: 0 0 auto;
+	transition: transform 0.22s ease;
+	opacity: 0.75;
+}
+.group-section[open] .group-chevron {
+	transform: rotate(180deg);
 }
 
 .group-pill {
@@ -425,7 +455,8 @@ main {
 	background: linear-gradient(120deg, var(--cyan), var(--mint));
 	box-shadow: 0 3px 10px rgba(79, 211, 224, 0.35);
 }
-.group-09 .group-count {
+.group-09 .group-count,
+.group-09 .group-chevron {
 	color: #2a8b98;
 }
 
@@ -438,7 +469,8 @@ main {
 	background: linear-gradient(120deg, var(--pink), var(--lilac));
 	box-shadow: 0 3px 10px rgba(255, 122, 184, 0.35);
 }
-.group-08 .group-count {
+.group-08 .group-count,
+.group-08 .group-chevron {
 	color: #a8559a;
 }
 

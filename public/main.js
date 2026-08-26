@@ -5,6 +5,8 @@ const GITHUB_ICON = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3
 
 const CHEVRON = `<svg class="summary-chevron" viewBox="0 0 1024 1024" aria-hidden="true"><path fill="currentColor" d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"/></svg>`;
 
+const GROUP_CHEVRON = `<svg class="group-chevron" viewBox="0 0 1024 1024" aria-hidden="true"><path fill="currentColor" d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"/></svg>`;
+
 const RATING_CLASS = {
 	Safe: "rating-safe",
 	Mature: "rating-mature",
@@ -21,6 +23,8 @@ const individualRepoListEl = document.getElementById("individual-repo-list");
 let repos = [];
 // remember which cards the reader opened, so a re-render doesn't collapse them
 const openRepos = new Set();
+// version sections the reader has collapsed — empty means every section is open
+const collapsedVersions = new Set();
 
 function prettyUrl(url) {
 	return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
@@ -167,13 +171,19 @@ function render() {
 		.map(([version, entries]) => {
 			const versionClass = version === "0.9" ? "group-09" : "group-08";
 			const count = entries.length;
-			return `<div class="group-header ${versionClass}">
-				<h2 class="group-pill">Paperback ${escapeHtml(version)}</h2>
-				<span class="group-count">${count} repo${count === 1 ? "" : "s"}</span>
-			</div>
-			<ul>${entries
-				.map(({ repo, viaSource }) => renderRepo(repo, query, viaSource))
-				.join("")}</ul>`;
+			// open by default; a search always reveals matches even inside a section
+			// the reader collapsed, without overwriting their choice
+			const isOpen = Boolean(query) || !collapsedVersions.has(version);
+			return `<details class="group-section"${isOpen ? " open" : ""} data-version="${escapeHtml(version)}">
+				<summary class="group-header ${versionClass}">
+					${GROUP_CHEVRON}
+					<h2 class="group-pill">Paperback ${escapeHtml(version)}</h2>
+					<span class="group-count">${count} repo${count === 1 ? "" : "s"}</span>
+				</summary>
+				<ul>${entries
+					.map(({ repo, viaSource }) => renderRepo(repo, query, viaSource))
+					.join("")}</ul>
+			</details>`;
 		})
 		.join("");
 }
@@ -202,9 +212,22 @@ function populateCategories() {
 	}
 }
 
+// Track section collapse from the click rather than the toggle event: writing
+// `<details open>` via innerHTML fires toggle too, so a re-render would look
+// like the reader had expanded the section themselves.
+listEl.addEventListener("click", (event) => {
+	const summary = event.target.closest?.(".group-section > summary");
+	if (!summary) return;
+	const details = summary.parentElement;
+	// the browser flips `open` after this handler, so invert the current value
+	if (details.open) collapsedVersions.add(details.dataset.version);
+	else collapsedVersions.delete(details.dataset.version);
+});
+
 // track open/closed state so filtering doesn't fight the reader
 listEl.addEventListener("toggle", (event) => {
 	const details = event.target;
+
 	if (!details.matches(".repo-sources")) return;
 	const key = details.dataset.repo;
 	if (details.open) openRepos.add(key);
