@@ -624,9 +624,16 @@ main {
 
 .repo-actions {
 	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 0.45em;
+	flex: 0 0 auto;
+}
+
+.repo-action-row {
+	display: flex;
 	align-items: center;
 	gap: 0.55em;
-	flex: 0 0 auto;
 }
 
 .repo-meta-links {

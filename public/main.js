@@ -123,12 +123,14 @@ function renderRepo(repo, query, forceOpen) {
 			`<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community repo</a>`,
 		);
 	}
+	// the Discord tag rides under the install button rather than in the left
+	// column — that corner is otherwise dead space, and it keeps the tag away
+	// from the wrapping repo url
+	let discordTag = "";
 	if (discordUrl) {
 		const discordLabel =
 			repo.version === "0.8" ? "0.8 support on Discord" : "Discord support";
-		metaLinks.push(
-			`<a class="repo-discord-link" href="${escapeHtml(discordUrl)}" target="_blank" rel="noopener" aria-label="${escapeHtml(repo.name)} ${discordLabel}">💬 ${discordLabel}</a>`,
-		);
+		discordTag = `<a class="repo-discord-link" href="${escapeHtml(discordUrl)}" target="_blank" rel="noopener" aria-label="${escapeHtml(repo.name)} ${discordLabel}">💬 ${discordLabel}</a>`;
 	}
 
 	if (repo.install) {
@@ -152,7 +154,10 @@ function renderRepo(repo, query, forceOpen) {
 				<span class="repo-url">${escapeHtml(prettyUrl(primary))}</span>
 				${metaLinks.length ? `<div class="repo-meta-links">${metaLinks.join("")}</div>` : ""}
 			</div>
-			<div class="repo-actions">${actions.join("")}</div>
+			<div class="repo-actions">
+				<div class="repo-action-row">${actions.join("")}</div>
+				${discordTag}
+			</div>
 		</div>
 		${renderSourcesSection(repo, query, forceOpen)}
 	</li>`;
