@@ -189,6 +189,36 @@ function guideJsonLd(title, description, path) {
 // Slide-out navigation drawer, present on every page. Rendered in the markup
 // rather than injected by JS so it still lists every page for a crawler, and
 // so there's nothing to shift once scripts run.
+function sidebarRepoMenuHtml(currentPath) {
+	const groups = ["0.9", "0.8"]
+		.map((version) => {
+			const links = repos
+				.filter((repo) => repo.version === version)
+				.map((repo) => {
+					const isCurrent = repo.page === currentPath;
+					const dotClass = version === "0.9" ? "repo-dot-09" : "repo-dot-08";
+					return `<a class="drawer-item drawer-repo-item${isCurrent ? " is-current" : ""}" href="${escapeHtml(repo.page)}"${isCurrent ? ' aria-current="page"' : ""}><span class="drawer-repo-dot ${dotClass}" aria-hidden="true"></span><span>${escapeHtml(repo.name)}</span></a>`;
+				})
+				.join("");
+			if (!links) return "";
+			return `<div class="drawer-repo-group">
+				<p class="drawer-repo-heading">Paperback ${version}</p>
+				${links}
+			</div>`;
+		})
+		.filter(Boolean)
+		.join("");
+
+	return `<details class="drawer-repos"${currentPath.startsWith("/repos/") ? " open" : ""}>
+		<summary class="drawer-repos-summary">
+			<span class="drawer-icon" aria-hidden="true">📚</span>
+			<span>Individual Repos</span>
+			<span class="drawer-repos-chevron" aria-hidden="true">⌄</span>
+		</summary>
+		<div class="drawer-repo-list">${groups}</div>
+	</details>`;
+}
+
 function sidebarHtml(currentPath) {
 	const item = (href, icon, label) => {
 		const isCurrent = href === currentPath;
@@ -213,7 +243,7 @@ function sidebarHtml(currentPath) {
 			<p class="drawer-heading">Sections</p>
 			<a class="drawer-item" href="/#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 Repos</a>
 			<a class="drawer-item" href="/#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 Repos</a>
-			<a class="drawer-item" href="/#individual-repos"><span class="drawer-icon" aria-hidden="true">📚</span>Individual Repos</a>
+			${sidebarRepoMenuHtml(currentPath)}
 			<p class="drawer-heading">Socials</p>
 			<a class="drawer-item" href="${GITHUB_REPO_URL}" target="_blank" rel="noopener"><span class="drawer-icon brand-gh">${BRAND.github}</span>GitHub</a>
 			<a class="drawer-item" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener"><span class="drawer-icon brand-dc">${BRAND.discord}</span>Discord</a>
@@ -522,14 +552,27 @@ ${individualRepoLinks}
 \t\t\t\t\t\t<!-- individual-repo-links:end -->`,
 );
 
+const drawerRepoLinksPattern =
+	/<!-- drawer-repo-links:start -->[\s\S]*?<!-- drawer-repo-links:end -->/;
+if (!drawerRepoLinksPattern.test(homepageWithStaticRepoLinks)) {
+	console.error("Drawer repository link markers are missing from public/index.html.");
+	process.exit(1);
+}
+const homepageWithDrawerRepoLinks = homepageWithStaticRepoLinks.replace(
+	drawerRepoLinksPattern,
+	`<!-- drawer-repo-links:start -->
+			${sidebarRepoMenuHtml("/")}
+			<!-- drawer-repo-links:end -->`,
+);
+
 // Stamp the rebuild date into the page itself rather than rendering it from
 // repos.json, so it is there for readers and crawlers with JS turned off.
 const lastUpdatedPattern = /<!-- last-updated:start -->[\s\S]*?<!-- last-updated:end -->/;
-if (!lastUpdatedPattern.test(homepageWithStaticRepoLinks)) {
+if (!lastUpdatedPattern.test(homepageWithDrawerRepoLinks)) {
 	console.error("Last-updated markers are missing from public/index.html.");
 	process.exit(1);
 }
-const homepageWithStamp = homepageWithStaticRepoLinks.replace(
+const homepageWithStamp = homepageWithDrawerRepoLinks.replace(
 	lastUpdatedPattern,
 	`<!-- last-updated:start --><time datetime="${BUILD_ISO}">${BUILD_SHORT}</time><!-- last-updated:end -->`,
 );
