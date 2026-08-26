@@ -1261,6 +1261,58 @@ console.log("Wrote the Paperback 0.9 and App Store pages.");
 
 
 
+/* ---------------------------------------------------------- llms.txt -- */
+
+function escapeMarkdownText(value) {
+	return String(value).replace(/([\\\[\]])/g, "\\$1");
+}
+
+function llmsRepoLine(repo) {
+	const pageUrl = new URL(repo.page, SITE_URL).href;
+	const sourceNote = repo.sources.length
+		? ` with ${repo.sources.length} included source${repo.sources.length === 1 ? "" : "s"}`
+		: "";
+	return `- [${escapeMarkdownText(repo.name)}](${pageUrl}): Paperback ${repo.version} extension repository${sourceNote}.`;
+}
+
+function llmsRepoSection(version) {
+	return repos
+		.filter((repo) => repo.version === version)
+		.map(llmsRepoLine)
+		.join("\n");
+}
+
+const llms = `# Paperback Extension Repo
+
+> An independent, community-maintained directory of extension repositories and sources for the Paperback reading app.
+
+Use this directory to find repository details, compatible Paperback versions, included source lists, installation links, and repository support links. The directory does not host or maintain the third-party repositories it lists and is not affiliated with Paperback or any supported website.
+
+## Main pages
+
+- [Paperback extension repository directory](${SITE_URL}): Browse and search every listed Paperback 0.9 and 0.8 repository.
+- [About this directory](${new URL(ABOUT_PATH, SITE_URL).href}): Learn how repositories and source lists are selected, generated, and updated.
+- [What is Paperback?](${new URL(PAPERBACK_PATH, SITE_URL).href}): Read about the app, extension types, and repository installation.
+- [How to get Paperback 0.9](${new URL(PAPERBACK_09_PATH, SITE_URL).href}): View the invite, installation, compatibility, and content-settings guide.
+- [Paperback on the App Store](${new URL(APP_STORE_PATH, SITE_URL).href}): View Paperback 0.8 compatibility and App Store information.
+- [Worth knowing](${new URL(WORTH_KNOWING_PATH, SITE_URL).href}): Read the notice about therobbiedavis/paperback-extension-repo.
+
+## Paperback 0.9 repositories
+
+${llmsRepoSection("0.9")}
+
+## Paperback 0.8 repositories
+
+${llmsRepoSection("0.8")}
+
+## Project files
+
+- [XML sitemap](${new URL("/sitemap.xml", SITE_URL).href}): Complete list of canonical, indexable pages.
+- [Crawler rules](${new URL("/robots.txt", SITE_URL).href}): Robots access rules and sitemap location.
+- [GitHub repository](${GITHUB_REPO_URL}): Source code, corrections, additions, and issue tracker.
+`;
+writeFileSync(join(root, "public", "llms.txt"), llms);
+
 /* ------------------------------------------------- sitemap + robots.txt -- */
 
 const sitemapUrls = [
