@@ -5,7 +5,7 @@
 <p align="center">
   <img src="media/badge-ios.svg" alt="iOS / iPadOS" height="28"/>
   <img src="media/badge-version.svg" alt="Paperback 0.8 &amp; 0.9" height="28"/>
-  <img src="media/badge-count.svg" alt="17 repos" height="28"/>
+  <img src="media/badge-count.svg" alt="18 repos" height="28"/>
   <img src="media/badge-community.svg" alt="Community list" height="28"/>
 </p>
 
@@ -80,6 +80,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Gabe's Extensions (0.8) | https://gabrielcwt.github.io/gabe-extensions/0.8 | https://github.com/gabrielcwt/gabe-extensions |
 | Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
 | Netsky's Generic Extensions (0.8) | https://thenetsky.github.io/extensions-generic-0.8/ | https://github.com/TheNetsky/extensions-generic-0.8 |
+| Netsky's Community Extensions (0.8) | https://thenetsky.github.io/community-extensions/0.8/ | https://github.com/TheNetsky/community-extensions |
 
 ## Compatibility
 
