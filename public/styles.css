@@ -629,6 +629,67 @@ main {
 	flex: 0 0 auto;
 }
 
+.repo-meta-links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35em;
+	margin-top: 0.3em;
+}
+
+.repo-community,
+.repo-discord-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 0.32em 0.7em;
+	border: 1.5px solid rgba(255, 255, 255, 0.82);
+	border-radius: 999px;
+	color: #fff;
+	font-size: 0.62em;
+	font-weight: 800;
+	line-height: 1.25;
+	text-align: center;
+	text-decoration: none;
+	box-shadow:
+		0 3px 9px rgba(106, 93, 180, 0.2),
+		inset 0 1px 0 rgba(255, 255, 255, 0.48);
+	transition:
+		transform 0.16s ease,
+		filter 0.16s ease,
+		box-shadow 0.16s ease;
+}
+
+.repo-community {
+	background: linear-gradient(120deg, #59d4e6, #78dfc1 48%, #b996ed);
+}
+
+.repo-discord-link {
+	background: linear-gradient(120deg, #8ea6ff, #9d83e8);
+}
+
+.repo-community:hover,
+.repo-community:focus-visible,
+.repo-discord-link:hover,
+.repo-discord-link:focus-visible {
+	transform: translateY(-1px);
+	filter: brightness(1.05);
+	box-shadow:
+		0 5px 12px rgba(106, 93, 180, 0.28),
+		inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.detail-actions .repo-community,
+.detail-actions .repo-discord-link {
+	padding: 0.58em 1.05em;
+	font-size: 0.78em;
+}
+
+.detail-actions .repo-community {
+	white-space: normal;
+}
+
 .repo-add {
 	display: inline-block;
 	padding: 0.55em 1.05em;

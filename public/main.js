@@ -7,6 +7,19 @@ const CHEVRON = `<svg class="summary-chevron" viewBox="0 0 1024 1024" aria-hidde
 
 const GROUP_CHEVRON = `<svg class="group-chevron" viewBox="0 0 1024 1024" aria-hidden="true"><path fill="currentColor" d="M831.872 340.864 512 652.672 192.128 340.864a30.592 30.592 0 0 0-42.752 0 29.12 29.12 0 0 0 0 41.6L489.664 714.24a32 32 0 0 0 44.672 0l340.288-331.712a29.12 29.12 0 0 0 0-41.728 30.592 30.592 0 0 0-42.752 0z"/></svg>`;
 
+const DISCORD_LINKS = {
+	"Inkdex Extensions": "https://discord.gg/inkdex",
+	"Kakarot Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1429957780529221837",
+	"Sinon's Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1441074130089803810",
+	"Pirate Vodka Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1453690910352216064",
+	"Nyzzik's Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1484486345954037930",
+	"PoppingMango Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1524169221251272866",
+	"Kittykatgit Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1541405619100319836",
+};
+const SUPPORT_08_DISCORD =
+	"https://discord.com/channels/965890377896845352/1266865492455588000";
+const INKDEX_REPO_NAME = "Inkdex Extensions";
+
 const RATING_CLASS = {
 	Safe: "rating-safe",
 	Mature: "rating-mature",
@@ -46,6 +59,11 @@ function escapeHtml(str) {
 
 function repoKey(repo) {
 	return `${repo.name}|${repo.version}`;
+}
+
+function discordUrlForRepo(repo) {
+	if (repo.version === "0.8") return SUPPORT_08_DISCORD;
+	return DISCORD_LINKS[repo.name] || "";
 }
 
 // "0.9" -> "version-0-9", the anchor the jump chips target
@@ -97,6 +115,21 @@ function renderRepo(repo, query, forceOpen) {
 	const badgeClass = repo.version === "0.9" ? "repo-version-09" : "repo-version-08";
 	const primary = repo.install || repo.github;
 	const actions = [];
+	const metaLinks = [];
+	const discordUrl = discordUrlForRepo(repo);
+
+	if (repo.name === INKDEX_REPO_NAME) {
+		metaLinks.push(
+			`<a class="repo-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener" title="Community repository where developers from many other repos submit source contributions">🌐 Community extensions · many repo developers contribute here</a>`,
+		);
+	}
+	if (discordUrl) {
+		const discordLabel =
+			repo.version === "0.8" ? "0.8 support on Discord" : "Discord support";
+		metaLinks.push(
+			`<a class="repo-discord-link" href="${escapeHtml(discordUrl)}" target="_blank" rel="noopener" aria-label="${escapeHtml(repo.name)} ${discordLabel}">💬 ${discordLabel}</a>`,
+		);
+	}
 
 	if (repo.install) {
 		actions.push(
@@ -117,6 +150,7 @@ function renderRepo(repo, query, forceOpen) {
 					<span class="repo-version-badge ${badgeClass}">${escapeHtml(repo.version)}</span>
 				</div>
 				<span class="repo-url">${escapeHtml(prettyUrl(primary))}</span>
+				${metaLinks.length ? `<div class="repo-meta-links">${metaLinks.join("")}</div>` : ""}
 			</div>
 			<div class="repo-actions">${actions.join("")}</div>
 		</div>

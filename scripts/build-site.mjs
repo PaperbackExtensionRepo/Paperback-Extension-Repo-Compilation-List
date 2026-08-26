@@ -29,6 +29,18 @@ const DISCLAIMER_HTML = `<aside class="site-disclaimer">
 	does not own or maintain the linked repositories.
 </aside>`;
 const SITE_LOGO_HTML = `<img class="site-logo" src="/favicon.svg" alt="Paperback Extension Repo logo" width="96" height="96" />`;
+const DISCORD_LINKS = {
+	"Inkdex Extensions": "https://discord.gg/inkdex",
+	"Kakarot Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1429957780529221837",
+	"Sinon's Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1441074130089803810",
+	"Pirate Vodka Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1453690910352216064",
+	"Nyzzik's Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1484486345954037930",
+	"PoppingMango Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1524169221251272866",
+	"Kittykatgit Extensions": "https://discord.com/channels/965890377896845352/1367512880228077648/1541405619100319836",
+};
+const SUPPORT_08_DISCORD =
+	"https://discord.com/channels/965890377896845352/1266865492455588000";
+const INKDEX_REPO_NAME = "Inkdex Extensions";
 
 function escapeHtml(value) {
 	return String(value).replace(
@@ -61,6 +73,11 @@ function repoSlug(repo) {
 
 function repoPagePath(repo) {
 	return `/repos/${repoSlug(repo)}/`;
+}
+
+function discordUrlForRepo(repo) {
+	if (repo.version === "0.8") return SUPPORT_08_DISCORD;
+	return DISCORD_LINKS[repo.name] || "";
 }
 
 /* ---------------------------------------------------------------- README -- */
@@ -346,9 +363,16 @@ function renderSourceCard(source) {
 function renderRepoPage(repo) {
 	const canonical = new URL(repo.page, SITE_URL).href;
 	const description = `Install ${repo.name} for Paperback ${repo.version} and browse its included sources.`;
+	const discordUrl = discordUrlForRepo(repo);
 	const actions = [
 		repo.install
 			? `<a class="repo-add" href="${escapeHtml(repo.install)}" target="_blank" rel="noopener">Add ${escapeHtml(repo.name)} to Paperback</a>`
+			: "",
+		repo.name === INKDEX_REPO_NAME
+			? `<a class="repo-community detail-community" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener">🌐 Community extensions · many repo developers contribute here</a>`
+			: "",
+		discordUrl
+			? `<a class="repo-discord-link detail-discord" href="${escapeHtml(discordUrl)}" target="_blank" rel="noopener">💬 ${repo.version === "0.8" ? "Open Paperback 0.8 support on Discord" : "Open Discord support"}</a>`
 			: "",
 		repo.github
 			? `<a class="detail-github" href="${escapeHtml(repo.github)}" target="_blank" rel="noopener">View ${escapeHtml(repo.name)} on GitHub</a>`
@@ -385,7 +409,7 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -445,7 +469,7 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -522,7 +546,7 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -633,7 +657,7 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-community" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
