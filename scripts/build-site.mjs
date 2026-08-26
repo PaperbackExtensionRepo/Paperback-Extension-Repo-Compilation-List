@@ -377,7 +377,7 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -436,7 +436,7 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -512,7 +512,7 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -622,7 +622,7 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-purple" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">

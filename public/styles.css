@@ -172,14 +172,20 @@ main {
 
 .jump-chip {
 	flex: 1 1 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.3em;
 	text-align: center;
-	padding: 0.6em 1em;
+	padding: 0.68em 1em;
+	border: 1.5px solid rgba(255, 255, 255, 0.78);
 	border-radius: 999px;
 	font-size: 0.92em;
 	font-weight: 800;
 	letter-spacing: 0.02em;
 	color: #fff;
 	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(88, 62, 112, 0.16);
 	white-space: nowrap;
 	transition:
 		transform 0.16s ease,
@@ -192,12 +198,16 @@ main {
 	filter: brightness(1.05);
 }
 .jump-09 {
-	background: linear-gradient(120deg, var(--cyan), var(--mint));
-	box-shadow: 0 4px 12px rgba(79, 211, 224, 0.35);
+	background: linear-gradient(120deg, #59d4e6, #78dfc1);
+	box-shadow:
+		0 5px 14px rgba(79, 211, 224, 0.32),
+		inset 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 .jump-08 {
-	background: linear-gradient(120deg, var(--pink), var(--lilac));
-	box-shadow: 0 4px 12px rgba(255, 122, 184, 0.35);
+	background: linear-gradient(120deg, #9f8be8, #c6a4ee);
+	box-shadow:
+		0 5px 14px rgba(159, 139, 232, 0.34),
+		inset 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 
 /* so a jumped-to band isn't flush against the top of the viewport */
@@ -502,18 +512,20 @@ main {
 	color: #2a8b98;
 }
 
-/* 0.8 — pink / lilac */
+/* 0.8 — pastel purple, distinct from the pink install buttons */
 .group-08 {
-	background: linear-gradient(120deg, #ffeaf5, #f3ebff);
-	border-color: #ffcfe6;
+	background: linear-gradient(120deg, #f8f2ff, #f3edff);
+	border-color: #decdf8;
 }
 .group-08 .group-pill {
-	background: linear-gradient(120deg, var(--pink), var(--lilac));
-	box-shadow: 0 3px 10px rgba(255, 122, 184, 0.35);
+	background: linear-gradient(120deg, #9f8be8, #c6a4ee);
+	box-shadow:
+		0 4px 12px rgba(159, 139, 232, 0.3),
+		inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .group-08 .group-count,
 .group-08 .group-chevron {
-	color: #a8559a;
+	color: #735a9f;
 }
 
 #repo-list ul {
