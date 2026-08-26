@@ -552,6 +552,20 @@ function renderSourceCard(source) {
 	</div>`;
 }
 
+function repoNeighbours(repo) {
+	const peers = repos.filter((candidate) => candidate.version === repo.version);
+	const index = peers.findIndex((candidate) => candidate.page === repo.page);
+
+	if (index < 0 || peers.length < 2) {
+		return { previous: null, next: null };
+	}
+
+	return {
+		previous: peers[(index - 1 + peers.length) % peers.length],
+		next: peers[(index + 1) % peers.length],
+	};
+}
+
 function renderRepoPage(repo) {
 	const canonical = new URL(repo.page, SITE_URL).href;
 	// The heading already names the repo, so the buttons don't repeat it — they
@@ -589,6 +603,23 @@ function renderRepoPage(repo) {
 	const sourceGridAttributes = sourcesAreScrollable
 		? ` tabindex="0" aria-label="${escapeHtml(repo.name)} sources — scroll for more"`
 		: "";
+	const { previous, next } = repoNeighbours(repo);
+	const neighbourLinks =
+		previous && next
+			? `<nav class="repo-detail-card repo-neighbours" aria-labelledby="repo-neighbours-title">
+				<h2 id="repo-neighbours-title">Explore more Paperback ${escapeHtml(repo.version)} repositories</h2>
+				<div class="repo-neighbour-grid">
+					<a class="repo-neighbour repo-neighbour-prev" href="${escapeHtml(previous.page)}">
+						<span>← Previous repository</span>
+						<strong>${escapeHtml(previous.name)}</strong>
+					</a>
+					<a class="repo-neighbour repo-neighbour-next" href="${escapeHtml(next.page)}">
+						<span>Next repository →</span>
+						<strong>${escapeHtml(next.name)}</strong>
+					</a>
+				</div>
+			</nav>`
+			: "";
 
 	return `<!doctype html>
 <html lang="en">
@@ -629,6 +660,7 @@ function renderRepoPage(repo) {
 				<h2 id="repo-sources-title">Included sources</h2>
 				<div class="${sourceGridClass}"${sourceGridAttributes}>${sourceCards}</div>
 			</section>
+			${neighbourLinks}
 			${DISCLAIMER_HTML}
 		</main>
 		${siteBarHtml(`${repo.name} — Paperback Extension Repo`, repo.page)}
