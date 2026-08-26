@@ -81,10 +81,15 @@ function renderSourcesSection(repo, query, forceOpen) {
 	const isOpen = forceOpen || openRepos.has(repoKey(repo));
 	const count = sources.length;
 	const label = `${count} source${count === 1 ? "" : "s"}`;
+	const isScrollable = count > 8;
+	const scrollClass = isScrollable ? " source-grid-scrollable" : "";
+	const scrollAttributes = isScrollable
+		? ` tabindex="0" aria-label="${escapeHtml(repo.name)} sources — scroll for more"`
+		: "";
 
 	return `<details class="repo-sources" data-repo="${escapeHtml(repoKey(repo))}"${isOpen ? " open" : ""}>
 		<summary>${CHEVRON}<span>🧁 ${label}</span><span class="summary-hint">tap to ${isOpen ? "hide" : "peek"}</span></summary>
-		<div class="source-grid">${sources.map((s) => renderSource(s, query)).join("")}</div>
+		<div class="source-grid${scrollClass}"${scrollAttributes}>${sources.map((s) => renderSource(s, query)).join("")}</div>
 	</details>`;
 }
 

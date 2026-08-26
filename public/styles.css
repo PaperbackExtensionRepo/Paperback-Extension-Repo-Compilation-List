@@ -736,6 +736,44 @@ main {
 	padding: 0.2em 1.1em 1.1em 1.1em;
 }
 
+/* Long source lists get their own cosy scroll area so one repository cannot
+   stretch the whole page. Short lists keep their natural height. */
+.source-grid-scrollable {
+	max-height: min(52vh, 26rem);
+	overflow-y: auto;
+	overscroll-behavior: contain;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-gutter: stable;
+	scrollbar-width: thin;
+	scrollbar-color: #b996ed #fff0f8;
+}
+
+.source-grid-scrollable:focus-visible {
+	outline: 2px solid var(--lilac);
+	outline-offset: -2px;
+	border-radius: 0.9em;
+}
+
+.source-grid-scrollable::-webkit-scrollbar {
+	width: 9px;
+}
+
+.source-grid-scrollable::-webkit-scrollbar-track {
+	margin: 0.3em 0 0.8em;
+	border-radius: 999px;
+	background: linear-gradient(180deg, #e9fbff, #fff0f8);
+}
+
+.source-grid-scrollable::-webkit-scrollbar-thumb {
+	border: 2px solid #fff8fc;
+	border-radius: 999px;
+	background: linear-gradient(180deg, #62d5e4, #b996ed 52%, #ff9fca);
+}
+
+.source-grid-scrollable::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(180deg, #43c8db, #a77fe5 52%, #ff82bb);
+}
+
 .source-item {
 	display: flex;
 	align-items: center;

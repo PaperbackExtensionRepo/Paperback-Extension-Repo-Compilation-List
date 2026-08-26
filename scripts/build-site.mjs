@@ -359,6 +359,13 @@ function renderRepoPage(repo) {
 	const sourceCards = repo.sources.length
 		? repo.sources.map(renderSourceCard).join("")
 		: '<p class="sources-none detail-sources-none">The source list is currently unavailable. Use the repository links above to browse it.</p>';
+	const sourcesAreScrollable = repo.sources.length > 8;
+	const sourceGridClass = sourcesAreScrollable
+		? "source-grid detail-source-grid source-grid-scrollable"
+		: "source-grid detail-source-grid";
+	const sourceGridAttributes = sourcesAreScrollable
+		? ` tabindex="0" aria-label="${escapeHtml(repo.name)} sources — scroll for more"`
+		: "";
 
 	return `<!doctype html>
 <html lang="en">
@@ -378,7 +385,7 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -396,7 +403,7 @@ function renderRepoPage(repo) {
 			</section>
 			<section class="repo-detail-card" aria-labelledby="repo-sources-title">
 				<h2 id="repo-sources-title">Included sources</h2>
-				<div class="source-grid detail-source-grid">${sourceCards}</div>
+				<div class="${sourceGridClass}"${sourceGridAttributes}>${sourceCards}</div>
 			</section>
 			${DISCLAIMER_HTML}
 		</main>
@@ -438,7 +445,7 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -515,7 +522,7 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
@@ -626,7 +633,7 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260825-logo" />
+		<link rel="stylesheet" href="/styles.css?v=20260825-scroll" />
 	</head>
 	<body class="repo-detail-page">
 		<header class="detail-header">
