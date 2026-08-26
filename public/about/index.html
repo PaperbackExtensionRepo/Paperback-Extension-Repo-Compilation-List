@@ -18,9 +18,34 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
 	</head>
 	<body class="repo-detail-page">
+		<button type="button" class="drawer-toggle" aria-controls="site-drawer" aria-expanded="false" aria-label="Open menu">
+		<span class="drawer-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+	</button>
+	<div class="drawer-veil" hidden></div>
+	<aside id="site-drawer" class="drawer" hidden aria-label="Site menu">
+		<div class="drawer-head">
+			<span class="drawer-title">Paperback Extension Repo</span>
+			<button type="button" class="drawer-close" aria-label="Close menu">✕</button>
+		</div>
+		<nav class="drawer-nav">
+			<a class="drawer-item" href="/"><span class="drawer-icon" aria-hidden="true">🏠</span>Main index</a>
+			<a class="drawer-item is-current" href="/about/" aria-current="page"><span class="drawer-icon" aria-hidden="true">🌸</span>About</a>
+			<a class="drawer-item" href="/paperback/"><span class="drawer-icon" aria-hidden="true">📖</span>What is Paperback?</a>
+			<a class="drawer-item" href="/paperback-0-9/"><span class="drawer-icon" aria-hidden="true">🎟️</span>Get Paperback 0.9</a>
+			<a class="drawer-item" href="/app-store/"><span class="drawer-icon" aria-hidden="true">🍎</span>App Store</a>
+			<a class="drawer-item" href="/therobbiedavis/paperback-extension-repo/"><span class="drawer-icon" aria-hidden="true">⚠️</span>Worth knowing</a>
+			<p class="drawer-heading">Sections</p>
+			<a class="drawer-item" href="/#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 repos</a>
+			<a class="drawer-item" href="/#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 repos</a>
+			<p class="drawer-heading">Socials</p>
+			<a class="drawer-item" href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">🐙</span>GitHub</a>
+			<a class="drawer-item" href="https://discord.paperback.moe/" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">💬</span>Paperback Discord</a>
+			<a class="drawer-item" href="https://www.reddit.com/r/Paperback" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">👽</span>r/Paperback</a>
+		</nav>
+	</aside>
 		<header class="detail-header">
 			<img class="site-logo" src="/favicon.svg" alt="Paperback Extension Repo logo" width="96" height="96" />
 			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
@@ -98,7 +123,7 @@
 				</p>
 				<p class="about-stamp">
 					Last rebuilt
-					<time datetime="2026-08-26T09:53:42.510Z"><strong>26 August 2026</strong></time>.
+					<time datetime="2026-08-26T09:59:39.509Z"><strong>26 August 2026</strong></time>.
 				</p>
 			</section>
 
@@ -169,6 +194,6 @@
 			</div>
 		</div>
 	</footer>
-		<script src="/site.js?v=20260826-bar" defer></script>
+		<script src="/site.js?v=20260826-drawer" defer></script>
 	</body>
 </html>

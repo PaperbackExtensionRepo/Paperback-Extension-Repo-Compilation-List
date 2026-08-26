@@ -66,3 +66,58 @@
 		}
 	}
 })();
+
+// Slide-out menu. The markup is already in the page; this only wires up
+// opening, closing and focus handling.
+(function () {
+	var toggle = document.querySelector(".drawer-toggle");
+	var drawer = document.getElementById("site-drawer");
+	var veil = document.querySelector(".drawer-veil");
+	if (!toggle || !drawer || !veil) return;
+
+	var closer = drawer.querySelector(".drawer-close");
+	var lastFocused = null;
+
+	function open() {
+		lastFocused = document.activeElement;
+		drawer.hidden = false;
+		veil.hidden = false;
+		// let the element lay out before animating, or the transition is skipped
+		requestAnimationFrame(function () {
+			document.body.classList.add("drawer-open");
+			toggle.setAttribute("aria-expanded", "true");
+		});
+		if (closer) closer.focus();
+		document.addEventListener("keydown", onKeydown);
+	}
+
+	function close() {
+		document.body.classList.remove("drawer-open");
+		toggle.setAttribute("aria-expanded", "false");
+		document.removeEventListener("keydown", onKeydown);
+		// keep it in the DOM until the slide-out finishes, then hide it from
+		// assistive tech and tab order again
+		window.setTimeout(function () {
+			if (document.body.classList.contains("drawer-open")) return;
+			drawer.hidden = true;
+			veil.hidden = true;
+		}, 260);
+		if (lastFocused && lastFocused.focus) lastFocused.focus();
+	}
+
+	function onKeydown(event) {
+		if (event.key === "Escape") close();
+	}
+
+	toggle.addEventListener("click", function () {
+		if (document.body.classList.contains("drawer-open")) close();
+		else open();
+	});
+	veil.addEventListener("click", close);
+	if (closer) closer.addEventListener("click", close);
+
+	// following a link should leave the menu shut behind you
+	for (var i = 0; i < drawer.querySelectorAll(".drawer-item").length; i++) {
+		drawer.querySelectorAll(".drawer-item")[i].addEventListener("click", close);
+	}
+})();

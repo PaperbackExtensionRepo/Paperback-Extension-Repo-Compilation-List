@@ -97,6 +97,41 @@ function discordUrlForRepo(repo) {
 	return DISCORD_LINKS[repo.name] || "";
 }
 
+// Slide-out navigation drawer, present on every page. Rendered in the markup
+// rather than injected by JS so it still lists every page for a crawler, and
+// so there's nothing to shift once scripts run.
+function sidebarHtml(currentPath) {
+	const item = (href, icon, label) => {
+		const isCurrent = href === currentPath;
+		return `<a class="drawer-item${isCurrent ? " is-current" : ""}" href="${href}"${isCurrent ? ' aria-current="page"' : ""}><span class="drawer-icon" aria-hidden="true">${icon}</span>${escapeHtml(label)}</a>`;
+	};
+	return `<button type="button" class="drawer-toggle" aria-controls="site-drawer" aria-expanded="false" aria-label="Open menu">
+		<span class="drawer-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+	</button>
+	<div class="drawer-veil" hidden></div>
+	<aside id="site-drawer" class="drawer" hidden aria-label="Site menu">
+		<div class="drawer-head">
+			<span class="drawer-title">Paperback Extension Repo</span>
+			<button type="button" class="drawer-close" aria-label="Close menu">✕</button>
+		</div>
+		<nav class="drawer-nav">
+			${item("/", "🏠", "Main index")}
+			${item(ABOUT_PATH, "🌸", "About")}
+			${item(PAPERBACK_PATH, "📖", "What is Paperback?")}
+			${item(PAPERBACK_09_PATH, "🎟️", "Get Paperback 0.9")}
+			${item(APP_STORE_PATH, "🍎", "App Store")}
+			${item(WORTH_KNOWING_PATH, "⚠️", "Worth knowing")}
+			<p class="drawer-heading">Sections</p>
+			<a class="drawer-item" href="/#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 repos</a>
+			<a class="drawer-item" href="/#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 repos</a>
+			<p class="drawer-heading">Socials</p>
+			<a class="drawer-item" href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">🐙</span>GitHub</a>
+			<a class="drawer-item" href="${PAPERBACK_DISCORD}" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">💬</span>Paperback Discord</a>
+			<a class="drawer-item" href="https://www.reddit.com/r/Paperback" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">👽</span>r/Paperback</a>
+		</nav>
+	</aside>`;
+}
+
 // Footer bar, EverythingMoe-style: site name and page links on the left,
 // community links on the right. Class names stay clear of "share"/"social"
 // wording because content blockers hide those wholesale.
@@ -133,7 +168,7 @@ function siteBarHtml(title, path) {
 	</footer>`;
 }
 
-const SITE_SCRIPT_HTML = `<script src="/site.js?v=20260826-bar" defer></script>`;
+const SITE_SCRIPT_HTML = `<script src="/site.js?v=20260826-drawer" defer></script>`;
 
 /* ---------------------------------------------------------------- README -- */
 
@@ -484,9 +519,10 @@ function renderRepoPage(repo) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
 	</head>
 	<body class="repo-detail-page">
+		${sidebarHtml(repo.page)}
 		<header class="detail-header">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
@@ -547,9 +583,10 @@ function renderWorthKnowingPage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
 	</head>
 	<body class="repo-detail-page">
+		${sidebarHtml(WORTH_KNOWING_PATH)}
 		<header class="detail-header">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">⚠️ 🌸 ⚠️</span>
@@ -627,9 +664,10 @@ function renderPaperback09Page() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
 	</head>
 	<body class="repo-detail-page">
+		${sidebarHtml(PAPERBACK_09_PATH)}
 		<header class="detail-header">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🎟️ 🌸 ✨</span>
@@ -741,9 +779,10 @@ function renderAppStorePage() {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />
+		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />
 	</head>
 	<body class="repo-detail-page">
+		${sidebarHtml(APP_STORE_PATH)}
 		<header class="detail-header">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">📱 🌷 ✨</span>
@@ -798,7 +837,7 @@ function pageHead(title, description, path) {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="/styles.css?v=20260826-bar" />`;
+		<link rel="stylesheet" href="/styles.css?v=20260826-drawer" />`;
 }
 
 function renderAboutPage() {
@@ -811,6 +850,7 @@ function renderAboutPage() {
 		${pageHead("About this directory", description, ABOUT_PATH)}
 	</head>
 	<body class="repo-detail-page">
+		${sidebarHtml(ABOUT_PATH)}
 		<header class="detail-header">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">🌸 ✨ 🍡</span>
@@ -942,6 +982,7 @@ function renderPaperbackPage() {
 		${pageHead("What is Paperback?", description, PAPERBACK_PATH)}
 	</head>
 	<body class="repo-detail-page">
+		${sidebarHtml(PAPERBACK_PATH)}
 		<header class="detail-header">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">📖 ✨ 🌸</span>

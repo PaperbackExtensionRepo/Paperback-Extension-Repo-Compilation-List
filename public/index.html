@@ -43,9 +43,69 @@
 			href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="styles.css?v=20260826-bar" />
+		<link rel="stylesheet" href="styles.css?v=20260826-drawer" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "WebSite",
+						"@id": "https://paperbackextensionrepo.xyz/#website",
+						"url": "https://paperbackextensionrepo.xyz/",
+						"name": "Paperback Extension Repo",
+						"description": "A directory of community-maintained extension repositories for the Paperback reading app, covering Paperback 0.9 and 0.8.",
+						"inLanguage": "en"
+					},
+					{
+						"@type": "CollectionPage",
+						"@id": "https://paperbackextensionrepo.xyz/#directory",
+						"url": "https://paperbackextensionrepo.xyz/",
+						"name": "Paperback Extension Repo",
+						"isPartOf": { "@id": "https://paperbackextensionrepo.xyz/#website" },
+						"about": {
+							"@type": "SoftwareApplication",
+							"name": "Paperback",
+							"applicationCategory": "BookApplication",
+							"operatingSystem": "iOS, iPadOS",
+							"url": "https://paperback.moe"
+						}
+					}
+				]
+			}
+		</script>
 	</head>
 	<body>
+		<button
+			type="button"
+			class="drawer-toggle"
+			aria-controls="site-drawer"
+			aria-expanded="false"
+			aria-label="Open menu"
+		>
+			<span class="drawer-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+		</button>
+		<div class="drawer-veil" hidden></div>
+		<aside id="site-drawer" class="drawer" hidden aria-label="Site menu">
+			<div class="drawer-head">
+				<span class="drawer-title">Paperback Extension Repo</span>
+				<button type="button" class="drawer-close" aria-label="Close menu">✕</button>
+			</div>
+			<nav class="drawer-nav">
+				<a class="drawer-item is-current" href="/" aria-current="page"><span class="drawer-icon" aria-hidden="true">🏠</span>Main index</a>
+				<a class="drawer-item" href="/about/"><span class="drawer-icon" aria-hidden="true">🌸</span>About</a>
+				<a class="drawer-item" href="/paperback/"><span class="drawer-icon" aria-hidden="true">📖</span>What is Paperback?</a>
+				<a class="drawer-item" href="/paperback-0-9/"><span class="drawer-icon" aria-hidden="true">🎟️</span>Get Paperback 0.9</a>
+				<a class="drawer-item" href="/app-store/"><span class="drawer-icon" aria-hidden="true">🍎</span>App Store</a>
+				<a class="drawer-item" href="/therobbiedavis/paperback-extension-repo/"><span class="drawer-icon" aria-hidden="true">⚠️</span>Worth knowing</a>
+				<p class="drawer-heading">Sections</p>
+				<a class="drawer-item" href="#version-0-9"><span class="drawer-icon" aria-hidden="true">💠</span>Paperback 0.9 repos</a>
+				<a class="drawer-item" href="#version-0-8"><span class="drawer-icon" aria-hidden="true">🔮</span>Paperback 0.8 repos</a>
+				<p class="drawer-heading">Socials</p>
+				<a class="drawer-item" href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">🐙</span>GitHub</a>
+				<a class="drawer-item" href="https://discord.paperback.moe/" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">💬</span>Paperback Discord</a>
+				<a class="drawer-item" href="https://www.reddit.com/r/Paperback" target="_blank" rel="noopener"><span class="drawer-icon" aria-hidden="true">👽</span>r/Paperback</a>
+			</nav>
+		</aside>
 		<a
 			href="https://github.com/PaperbackExtensionRepo/Paperback-Extension-Repo-Compilation-List"
 			id="github-link"
@@ -545,6 +605,6 @@
 			})();
 		</script>
 		<script src="main.js?v=20260826-tagplace" defer></script>
-		<script src="site.js?v=20260826-bar" defer></script>
+		<script src="site.js?v=20260826-drawer" defer></script>
 	</body>
 </html>
