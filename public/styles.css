@@ -193,8 +193,10 @@ header > h1 {
 
 main {
 	max-width: 760px;
-	margin: 1rem auto 2rem auto;
-	padding: 0 1.5rem 2rem 1.5rem;
+	/* no bottom margin: the footer bar sits directly below and brings its own
+	   top padding, so main's old trailing space just left a hole */
+	margin: 1rem auto 0 auto;
+	padding: 0 1.5rem 0.6rem 1.5rem;
 }
 
 /* jump chips — shortcuts to each version section */
@@ -1875,4 +1877,10 @@ noscript {
 /* the toggle sits top-left, so give the drawer link a matching scroll target */
 #top {
 	scroll-margin-top: 0;
+}
+
+/* whatever ends the page shouldn't add margin on top of the footer bar's
+   own padding — that stacking is what left a gap under the disclaimer */
+main > *:last-child {
+	margin-bottom: 0;
 }
