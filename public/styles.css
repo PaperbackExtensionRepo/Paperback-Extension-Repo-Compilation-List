@@ -450,7 +450,6 @@ main {
 .list-meta {
 	display: flex;
 	align-items: baseline;
-	justify-content: space-between;
 	gap: 1em;
 	margin-bottom: 0.4em;
 	min-height: 1.6em;
@@ -460,7 +459,6 @@ main {
 	color: var(--gray);
 	font-size: 0.93em;
 	font-weight: 700;
-	margin-left: auto;
 	white-space: nowrap;
 }
 
