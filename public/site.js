@@ -1,3 +1,54 @@
+// Homepage metadata polish and repo-section scrolling.
+(function () {
+	var homepage = location.pathname === "/" || location.pathname === "/index.html";
+	if (homepage) {
+		var description =
+			"Browse a compilation list of Paperback extension & source repositories for versions 0.8 and 0.9, with install links, included sources, and GitHub pages.";
+
+		var metaDescription = document.querySelector('meta[name="description"]');
+		if (metaDescription) metaDescription.setAttribute("content", description);
+
+		var ogDescription = document.querySelector('meta[property="og:description"]');
+		if (ogDescription) ogDescription.setAttribute("content", description);
+
+		// Prefer the scalable site mark over the old 32px ICO when crawlers and
+		// browsers choose a favicon, while keeping the ICO as a compatibility fallback.
+		var svgIcon = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
+		var firstIcon = document.querySelector('link[rel="icon"]');
+		if (svgIcon) {
+			svgIcon.setAttribute("href", "/favicon.svg");
+			svgIcon.setAttribute("sizes", "any");
+			if (firstIcon && firstIcon !== svgIcon) {
+				document.head.insertBefore(svgIcon, firstIcon);
+			}
+		}
+	}
+
+	// Keep each Paperback version header fixed in place while its repo cards
+	// scroll independently. The max-height only caps long lists, so filtered or
+	// short results still use their natural height.
+	var style = document.createElement("style");
+	style.textContent =
+		".group-section[open] > ul{" +
+		"max-height:min(68vh,42rem);" +
+		"overflow-y:auto;" +
+		"overscroll-behavior:contain;" +
+		"-webkit-overflow-scrolling:touch;" +
+		"scrollbar-width:thin;" +
+		"scrollbar-color:#b996ed #fff0f8;" +
+		"padding-right:.3rem;" +
+		"}" +
+		".group-section[open] > ul::-webkit-scrollbar{width:8px;}" +
+		".group-section[open] > ul::-webkit-scrollbar-track{" +
+		"background:#fff0f8;border-radius:999px;" +
+		"}" +
+		".group-section[open] > ul::-webkit-scrollbar-thumb{" +
+		"background:linear-gradient(180deg,#c7a8f3,#a985e8);" +
+		"border:2px solid #fff0f8;border-radius:999px;" +
+		"}";
+	document.head.appendChild(style);
+})();
+
 // Footer bar behaviour. Deliberately avoids "share"-flavoured class names and
 // filenames: content blockers hide those as social widgets, which silently
 // emptied the old share row.
