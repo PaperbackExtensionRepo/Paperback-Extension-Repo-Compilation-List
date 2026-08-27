@@ -23,8 +23,6 @@
   On iPhone or iPad, tap the button, pick a repo, and add it from the page that opens.<br/>
   The site lists every repo below, and you can expand any of them to see the sources it ships —<br/>
   searching there matches source names too, so you can find which repo has the one you want:<br/>
-  <code>https://paperbackextensionrepo.xyz/</code>
-</p>
 
 ---
 
