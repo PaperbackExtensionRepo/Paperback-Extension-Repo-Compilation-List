@@ -1,4 +1,4 @@
-// Homepage metadata polish and repo-section scrolling.
+// Homepage metadata polish.
 (function () {
 	var homepage = location.pathname === "/" || location.pathname === "/index.html";
 	if (homepage) {
@@ -23,30 +23,6 @@
 			}
 		}
 	}
-
-	// Keep each Paperback version header fixed in place while its repo cards
-	// scroll independently. The max-height only caps long lists, so filtered or
-	// short results still use their natural height.
-	var style = document.createElement("style");
-	style.textContent =
-		".group-section[open] > ul{" +
-		"max-height:min(68vh,42rem);" +
-		"overflow-y:auto;" +
-		"overscroll-behavior:contain;" +
-		"-webkit-overflow-scrolling:touch;" +
-		"scrollbar-width:thin;" +
-		"scrollbar-color:#b996ed #fff0f8;" +
-		"padding-right:.3rem;" +
-		"}" +
-		".group-section[open] > ul::-webkit-scrollbar{width:8px;}" +
-		".group-section[open] > ul::-webkit-scrollbar-track{" +
-		"background:#fff0f8;border-radius:999px;" +
-		"}" +
-		".group-section[open] > ul::-webkit-scrollbar-thumb{" +
-		"background:linear-gradient(180deg,#c7a8f3,#a985e8);" +
-		"border:2px solid #fff0f8;border-radius:999px;" +
-		"}";
-	document.head.appendChild(style);
 })();
 
 // Footer bar behaviour. Deliberately avoids "share"-flavoured class names and
