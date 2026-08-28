@@ -11,6 +11,12 @@
 		var ogDescription = document.querySelector('meta[property="og:description"]');
 		if (ogDescription) ogDescription.setAttribute("content", description);
 
+		var mainDescription = document.querySelector(".main-description");
+		if (mainDescription) {
+			mainDescription.innerHTML =
+				'Browse a compilation list of <a href="https://paperback.moe" target="_blank" rel="noopener">Paperback</a> extension &amp; source repositories for versions 0.8 and 0.9, with install links, included sources, and GitHub pages.';
+		}
+
 		// Prefer the scalable site mark over the old 32px ICO when crawlers and
 		// browsers choose a favicon, while keeping the ICO as a compatibility fallback.
 		var svgIcon = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
