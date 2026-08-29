@@ -17,16 +17,18 @@
 				'Browse a compilation list of <a href="https://paperback.moe" target="_blank" rel="noopener">Paperback</a> extension &amp; source repositories for versions 0.8 and 0.9, with install links, included sources, and GitHub pages.';
 		}
 
-		// Prefer the scalable site mark over the old 32px ICO when crawlers and
-		// browsers choose a favicon, while keeping the ICO as a compatibility fallback.
-		var svgIcon = document.querySelector('link[rel="icon"][type="image/svg+xml"]');
+		// Google Search supports raster/ICO favicons, so prefer the existing
+		// high-resolution PNG mark instead of moving the SVG ahead of it.
 		var firstIcon = document.querySelector('link[rel="icon"]');
-		if (svgIcon) {
-			svgIcon.setAttribute("href", "/favicon.svg");
-			svgIcon.setAttribute("sizes", "any");
-			if (firstIcon && firstIcon !== svgIcon) {
-				document.head.insertBefore(svgIcon, firstIcon);
-			}
+		var pngIcon = document.querySelector('link[rel="icon"][type="image/png"]');
+		if (!pngIcon) {
+			pngIcon = document.createElement("link");
+			pngIcon.setAttribute("rel", "icon");
+			pngIcon.setAttribute("type", "image/png");
+			pngIcon.setAttribute("sizes", "180x180");
+			pngIcon.setAttribute("href", "/apple-touch-icon.png");
+			if (firstIcon) document.head.insertBefore(pngIcon, firstIcon);
+			else document.head.appendChild(pngIcon);
 		}
 	}
 })();
