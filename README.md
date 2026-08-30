@@ -5,7 +5,7 @@
 <p align="center">
   <img src="media/badge-ios.svg" alt="iOS / iPadOS" height="28"/>
   <img src="media/badge-version.svg" alt="Paperback 0.8 &amp; 0.9" height="28"/>
-  <img src="media/badge-count.svg" alt="23 repos" height="28"/>
+  <img src="media/badge-count.svg" alt="24 repos" height="28"/>
   <img src="media/badge-community.svg" alt="Community list" height="28"/>
 </p>
 
