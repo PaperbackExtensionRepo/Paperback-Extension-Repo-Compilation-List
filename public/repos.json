@@ -1,7 +1,7 @@
 {
 	"name": "Paperback Extension Repo",
 	"description": "Paperback Extension & Source Repo Compilation",
-	"updated": "2026-08-25T19:38:13.378Z",
+	"updated": "2026-08-30T15:16:46.465Z",
 	"repos": [
 		{
 			"name": "Inkdex Extensions",
@@ -121,6 +121,14 @@
 			"category": "Manga/Manhwa/Manhua",
 			"install": "https://gabrielcwt.github.io/gabe-extensions/0.8",
 			"github": "https://github.com/gabrielcwt/gabe-extensions",
+			"sources": []
+		},
+		{
+			"name": "PoppingMango Extensions",
+			"version": "0.8",
+			"category": "Manga/Manhwa/Manhua",
+			"install": "https://poppingmangosources.github.io/popmango-paperback-sources/all/#paperback-0-8",
+			"github": "https://github.com/PoppingMangoSources/popmango-paperback-sources",
 			"sources": []
 		},
 		{
