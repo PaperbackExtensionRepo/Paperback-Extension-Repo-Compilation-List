@@ -77,7 +77,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Shadorig's Extensions (0.8) | https://shadorig.github.io/real-extensions/sources | https://github.com/shadorig/real-extensions |
 | Seyden's Extensions (0.8) | https://seyden.github.io/community-extensions/0.8/ | https://github.com/Seyden/extensions-generic-0.8 |
 | Gabe's Extensions (0.8) | https://gabrielcwt.github.io/gabe-extensions/0.8 | https://github.com/gabrielcwt/gabe-extensions |
-| PoppingMango Extensions (0.8) | https://poppingmangosources.github.io/popmango-paperback-sources/all/#paperback-0-8 | https://github.com/PoppingMangoSources/popmango-paperback-sources |
+| PoppingMango Extensions (0.8) | https://poppingmangosources.github.io/popmango-paperback-sources/all/#paperback-0-8 | https://github.com/PoppingMangoSources/popmango-paperback-sources | https://poppingmangosources.github.io/popmango-paperback-sources/0.8 |
 | Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
 | Ben's Extensions (0.8) | https://benjamin5896.github.io/bens-paperback-extensions/paperback-0.8/ | https://github.com/benjamin5896/bens-paperback-extensions |
 | Numby's Extensions (0.8) | https://g2asell2019.github.io/numby-extensions/0.8/ | https://github.com/g2asell2019/numby-extensions |
