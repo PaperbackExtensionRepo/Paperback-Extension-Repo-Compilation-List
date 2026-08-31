@@ -736,7 +736,8 @@ console.log(`Wrote ${repos.length} individual repository pages.`);
 
 function renderWorthKnowingPage() {
 	const canonical = new URL(WORTH_KNOWING_PATH, SITE_URL).href;
-	const description = "An outdated Paperback extension repository that should be skipped on current Paperback versions.";
+	const title = "Worth Knowing: therobbiedavis/paperback-extension-repo";
+	const description = "Reference page for the outdated therobbiedavis/paperback-extension-repo, which targets Paperback 0.6 and should be skipped on current 0.8 and 0.9 versions.";
 
 	return `<!doctype html>
 <html lang="en">
@@ -746,9 +747,9 @@ function renderWorthKnowingPage() {
 		<meta name="color-scheme" content="light" />
 		<meta name="theme-color" content="#fff5fa" />
 		<meta name="description" content="${description}" />
-		<title>Worth knowing — Paperback Extension Repo</title>
+		<title>${escapeHtml(title)}</title>
 		<link rel="canonical" href="${canonical}" />
-		<meta property="og:title" content="Worth knowing — Paperback Extension Repo" />
+		<meta property="og:title" content="${escapeHtml(title)}" />
 		<meta property="og:description" content="${description}" />
 		<meta property="og:url" content="${canonical}" />
 		<meta property="og:type" content="website" />
@@ -756,18 +757,18 @@ function renderWorthKnowingPage() {
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="preload" href="/fonts/quicksand-latin.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="stylesheet" href="/styles.css?v=${ASSET_V}" />
-		${guideJsonLd("Paperback 0.6 repositories and why they no longer work", description, WORTH_KNOWING_PATH)}
+		${guideJsonLd(title, description, WORTH_KNOWING_PATH)}
 	</head>
 	<body class="repo-detail-page">
 		${sidebarHtml(WORTH_KNOWING_PATH)}
 		<header class="detail-header" id="top">
 			${SITE_LOGO_HTML}
 			<span class="header-sparkle" aria-hidden="true">⚠️ 🌸 ⚠️</span>
-			<h1><span class="main-heading">Worth knowing</span></h1>
+			<h1><span class="main-heading">Outdated Paperback 0.6 repository</span></h1>
 			<p class="main-description">${description}</p>
 		</header>
 		<main>
-			<a class="detail-back" href="/">← Back to all repositories</a>
+			<a class="detail-back" href="/">← Paperback Extension Repo &amp; Sources</a>
 			<section class="repo-detail-card">
 				<h2>Outdated Paperback 0.6 repository</h2>
 				<p>
