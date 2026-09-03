@@ -70,7 +70,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 
 | Name | Install (Add to Paperback) | GitHub | Manifest (optional) |
 |------|----------------------------|--------|---------------------|
-| Ace Extensions (0.8) | https://acepilot147.github.io/pb-extensions/0.8 | https://github.com/acepilot147/pb-extensions |
+| Ace Extensions (0.8, Comix only) | https://acepilot147.github.io/pb-extensions/0.8 | https://github.com/acepilot147/pb-extensions |
 | Default Trackers (0.8) | https://paperback-ios.github.io/extensions/main | https://github.com/paperback-ios/extensions |
 | Ivan's Extensions (0.8) | https://ivanmatthew.github.io/ivans-paperback-extensions/paperback-0.8 | https://github.com/ivanmatthew/ivans-paperback-extensions |
 | Kakarot's Extensions (0.8) | https://karrot0.github.io/kakarotextension0.8/0.8-stable | https://github.com/karrot0/kakarotextension0.8 |
@@ -78,6 +78,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Seyden's Extensions (0.8) | https://seyden.github.io/community-extensions/0.8/ | https://github.com/Seyden/extensions-generic-0.8 |
 | Gabe's Extensions (0.8) | https://gabrielcwt.github.io/gabe-extensions/0.8 | https://github.com/gabrielcwt/gabe-extensions |
 | PoppingMango Extensions (0.8) | https://poppingmangosources.github.io/popmango-paperback-sources/all/#paperback-0-8 | https://github.com/PoppingMangoSources/popmango-paperback-sources | https://poppingmangosources.github.io/popmango-paperback-sources/0.8 |
+| Kittykatgit Extensions (0.8) | https://kittycatgit.github.io/kitty-extensions-0.8/ | https://github.com/kittycatgit/kitty-extensions-0.8
 | Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
 | Ben's Extensions (0.8) | https://benjamin5896.github.io/bens-paperback-extensions/paperback-0.8/ | https://github.com/benjamin5896/bens-paperback-extensions |
 | Numby's Extensions (0.8) | https://g2asell2019.github.io/numby-extensions/0.8/ | https://github.com/g2asell2019/numby-extensions |
