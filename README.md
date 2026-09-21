@@ -63,6 +63,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions |
 | Corruptbytes Extensions (0.9) | https://michaelasper.github.io/paperback-corruptbytes/ | https://github.com/michaelasper/paperback-corruptbytes |
+| Kodama's Extensions (0.9) | https://itskodama.github.io/paperback-extensions/0.9/stable/ | https://github.com/itskodama/paperback-extensions | 
 
 # Paperback 0.8 Compatible Extension Repos
 
