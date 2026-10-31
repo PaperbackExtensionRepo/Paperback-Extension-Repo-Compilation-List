@@ -64,7 +64,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Hammy Extensions (0.9) | https://pisshammy.github.io/HammyExtensions/ | https://github.com/pisshammy/HammyExtensions
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions |
 | Corruptbytes Extensions (0.9) | https://michaelasper.github.io/paperback-corruptbytes/ | https://github.com/michaelasper/paperback-corruptbytes |
-| Kodama's Extensions (0.9) | https://itskodama.github.io/paperback-extensions/0.9/stable/ | https://github.com/itskodama/paperback-extensions | 
+| Kodama's Extensions (0.9, Mangabaka Tracker) | https://itskodama.github.io/paperback-extensions/0.9/stable/ | https://github.com/itskodama/paperback-extensions | 
 
 # Paperback 0.8 Compatible Extension Repos
 
