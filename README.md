@@ -61,6 +61,7 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Nyzzik's Extensions (0.9) | https://paperback.nyzz.me/ | https://github.com/nyzzik/extensions |
 | Kittykatgit Extensions (0.9) | https://kittycatgit.github.io/kitty-extensions-0.9/ | https://github.com/kittycatgit/kitty-extensions-0.9 |
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
+| Hammy Extensions (0.9) | https://pisshammy.github.io/HammyExtensions/ | https://github.com/pisshammy/HammyExtensions
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions |
 | Corruptbytes Extensions (0.9) | https://michaelasper.github.io/paperback-corruptbytes/ | https://github.com/michaelasper/paperback-corruptbytes |
 | Kodama's Extensions (0.9) | https://itskodama.github.io/paperback-extensions/0.9/stable/ | https://github.com/itskodama/paperback-extensions | 
