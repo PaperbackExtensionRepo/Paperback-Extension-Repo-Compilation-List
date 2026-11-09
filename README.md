@@ -55,13 +55,14 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Name | Install (Add to Paperback) | GitHub | Manifest (optional) |
 |------|----------------------------|--------|---------------------|
 | Inkdex Extensions (0.9) | https://inkdex.github.io/extension-list | https://github.com/inkdex/extensions | https://inkdex.github.io/extensions/0.9/stable |
-| Kakarot Extensions (0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension |
 | Pirate Vodka Extensions (0.9) | https://read.pirate.vodka/ | https://github.com/LucifersCircle/pirate.vodka-extensions |
 | PoppingMango Extensions (0.9) | https://poppingmangosources.github.io/general-extensions-mangago/0.9/test/ | https://github.com/PoppingMangoSources/general-extensions-mangago |
 | Nyzzik's Extensions (0.9) | https://paperback.nyzz.me/ | https://github.com/nyzzik/extensions |
-| Kittykatgit Extensions (0.9) | https://kittycatgit.github.io/kitty-extensions-0.9/ | https://github.com/kittycatgit/kitty-extensions-0.9 |
+| Kittykatgit (Comix Only, 0.9) | https://kittycatgit.github.io/cx-bundles/ | https://github.com/kittycatgit/kitty-extensions-0.9 |
+| Kittykatgit Extensions (0.9) | https://paperback.samipmainali.dev/kitty | https://github.com/kittycatgit/kitty-extensions-0.9 |
 | Sinon's Extensions (0.9) | https://catta1997.github.io/Sinon-Paperback-Extensions/0.9/stable/ | https://github.com/Catta1997/Sinon-Paperback-Extensions |
 | Hammy Extensions (0.9) | https://pisshammy.github.io/HammyExtensions/ | https://github.com/pisshammy/HammyExtensions
+| Kakarot Extensions (no longer maintained, 0.9) | https://karrot0.github.io/KakarotExtension/0.9/stable/ | https://github.com/karrot0/KakarotExtension |
 | The Vodraz's Extensions (0.9) | https://thevodraz.github.io/paperback-extensions/ | https://github.com/TheVodraz/paperback-extensions |
 | Corruptbytes Extensions (0.9) | https://michaelasper.github.io/paperback-corruptbytes/ | https://github.com/michaelasper/paperback-corruptbytes |
 | Kodama's Extensions (0.9, Mangabaka Tracker) | https://itskodama.github.io/paperback-extensions/0.9/stable/ | https://github.com/itskodama/paperback-extensions | 
@@ -75,19 +76,15 @@ Your email stays private. Rather watch someone do it? [Here's a video walkthroug
 | Ace Extensions (0.8, Comix only) | https://acepilot147.github.io/pb-extensions/0.8 | https://github.com/acepilot147/pb-extensions |
 | Default Trackers (0.8) | https://paperback-ios.github.io/extensions/main | https://github.com/paperback-ios/extensions |
 | Ivan's Extensions (0.8) | https://ivanmatthew.github.io/ivans-paperback-extensions/paperback-0.8 | https://github.com/ivanmatthew/ivans-paperback-extensions |
-| Kakarot's Extensions (0.8) | https://karrot0.github.io/kakarotextension0.8/0.8-stable | https://github.com/karrot0/kakarotextension0.8 |
-| Shadorig's Extensions (0.8) | https://shadorig.github.io/real-extensions/sources | https://github.com/shadorig/real-extensions |
-| Seyden's Extensions (0.8) | https://seyden.github.io/community-extensions/0.8/ | https://github.com/Seyden/extensions-generic-0.8 |
 | Gabe's Extensions (0.8) | https://gabrielcwt.github.io/gabe-extensions/0.8 | https://github.com/gabrielcwt/gabe-extensions |
 | PoppingMango Extensions (0.8) | https://poppingmangosources.github.io/popmango-paperback-sources/all/#paperback-0-8 | https://github.com/PoppingMangoSources/popmango-paperback-sources | https://poppingmangosources.github.io/popmango-paperback-sources/0.8 |
-| Kittykatgit Extensions (0.8) | https://kittycatgit.github.io/kitty-extensions-0.8/ | https://github.com/kittycatgit/kitty-extensions-0.8
-| Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
-| Ben's Extensions (0.8) | https://benjamin5896.github.io/bens-paperback-extensions/paperback-0.8/ | https://github.com/benjamin5896/bens-paperback-extensions |
-| Numby's Extensions (0.8) | https://g2asell2019.github.io/numby-extensions/0.8/ | https://github.com/g2asell2019/numby-extensions |
+| Kittykatgit Extensions (0.8) | https://paperback.samipmainali.dev/kitty-0.8 | https://github.com/kittycatgit/kitty-extensions-0.8 | 
+| Kakarot's Extensions (0.8) | https://karrot0.github.io/kakarotextension0.8/0.8-stable | https://github.com/karrot0/kakarotextension0.8 |
+| Shadorig's Extensions (0.8) | https://shadorig.github.io/real-extensions/sources | https://github.com/shadorig/real-extensions |
 | Ryukajinokami's Extensions (0.8) | https://ryukajinokami.github.io/paperback-extensions/ | https://github.com/ryukajinokami/paperback-extensions |
-| Awwrch's Extensions (0.8) | https://awwrch.github.io/extension/main/ | https://github.com/awwrch/extension |
 | Netsky's Community Extensions (0.8) | https://thenetsky.github.io/community-extensions/0.8/ | https://github.com/TheNetsky/community-extensions |
 | Netsky's Generic Extensions (0.8) | https://thenetsky.github.io/extensions-generic-0.8/ | https://github.com/TheNetsky/extensions-generic-0.8 |
+| Kinso's Extensions (0.8) | https://xdkinso.github.io/kinso-extensions-v0.8 | https://github.com/xdKinso/kinso-extensions-v0.8 |
 
 ## Compatibility
 
